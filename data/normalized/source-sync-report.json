@@ -1,0 +1,129 @@
+{
+  "syncStartedAt": "2026-03-23T00:25:18.429Z",
+  "syncFinishedAt": "2026-03-23T00:25:37.858Z",
+  "sourceCount": 12,
+  "recordCount": 12,
+  "chunkCount": 1687,
+  "sources": [
+    {
+      "id": "csco-lung-guideline-2016-v1",
+      "sourceType": "china_guideline",
+      "documentClass": "guideline",
+      "searchPolicy": "direct",
+      "url": "https://www.csco.org.cn/uploadfile/2016/1123/14798652219569.pdf",
+      "title": "中国临床肿瘤学会（CSCO）原发性肺癌诊疗指南 2016.V1",
+      "publishedAt": "2016-11-23",
+      "chunkCount": 788
+    },
+    {
+      "id": "csc-nste-acs-guideline-2024",
+      "sourceType": "china_guideline",
+      "documentClass": "guideline",
+      "searchPolicy": "direct",
+      "url": "https://csc.cma.org.cn/attach/0/46bfbba77f4249aebc2ae9b70eef5377.pdf",
+      "title": "非 ST 段抬高型急性冠脉综合征诊断和治疗指南（2024）",
+      "publishedAt": "2024-06-01",
+      "chunkCount": 556
+    },
+    {
+      "id": "csco-lung-2025-update",
+      "sourceType": "china_guideline",
+      "documentClass": "guideline_update",
+      "searchPolicy": "direct",
+      "url": "https://www.csco.org.cn/cn/ncontent.aspx?oid=9204",
+      "title": "2025 CSCO临床肿瘤规范化诊治专题学习班（杭州站）简讯",
+      "publishedAt": "2025-05-17",
+      "chunkCount": 4
+    },
+    {
+      "id": "csc-cardio-guideline-2025-call",
+      "sourceType": "china_guideline",
+      "documentClass": "announcement",
+      "searchPolicy": "exclude",
+      "url": "https://csc.cma.org.cn/art/2025/9/23/art_591_59215.html",
+      "title": "2025年第一批CSC指南共识立项公示",
+      "publishedAt": "2025-09-23",
+      "chunkCount": 1
+    },
+    {
+      "id": "nmpa-label-writing-principle-2024",
+      "sourceType": "drug_label",
+      "documentClass": "regulatory_principle",
+      "searchPolicy": "regulatory",
+      "url": "https://www.nmpa.gov.cn/directory/web/nmpa/images/1641548277568026809.pdf",
+      "title": "古代经典名方中药复方制剂说明书撰写指导原则（试行）",
+      "publishedAt": "2024-05-08",
+      "chunkCount": 17
+    },
+    {
+      "id": "nmpa-gardasil9-package-insert-2024",
+      "sourceType": "drug_label",
+      "documentClass": "drug_label",
+      "searchPolicy": "regulatory",
+      "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20241022/swzp-ym20240105gyzzSJ20215001smsSPC.pdf",
+      "title": "九价人乳头瘤病毒疫苗（酿酒酵母）说明书",
+      "publishedAt": "2024-01-05",
+      "chunkCount": 232
+    },
+    {
+      "id": "nmpa-dtap-package-insert-2021",
+      "sourceType": "drug_label",
+      "documentClass": "drug_label",
+      "searchPolicy": "regulatory",
+      "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20230523/swzp-ym20210601gyzzS20200001smsSPC.pdf",
+      "title": "吸附无细胞百白破联合疫苗说明书",
+      "publishedAt": "2021-06-01",
+      "chunkCount": 9
+    },
+    {
+      "id": "nmpa-limertinib-2025",
+      "sourceType": "nmpa_drug_notice",
+      "documentClass": "drug_approval_notice",
+      "searchPolicy": "regulatory",
+      "url": "https://english.nmpa.gov.cn/2025-06/11/c_1101507.htm",
+      "title": "Limertinib Tablets Approved for Marketing by China NMPA",
+      "publishedAt": "2025-06-11",
+      "chunkCount": 3
+    },
+    {
+      "id": "nmpa-ongericimab-2025",
+      "sourceType": "nmpa_drug_notice",
+      "documentClass": "drug_approval_notice",
+      "searchPolicy": "regulatory",
+      "url": "https://english.nmpa.gov.cn/2025-02/19/c_1073648.htm",
+      "title": "Ongericimab Injection Approved for Marketing by China NMPA",
+      "publishedAt": "2025-02-19",
+      "chunkCount": 5
+    },
+    {
+      "id": "nmpa-ganagliflozin-2024",
+      "sourceType": "nmpa_drug_notice",
+      "documentClass": "drug_approval_notice",
+      "searchPolicy": "regulatory",
+      "url": "https://english.nmpa.gov.cn/2024-01/19/c_986553.htm",
+      "title": "Ganagliflozin Proline Tablets Approved for Marketing by China NMPA",
+      "publishedAt": "2024-01-19",
+      "chunkCount": 7
+    },
+    {
+      "id": "fda-tagrisso-label",
+      "sourceType": "fda_label",
+      "documentClass": "drug_label",
+      "searchPolicy": "regulatory",
+      "url": "https://api.fda.gov/drug/label.json",
+      "title": "TAGRISSO (osimertinib) FDA label",
+      "publishedAt": "2024-09-25",
+      "chunkCount": 35
+    },
+    {
+      "id": "fda-apixaban-label",
+      "sourceType": "fda_label",
+      "documentClass": "drug_label",
+      "searchPolicy": "regulatory",
+      "url": "https://api.fda.gov/drug/label.json",
+      "title": "APIXABAN FDA label",
+      "publishedAt": "2021-06-15",
+      "chunkCount": 30
+    }
+  ]
+}
