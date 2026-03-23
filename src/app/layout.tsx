@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Libre_Baskerville } from "next/font/google";
+import { Inter, Noto_Sans_SC } from "next/font/google";
 
 import "./globals.css";
 
-const bodyFont = IBM_Plex_Sans({
+const bodyFont = Inter({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
-  fallback: ["PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "sans-serif"],
+  fallback: ["Arial", "sans-serif"],
 });
 
-const displayFont = Libre_Baskerville({
-  variable: "--font-display",
+const cjkFont = Noto_Sans_SC({
+  variable: "--font-cjk",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
   display: "swap",
-  fallback: ["STSong", "Songti SC", "serif"],
+  fallback: ["PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className={`${bodyFont.variable} ${displayFont.variable}`}>
+    <html lang="zh-CN" className={`${bodyFont.variable} ${cjkFont.variable}`}>
       <body>{children}</body>
     </html>
   );
