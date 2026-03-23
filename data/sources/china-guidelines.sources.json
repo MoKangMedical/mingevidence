@@ -1,0 +1,117 @@
+[
+  {
+    "id": "csco-lung-guideline-2016-v1",
+    "adapter": "pdf_text",
+    "sourceType": "china_guideline",
+    "documentClass": "guideline",
+    "searchPolicy": "direct",
+    "searchPriority": 0.94,
+    "sourceName": "中国临床肿瘤学会（CSCO）",
+    "citationName": "CSCO 官方指南",
+    "url": "https://www.csco.org.cn/uploadfile/2016/1123/14798652219569.pdf",
+    "publishedAtHint": "2016-11-23",
+    "titleHint": "中国临床肿瘤学会（CSCO）原发性肺癌诊疗指南 2016.V1",
+    "specialtyTags": [
+      "肿瘤"
+    ],
+    "conditionTags": [
+      "肺癌",
+      "非小细胞肺癌",
+      "小细胞肺癌"
+    ],
+    "interventionTags": [
+      "分期诊断",
+      "分子分型",
+      "综合治疗"
+    ],
+    "keywords": [
+      "肺癌",
+      "NSCLC",
+      "分期",
+      "分子分型",
+      "CSCO",
+      "指南"
+    ],
+    "applicabilityHint": "适用于肺癌分期、分子分型和综合治疗的中国正文级指南检索。",
+    "cautionHint": "该来源为 2016 年正文级 CSCO 指南，适合作为结构化正文底座，具体最新推荐仍需结合新版本更新。",
+    "plainTextStart": "中国临床肿瘤学会(CSCO)原发性肺癌诊疗指南 2016.V1"
+  },
+  {
+    "id": "csc-nste-acs-guideline-2024",
+    "adapter": "pdf_text",
+    "sourceType": "china_guideline",
+    "documentClass": "guideline",
+    "searchPolicy": "direct",
+    "searchPriority": 0.93,
+    "sourceName": "中华医学会心血管病学分会（CSC）",
+    "citationName": "CSC 官方指南",
+    "url": "https://csc.cma.org.cn/attach/0/46bfbba77f4249aebc2ae9b70eef5377.pdf",
+    "publishedAtHint": "2024-06-01",
+    "titleHint": "非 ST 段抬高型急性冠脉综合征诊断和治疗指南（2024）",
+    "specialtyTags": [
+      "心血管"
+    ],
+    "conditionTags": [
+      "NSTE-ACS",
+      "急性冠脉综合征",
+      "冠心病"
+    ],
+    "interventionTags": [
+      "危险分层",
+      "诊断",
+      "抗栓治疗"
+    ],
+    "keywords": [
+      "NSTE-ACS",
+      "急性冠脉综合征",
+      "冠心病",
+      "抗栓",
+      "CSC",
+      "指南"
+    ],
+    "applicabilityHint": "适用于 NSTE-ACS 诊断、危险分层和治疗路径的中国正文级指南检索。",
+    "cautionHint": "该来源为 2024 年正文级 CSC 指南 PDF，适合作为心血管急症路径的核心正文来源。",
+    "plainTextStart": "非 ST 段抬高型急性冠脉综合征诊断和治疗",
+    "plainTextEnd": "非 ST 段抬高型急性冠脉综合征诊断和治疗指南（2024）[J]. 中华心血管病杂志 , 2024, 52(6): 615-646."
+  },
+  {
+    "id": "csco-lung-2025-update",
+    "adapter": "html_article",
+    "sourceType": "china_guideline",
+    "documentClass": "guideline_update",
+    "searchPolicy": "direct",
+    "searchPriority": 0.82,
+    "sourceName": "中国临床肿瘤学会（CSCO）",
+    "citationName": "CSCO 官方发布",
+    "url": "https://www.csco.org.cn/cn/ncontent.aspx?oid=9204",
+    "publishedAtHint": "2025-05-17",
+    "specialtyTags": ["肿瘤"],
+    "conditionTags": ["肺癌", "非小细胞肺癌", "小细胞肺癌"],
+    "interventionTags": ["放化疗", "靶向", "免疫"],
+    "keywords": ["肺癌", "NSCLC", "小细胞肺癌", "靶向", "免疫", "指南"],
+    "applicabilityHint": "适用于肺癌规范化诊疗和 2025 版 CSCO 更新要点的临床检索场景。",
+    "cautionHint": "该来源为官方学习班简讯和更新解读，不等同于完整指南全文，具体推荐仍需回到正式指南条目逐条核对。",
+    "plainTextStart": "2025 年 5 月 17 日下午",
+    "plainTextEnd": "本次会议获齐鲁制药和苏州良医汇网络科技有限公司公益支持"
+  },
+  {
+    "id": "csc-cardio-guideline-2025-call",
+    "adapter": "html_article",
+    "sourceType": "china_guideline",
+    "documentClass": "announcement",
+    "searchPolicy": "exclude",
+    "searchPriority": 0.05,
+    "sourceName": "中华医学会心血管病学分会（CSC）",
+    "citationName": "CSC 官方发布",
+    "url": "https://csc.cma.org.cn/art/2025/9/23/art_591_59215.html",
+    "publishedAtHint": "2025-09-23",
+    "specialtyTags": ["心血管"],
+    "conditionTags": ["房颤", "冠心病", "抗栓", "指南共识"],
+    "interventionTags": ["抗凝", "抗血小板", "PCI"],
+    "keywords": ["房颤", "冠心病", "抗栓", "抗凝", "PCI", "指南"],
+    "applicabilityHint": "适用于心血管检索链路中识别 2025 年度中国心血管指南/共识建设方向。",
+    "cautionHint": "该来源为指南共识立项公示，能反映官方学术组织的重点方向，但不替代正式共识全文。",
+    "plainTextStart": "CSC办公室收到2025年第一批指南/共识立项申请共18项",
+    "plainTextEnd": "中华医学会心血管病学分会"
+  }
+]
