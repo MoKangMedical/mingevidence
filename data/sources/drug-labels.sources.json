@@ -1,0 +1,22 @@
+[
+  {
+    "id": "nmpa-label-writing-principle-2024",
+    "adapter": "pdf_text",
+    "sourceType": "drug_label",
+    "documentClass": "regulatory_principle",
+    "searchPolicy": "regulatory",
+    "searchPriority": 0.4,
+    "sourceName": "国家药品监督管理局",
+    "citationName": "NMPA 官方文件",
+    "url": "https://www.nmpa.gov.cn/directory/web/nmpa/images/1641548277568026809.pdf",
+    "publishedAtHint": "2024-05-08",
+    "titleHint": "古代经典名方中药复方制剂说明书撰写指导原则（试行）",
+    "specialtyTags": ["药学", "中药"],
+    "conditionTags": ["说明书", "适应症", "禁忌", "不良反应"],
+    "interventionTags": ["说明书撰写", "药监申报", "标签合规"],
+    "keywords": ["说明书", "标签", "适应症", "禁忌", "不良反应", "药监"],
+    "applicabilityHint": "适用于说明书字段结构、禁忌与注意事项表达边界的本地合规解释。",
+    "cautionHint": "该来源是 NMPA 官方说明书撰写指导原则，回答具体处方剂量时仍需回到对应药品最新核准说明书。",
+    "plainTextStart": "附件 2"
+  }
+]
