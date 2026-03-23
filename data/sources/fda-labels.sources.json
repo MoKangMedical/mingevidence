@@ -1,0 +1,42 @@
+[
+  {
+    "id": "fda-tagrisso-label",
+    "adapter": "openfda_label",
+    "sourceType": "fda_label",
+    "documentClass": "drug_label",
+    "searchPolicy": "regulatory",
+    "searchPriority": 0.76,
+    "sourceName": "U.S. FDA / openFDA",
+    "citationName": "FDA 标签",
+    "url": "https://api.fda.gov/drug/label.json",
+    "openfdaSearch": "openfda.generic_name:\"osimertinib\"",
+    "genericName": "osimertinib",
+    "titleHint": "TAGRISSO (osimertinib) FDA label",
+    "specialtyTags": ["肿瘤"],
+    "conditionTags": ["肺癌", "EGFR 突变", "T790M", "NSCLC"],
+    "interventionTags": ["奥希替尼", "伴随诊断", "剂量调整"],
+    "keywords": ["EGFR", "NSCLC", "osimertinib", "T790M", "FDA", "label"],
+    "applicabilityHint": "适用于对照 FDA 标签中的适应症、伴随诊断要求和剂量调整规则。",
+    "cautionHint": "openFDA 明确提示数据不应用于直接医疗决策，必须回到正式标签原文和中国本地指南解释。"
+  },
+  {
+    "id": "fda-apixaban-label",
+    "adapter": "openfda_label",
+    "sourceType": "fda_label",
+    "documentClass": "drug_label",
+    "searchPolicy": "regulatory",
+    "searchPriority": 0.74,
+    "sourceName": "U.S. FDA / openFDA",
+    "citationName": "FDA 标签",
+    "url": "https://api.fda.gov/drug/label.json",
+    "openfdaSearch": "openfda.generic_name:\"apixaban\"",
+    "genericName": "apixaban",
+    "titleHint": "APIXABAN FDA label",
+    "specialtyTags": ["心血管"],
+    "conditionTags": ["房颤", "静脉血栓", "肺栓塞"],
+    "interventionTags": ["阿哌沙班", "抗凝", "围手术期管理"],
+    "keywords": ["atrial fibrillation", "DVT", "PE", "apixaban", "FDA", "label"],
+    "applicabilityHint": "适用于对照 FDA 标签中的适应症、减量标准和围手术期中断规则。",
+    "cautionHint": "围手术期中断、减量与出血风险属于高风险问题，产品只做标签级证据映射，不直接替代处方。"
+  }
+]
