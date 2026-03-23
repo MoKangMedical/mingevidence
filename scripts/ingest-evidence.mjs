@@ -508,24 +508,53 @@ async function main() {
   const records = [];
   const chunks = [];
   const report = [];
+  const failures = [];
 
   for (const source of sources) {
-    const fetched = await fetchSourceText(source);
-    const record = buildRecord(source, fetched);
-    const recordChunks = buildChunks(record);
+    try {
+      const fetched = await fetchSourceText(source);
+      const record = buildRecord(source, fetched);
+      const recordChunks = buildChunks(record);
 
-    records.push(record);
-    chunks.push(...recordChunks);
-    report.push({
-      id: source.id,
-      sourceType: source.sourceType,
-      documentClass: record.documentClass,
-      searchPolicy: record.searchPolicy,
-      url: source.url,
-      title: record.title,
-      publishedAt: record.publishedAt,
-      chunkCount: recordChunks.length,
-    });
+      records.push(record);
+      chunks.push(...recordChunks);
+      report.push({
+        id: source.id,
+        sourceType: source.sourceType,
+        documentClass: record.documentClass,
+        searchPolicy: record.searchPolicy,
+        url: source.url,
+        title: record.title,
+        publishedAt: record.publishedAt,
+        chunkCount: recordChunks.length,
+        status: "synced",
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+
+      failures.push({
+        id: source.id,
+        url: source.url,
+        error: message,
+      });
+      report.push({
+        id: source.id,
+        sourceType: source.sourceType,
+        documentClass: source.documentClass || "reference",
+        searchPolicy: source.searchPolicy || "direct",
+        url: source.url,
+        title: source.titleHint || source.id,
+        publishedAt: source.publishedAtHint || "unknown",
+        chunkCount: 0,
+        status: "failed",
+        error: message,
+      });
+      console.warn(`Skipped source ${source.id}: ${message}`);
+    }
+  }
+
+  if (records.length === 0) {
+    throw new Error("Evidence ingestion failed for every configured source.");
   }
 
   records.sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
@@ -543,6 +572,8 @@ async function main() {
         sourceCount: sources.length,
         recordCount: records.length,
         chunkCount: chunks.length,
+        failedSourceCount: failures.length,
+        failures,
         sources: report,
       },
       null,
@@ -553,6 +584,9 @@ async function main() {
 
   console.log(`Wrote ${records.length} evidence records to ${recordsOutFile}`);
   console.log(`Wrote ${chunks.length} evidence chunks to ${chunksOutFile}`);
+  if (failures.length > 0) {
+    console.warn(`Completed with ${failures.length} skipped source(s).`);
+  }
 }
 
 main().catch((error) => {
