@@ -1,0 +1,66 @@
+{
+  "targets": [
+    {
+      "id": "oncology-osimertinib",
+      "category": "肿瘤",
+      "label": "奥希替尼",
+      "query": "甲磺酸奥希替尼片",
+      "priorityTier": 1,
+      "channels": ["import", "domestic"],
+      "brandHints": ["TAGRISSO", "泰瑞沙"]
+    },
+    {
+      "id": "anticoag-apixaban",
+      "category": "抗凝",
+      "label": "阿哌沙班",
+      "query": "阿哌沙班片",
+      "priorityTier": 1,
+      "channels": ["import", "domestic"],
+      "brandHints": ["Eliquis", "艾乐妥"]
+    },
+    {
+      "id": "anticoag-rivaroxaban",
+      "category": "抗凝",
+      "label": "利伐沙班",
+      "query": "利伐沙班片",
+      "priorityTier": 2,
+      "channels": ["import", "domestic"],
+      "brandHints": ["Xarelto", "拜瑞妥"]
+    },
+    {
+      "id": "diabetes-dapagliflozin",
+      "category": "糖尿病",
+      "label": "达格列净",
+      "query": "达格列净片",
+      "priorityTier": 1,
+      "channels": ["import", "domestic"],
+      "brandHints": ["FORXIGA", "安达唐"]
+    },
+    {
+      "id": "diabetes-semaglutide",
+      "category": "糖尿病",
+      "label": "司美格鲁肽",
+      "query": "司美格鲁肽注射液",
+      "priorityTier": 2,
+      "channels": ["import"],
+      "brandHints": ["Ozempic", "诺和泰"]
+    },
+    {
+      "id": "infection-meropenem",
+      "category": "感染",
+      "label": "美罗培南",
+      "query": "美罗培南",
+      "priorityTier": 2,
+      "channels": ["domestic"]
+    },
+    {
+      "id": "infection-ceftazidime-avibactam",
+      "category": "感染",
+      "label": "头孢他啶阿维巴坦",
+      "query": "注射用头孢他啶阿维巴坦钠",
+      "priorityTier": 2,
+      "channels": ["import", "domestic"],
+      "brandHints": ["Zavicefta", "思福妥"]
+    }
+  ]
+}
