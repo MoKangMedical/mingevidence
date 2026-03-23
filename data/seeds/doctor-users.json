@@ -1,0 +1,24 @@
+[
+  {
+    "id": "doc-lin-oncology",
+    "name": "林知远",
+    "email": "lin.oncology@mingzheng.local",
+    "hospital": "华东肿瘤中心",
+    "specialty": "肿瘤",
+    "role": "doctor",
+    "licenseId": "CN-MZ-ONC-001",
+    "passwordSalt": "fb557861affdf04e232358257b2becb0",
+    "passwordHash": "c3f478e65730177a5ac7f06cc759010cd7d9e0843ca7ec00b9016ab12679ef187ec7b68c893d264e969214ae5c4e0c99e4fa29d08e4c334a9e2483e28bb4bec3"
+  },
+  {
+    "id": "doc-zhou-cardio",
+    "name": "周景行",
+    "email": "zhou.cardio@mingzheng.local",
+    "hospital": "上海心血管医院",
+    "specialty": "心血管",
+    "role": "doctor",
+    "licenseId": "CN-MZ-CARD-002",
+    "passwordSalt": "be6005c8a84665e23fe93f06b819a51d",
+    "passwordHash": "fad4899ab7eae7f48d18b2806d7d0c1557cc391949140895e8087f00823907d1d6d6a9455f4209f287f7f7392dfe2dc2f45e6d3d746fbde829139865ea7d06ac"
+  }
+]
