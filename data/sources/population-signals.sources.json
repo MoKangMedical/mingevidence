@@ -1,0 +1,38 @@
+[
+  {
+    "id": "cn-egfr-lung-cancer",
+    "diseaseArea": "肺癌",
+    "targetPopulation": "中国 EGFR 突变非小细胞肺癌人群",
+    "queries": [
+      "EGFR NSCLC China prognosis biomarker",
+      "EGFR NSCLC Chinese cohort resistance monitoring",
+      "EGFR lung cancer China recurrence prediction"
+    ],
+    "keywords": ["EGFR", "NSCLC", "中国", "Chinese", "队列", "耐药", "复发", "监测"],
+    "operatingNote": "重点沉淀风险分层、耐药预警、治疗后复发监测和伴随诊断规则。"
+  },
+  {
+    "id": "cn-af-anticoagulation",
+    "diseaseArea": "房颤抗凝",
+    "targetPopulation": "中国房颤抗凝治疗人群",
+    "queries": [
+      "atrial fibrillation China bleeding prediction anticoagulation",
+      "Chinese cohort apixaban atrial fibrillation stroke risk",
+      "atrial fibrillation China warning monitoring anticoagulant"
+    ],
+    "keywords": ["房颤", "抗凝", "出血", "卒中", "中国", "Chinese", "预测", "预警"],
+    "operatingNote": "重点沉淀卒中/出血风险分层、围手术期中断、药物切换与全程监测信号。"
+  },
+  {
+    "id": "cn-diabetes-ckd",
+    "diseaseArea": "糖尿病合并慢性肾病",
+    "targetPopulation": "中国糖尿病合并慢性肾病人群",
+    "queries": [
+      "diabetes chronic kidney disease China risk prediction",
+      "Chinese cohort diabetes CKD progression warning",
+      "China diabetes kidney disease treatment monitoring cohort"
+    ],
+    "keywords": ["糖尿病", "CKD", "肾病", "中国", "Chinese", "进展", "预测", "监测"],
+    "operatingNote": "重点沉淀肾功能恶化、心肾结局预警、治疗响应和长期随访信号。"
+  }
+]
