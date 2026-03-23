@@ -1,0 +1,116 @@
+import Link from "next/link";
+
+import { SiteHeader } from "@/components/site-header";
+import {
+  brandSummary,
+  executionRoadmap,
+  landingStats,
+  productPillars,
+} from "@/lib/platform-data";
+
+export default function Home() {
+  return (
+    <main className="app-shell">
+      <div className="aurora aurora--left" />
+      <div className="aurora aurora--right" />
+      <SiteHeader current="home" />
+
+      <section className="hero">
+        <div className="hero__copy">
+          <span className="eyebrow">China Clinical Evidence Platform</span>
+          <h1>
+            {brandSummary.name}
+            <span>{brandSummary.englishName}</span>
+          </h1>
+          <p className="hero__lede">{brandSummary.promise}</p>
+          <p className="hero__detail">
+            这是一套按 OpenEvidence 模式启动的中国版产品骨架。第一版先做医生专属的证据搜索和
+            DeepConsult 工作台，再逐步接入真实数据源、检索后端和医院级治理能力。
+          </p>
+          <div className="hero__actions">
+            <Link href="/search">进入证据搜索</Link>
+            <Link href="/progress">查看进展看板</Link>
+            <Link href="/deep-consult">查看 DeepConsult</Link>
+          </div>
+        </div>
+
+        <form className="query-panel" action="/search">
+          <label htmlFor="hero-query">从一个真实临床问题开始</label>
+          <textarea
+            id="hero-query"
+            name="q"
+            rows={5}
+            defaultValue="EGFR 突变肺癌二线耐药后，合并轻度肾功能下降的患者，当前最可执行的中国本地证据路径是什么？"
+          />
+          <div className="query-panel__footer">
+            <span>输出格式：结构化结论 + 证据卡片 + 风险边界</span>
+            <button type="submit">生成首版结果</button>
+          </div>
+        </form>
+      </section>
+
+      <section className="stats-grid">
+        {landingStats.map((item) => (
+          <article className="stat-card" key={item.label}>
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+            <p>{item.detail}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="section-block">
+        <div className="section-heading">
+          <span className="eyebrow">Product Pillars</span>
+          <h2>先做可信度，再做规模</h2>
+          <p>
+            明证的第一原则不是“能答很多问题”，而是“医生愿意把它当成证据入口反复打开”。因此产品从第一天就围绕可信度和工作流来设计。
+          </p>
+        </div>
+        <div className="pillar-grid">
+          {productPillars.map((pillar) => (
+            <article className="pillar-card" key={pillar.title}>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.copy}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-block section-block--muted">
+        <div className="section-heading">
+          <span className="eyebrow">0-90 Days</span>
+          <h2>从 0 到 1 的执行路径已经拆开</h2>
+          <p>我已经把创业动作和产品动作合到一套路线里，下一步可以直接按这个节奏往试点推进。</p>
+        </div>
+        <div className="roadmap-grid">
+          {executionRoadmap.map((item) => (
+            <article className="roadmap-card" key={item.phase}>
+              <span>{item.phase}</span>
+              <h3>{item.objective}</h3>
+              <ul className="bullet-list">
+                {item.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="cta-strip">
+        <div>
+          <span className="eyebrow">Repository</span>
+          <h2>现在这不是概念稿，而是一个可以继续开发的起点。</h2>
+          <p>
+            你可以继续在这个仓库上接真实检索服务、医生登录、内容治理和医院试点能力。
+          </p>
+        </div>
+        <div className="cta-strip__actions">
+          <a href="/api/search?q=房颤合并冠心病抗栓路径">查看 Search API</a>
+          <a href="/api/consult">查看 Consult API</a>
+        </div>
+      </section>
+    </main>
+  );
+}
