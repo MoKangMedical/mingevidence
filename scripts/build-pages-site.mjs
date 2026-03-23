@@ -147,15 +147,17 @@ function renderHtml(model) {
     <meta name="description" content="中国版 OpenEvidence 项目的公开展示页，展示官方源进展、统一证据库规模和 package insert 解析状态。" />
     <style>
       :root {
-        --bg: #f7f1e8;
-        --paper: rgba(255, 250, 244, 0.9);
-        --ink: #11201d;
-        --ink-soft: rgba(17, 32, 29, 0.74);
-        --line: rgba(17, 32, 29, 0.1);
-        --accent: #b55e31;
-        --pine: #1a4a43;
-        --cream: #fff9f2;
-        --shadow: 0 24px 60px rgba(34, 39, 37, 0.12);
+        --bg: #f8fafc;
+        --paper: rgba(255, 255, 255, 0.96);
+        --ink: #0f172a;
+        --ink-soft: #475569;
+        --line: rgba(148, 163, 184, 0.2);
+        --accent: #1e40af;
+        --pine: #0f766e;
+        --cream: #f8fafc;
+        --sky: #3b82f6;
+        --cyan: #06b6d4;
+        --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
         --radius-xl: 30px;
         --radius-lg: 22px;
         --radius-md: 16px;
@@ -166,11 +168,11 @@ function renderHtml(model) {
         margin: 0;
         min-height: 100vh;
         background:
-          radial-gradient(circle at top left, rgba(182, 94, 49, 0.18), transparent 28%),
-          radial-gradient(circle at top right, rgba(26, 74, 67, 0.22), transparent 34%),
-          linear-gradient(180deg, #fbf6ee 0%, #f4ecdf 100%);
+          radial-gradient(circle at top left, rgba(59, 130, 246, 0.14), transparent 28%),
+          radial-gradient(circle at top right, rgba(6, 182, 212, 0.12), transparent 34%),
+          linear-gradient(180deg, #f8fbff 0%, #f1f5f9 100%);
         color: var(--ink);
-        font-family: "IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        font-family: "Inter", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
         -webkit-font-smoothing: antialiased;
       }
       a { color: inherit; text-decoration: none; }
@@ -196,12 +198,14 @@ function renderHtml(model) {
         padding: 16px 20px;
         margin-bottom: 28px;
         border-radius: 999px;
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(18px);
       }
       .brand { display: flex; gap: 14px; align-items: center; }
       .brand-mark {
         width: 52px; height: 52px; border-radius: 18px;
         display: inline-flex; align-items: center; justify-content: center;
-        background: linear-gradient(160deg, rgba(26, 74, 67, 0.95), rgba(181, 94, 49, 0.82));
+        background: linear-gradient(145deg, #1e3a8a, #2563eb 62%, #0ea5e9);
         color: var(--cream); font-size: 1.4rem; font-weight: 700; letter-spacing: .12em;
       }
       .brand-meta strong { display: block; font-size: .98rem; letter-spacing: .08em; text-transform: uppercase; }
@@ -210,7 +214,8 @@ function renderHtml(model) {
       .header-links a {
         min-height: 42px; padding: 0 16px; border-radius: 999px;
         display: inline-flex; align-items: center; justify-content: center;
-        background: rgba(17, 32, 29, 0.92); color: var(--cream);
+        background: linear-gradient(135deg, var(--accent), #1d4ed8); color: var(--cream);
+        box-shadow: 0 10px 24px rgba(37, 99, 235, .18);
       }
       .hero {
         display: grid;
@@ -218,6 +223,9 @@ function renderHtml(model) {
         gap: 24px;
         padding: 32px;
         margin-bottom: 26px;
+        background:
+          linear-gradient(135deg, rgba(255,255,255,.98), rgba(248,250,252,.96)),
+          radial-gradient(circle at top right, rgba(59,130,246,.12), transparent 34%);
       }
       .eyebrow {
         display: inline-block;
@@ -225,13 +233,13 @@ function renderHtml(model) {
         color: var(--accent);
         font-size: .8rem;
         font-weight: 700;
-        letter-spacing: .18em;
+        letter-spacing: .16em;
         text-transform: uppercase;
       }
       h1, h2, h3 {
         margin: 0;
-        font-family: "Libre Baskerville", "STSong", "Songti SC", serif;
-        letter-spacing: -.03em;
+        font-family: "Inter", "Noto Sans SC", "PingFang SC", sans-serif;
+        letter-spacing: -.04em;
       }
       .hero h1 { font-size: clamp(2.6rem, 5vw, 4.4rem); line-height: .95; margin-bottom: 14px; }
       .hero p { color: var(--ink-soft); line-height: 1.8; }
@@ -240,7 +248,7 @@ function renderHtml(model) {
         border: 1px solid var(--line);
         border-radius: var(--radius-lg);
         padding: 18px 20px;
-        background: rgba(255, 250, 244, .9);
+        background: rgba(255, 255, 255, .96);
       }
       .hero-pill span, .stage-box span {
         display: block;
@@ -258,6 +266,7 @@ function renderHtml(model) {
       .metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 28px; }
       .metric-card { min-height: 180px; padding: 24px; }
       .metric-card span, .mix-card span, .inventory-head span { color: var(--ink-soft); font-size: .84rem; }
+      .metric-card strong, .mix-card strong { color: var(--accent); }
       .metric-card strong, .mix-card strong { display: block; margin: 14px 0 10px; font-size: 1.5rem; }
       .metric-card p { margin: 0; color: var(--ink-soft); line-height: 1.72; }
       section.block { margin-bottom: 26px; }
@@ -279,14 +288,14 @@ function renderHtml(model) {
         font-size: .84rem; font-weight: 700;
       }
       .status-chip--green { background: rgba(26,74,67,.14); color: var(--pine); }
-      .status-chip--amber { background: rgba(181,94,49,.14); color: var(--accent); }
-      .status-chip--red { background: rgba(127,32,16,.12); color: #8f3a28; }
+      .status-chip--amber { background: rgba(30,64,175,.1); color: var(--accent); }
+      .status-chip--red { background: rgba(191,30,46,.1); color: #bf1e2e; }
       .job-stats {
         display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px; margin: 16px 0;
       }
       .job-stats div, .definition-grid div {
-        padding: 14px; border-radius: 16px; background: rgba(17,32,29,.05);
+        padding: 14px; border-radius: 16px; background: rgba(241,245,249,.92);
       }
       .job-stats strong, .definition-grid dd { display: block; font-weight: 700; }
       .job-stats span, .definition-grid dt { color: var(--ink-soft); font-size: .86rem; }
@@ -298,7 +307,7 @@ function renderHtml(model) {
       }
       .compact-list li::before {
         content: ""; position: absolute; top: .72rem; left: 0; width: 8px; height: 8px;
-        border-radius: 999px; background: var(--accent);
+        border-radius: 999px; background: var(--sky);
       }
       .priority-card__query, .priority-card__note { color: var(--ink-soft); line-height: 1.72; }
       .priority-card__query { margin: 0 0 16px; }
@@ -309,7 +318,7 @@ function renderHtml(model) {
       .definition-grid dt { margin-bottom: 6px; }
       .definition-grid dd { margin: 0; line-height: 1.5; }
       .token-row { display: flex; flex-wrap: wrap; gap: 10px; }
-      .token-chip { background: rgba(181,94,49,.12); color: var(--accent); }
+      .token-chip { background: rgba(30,64,175,.08); color: var(--accent); }
       .mix { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 20px; }
       .mix-card { padding: 18px 20px; }
       .inventory { overflow: hidden; }
@@ -319,7 +328,7 @@ function renderHtml(model) {
         gap: 16px; align-items: center; padding: 16px 20px;
       }
       .inventory-head {
-        background: rgba(17,32,29,.06);
+        background: rgba(241,245,249,.92);
         font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
       }
       .inventory-row + .inventory-row { border-top: 1px solid var(--line); }
@@ -333,7 +342,8 @@ function renderHtml(model) {
       .footer-card a {
         min-height: 46px; padding: 0 18px; border-radius: 999px;
         display: inline-flex; align-items: center; justify-content: center;
-        background: rgba(17, 32, 29, 0.92); color: var(--cream);
+        background: linear-gradient(135deg, var(--accent), #1d4ed8); color: var(--cream);
+        box-shadow: 0 10px 24px rgba(37, 99, 235, .18);
       }
       @media (max-width: 1120px) {
         .hero, .metrics, .jobs, .priorities, .mix { grid-template-columns: repeat(2, minmax(0, 1fr)); }
