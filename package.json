@@ -1,0 +1,35 @@
+{
+  "name": "mingevidence",
+  "version": "0.1.0",
+  "private": true,
+  "description": "明证 MingEvidence，中国医生临床证据平台原型。",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MoKangMedical/mingevidence.git"
+  },
+  "homepage": "https://mokangmedical.github.io/mingevidence/",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "refresh:official-sources": "node scripts/run-source-refresh.mjs && node scripts/sync-package-insert-priority.mjs && node scripts/ingest-evidence.mjs",
+    "build:pages-site": "node scripts/build-pages-site.mjs",
+    "ingest:evidence": "node scripts/ingest-evidence.mjs",
+    "sync:population-signals": "node scripts/sync-population-signals.mjs",
+    "sync:package-insert-priority": "node scripts/sync-package-insert-priority.mjs"
+  },
+  "dependencies": {
+    "next": "16.2.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.1",
+    "typescript": "^5"
+  }
+}
