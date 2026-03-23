@@ -1,0 +1,25 @@
+{
+  "targets": {
+    "oncology-osimertinib": {
+      "preferredChannels": ["import", "domestic"],
+      "preferredApprovalNumbers": ["国药准字HJ20170167", "国药准字HJ20181063"],
+      "preferredPackageKeywords": ["盒"],
+      "packagingHints": ["10片/盒", "30片/盒"],
+      "verifiedDirectLinks": []
+    },
+    "anticoag-apixaban": {
+      "preferredChannels": ["import", "domestic"],
+      "preferredApprovalNumbers": ["国药准字HJ20170236", "国药准字HJ20170237"],
+      "preferredPackageKeywords": ["盒"],
+      "packagingHints": ["20片/盒", "60片/盒"],
+      "verifiedDirectLinks": []
+    },
+    "diabetes-dapagliflozin": {
+      "preferredChannels": ["import", "domestic"],
+      "preferredApprovalNumbers": ["国药准字HJ20170119", "国药准字HJ20170120"],
+      "preferredPackageKeywords": ["盒"],
+      "packagingHints": ["14片/盒", "28片/盒", "98片/盒"],
+      "verifiedDirectLinks": []
+    }
+  }
+}
