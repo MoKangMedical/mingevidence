@@ -1,0 +1,42 @@
+[
+  {
+    "id": "nmpa-gardasil9-package-insert-2024",
+    "adapter": "pdf_text",
+    "sourceType": "drug_label",
+    "documentClass": "drug_label",
+    "searchPolicy": "regulatory",
+    "searchPriority": 0.9,
+    "sourceName": "国家药品监督管理局",
+    "citationName": "NMPA 核准说明书",
+    "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20241022/swzp-ym20240105gyzzSJ20215001smsSPC.pdf",
+    "publishedAtHint": "2024-01-05",
+    "titleHint": "九价人乳头瘤病毒疫苗（酿酒酵母）说明书",
+    "specialtyTags": ["感染", "妇科", "预防接种"],
+    "conditionTags": ["HPV 感染预防", "宫颈癌预防", "肛门癌预防", "生殖器疣预防"],
+    "interventionTags": ["佳达修9", "GARDASIL 9", "九价 HPV 疫苗", "人乳头瘤病毒疫苗"],
+    "keywords": ["HPV", "九价", "佳达修9", "GARDASIL 9", "宫颈癌", "疫苗", "说明书", "NMPA"],
+    "applicabilityHint": "适用于核对中国 NMPA 核准的九价 HPV 疫苗适应证、接种对象、接种程序和注意事项。",
+    "cautionHint": "该来源是 NMPA 核准说明书正文，可用于核对适应证和接种程序；涉及个体化接种决策时仍需结合年龄、既往免疫史和最新免疫程序要求。",
+    "plainTextStart": "九价人乳头瘤病毒疫苗（酿酒酵母）说明书"
+  },
+  {
+    "id": "nmpa-dtap-package-insert-2021",
+    "adapter": "pdf_text",
+    "sourceType": "drug_label",
+    "documentClass": "drug_label",
+    "searchPolicy": "regulatory",
+    "searchPriority": 0.86,
+    "sourceName": "国家药品监督管理局",
+    "citationName": "NMPA 核准说明书",
+    "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20230523/swzp-ym20210601gyzzS20200001smsSPC.pdf",
+    "publishedAtHint": "2021-06-01",
+    "titleHint": "吸附无细胞百白破联合疫苗说明书",
+    "specialtyTags": ["感染", "儿科", "预防接种"],
+    "conditionTags": ["百日咳预防", "白喉预防", "破伤风预防"],
+    "interventionTags": ["吸附无细胞百白破联合疫苗", "DTaP", "百白破疫苗"],
+    "keywords": ["百白破", "DTaP", "白喉", "破伤风", "百日咳", "疫苗", "说明书", "NMPA"],
+    "applicabilityHint": "适用于核对中国 NMPA 核准的百白破联合疫苗接种对象、用途和说明书级合规边界。",
+    "cautionHint": "该来源是 NMPA 核准说明书正文，可用于核对接种对象、用途和禁忌；涉及免疫程序补种或特殊儿童接种时仍需回到最新国家免疫程序和门诊规范。",
+    "plainTextStart": "吸附无细胞百白破联合疫苗说明书"
+  }
+]
