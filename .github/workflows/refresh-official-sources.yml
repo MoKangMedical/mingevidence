@@ -1,0 +1,65 @@
+name: Refresh Official Sources
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 18 * * *"
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install PDF extraction dependency
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Refresh official sources
+        run: pnpm refresh:official-sources
+
+      - name: Sync population signals
+        run: pnpm sync:population-signals
+
+      - name: Build verification
+        run: pnpm exec next build --webpack
+
+      - name: Upload normalized artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: mingzheng-official-sources
+          path: |
+            data/normalized/evidence-records.json
+            data/normalized/evidence-chunks.json
+            data/normalized/source-sync-report.json
+            data/normalized/source-automation-report.json
+            data/normalized/population-signals.json
+            data/runtime/source-automation-log.ndjson
+
+      - name: Job summary
+        shell: bash
+        run: |
+          echo "## Official source refresh" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Schedule: daily at 02:15 Asia/Shanghai (18:15 UTC)." >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          jq -r '
+            "Attention jobs: \(.summary.attentionJobs) / \(.summary.totalJobs)",
+            "",
+            (.jobs[] | "- \(.title): \(.status)")
+          ' data/normalized/source-automation-report.json >> "$GITHUB_STEP_SUMMARY"
