@@ -1,0 +1,66 @@
+{
+  "jobs": [
+    {
+      "id": "china-guideline-fulltext-refresh",
+      "title": "中国指南正文更新",
+      "manifestFiles": ["china-guidelines.sources.json"],
+      "sourceType": "china_guideline",
+      "preferredDocumentClasses": ["guideline"],
+      "allowedDocumentClasses": ["guideline", "guideline_update", "announcement"],
+      "preferredSearchPolicies": ["direct"],
+      "coverageGoals": [
+        {
+          "label": "肿瘤",
+          "specialtyTagsAnyOf": ["肿瘤"],
+          "minimumActiveSources": 1,
+          "minimumPreferredSources": 1
+        },
+        {
+          "label": "心血管",
+          "specialtyTagsAnyOf": ["心血管"],
+          "minimumActiveSources": 1,
+          "minimumPreferredSources": 1
+        }
+      ],
+      "gapActions": [
+        "优先用正式指南全文或指南正文页替换公告、学习班简讯和立项公示。",
+        "新增来源时必须保留 specialtyTags、conditionTags、documentClass 和 searchPolicy，确保检索层能做硬门控。"
+      ]
+    },
+    {
+      "id": "nmpa-concrete-drug-source-refresh",
+      "title": "NMPA 具体药品官方源更新",
+      "manifestFiles": ["nmpa-drug-notices.sources.json"],
+      "sourceType": "nmpa_drug_notice",
+      "preferredDocumentClasses": ["drug_approval_notice"],
+      "allowedDocumentClasses": ["drug_approval_notice"],
+      "preferredSearchPolicies": ["regulatory", "direct"],
+      "priorityDrugs": [
+        "limertinib",
+        "ongericimab",
+        "ganagliflozin"
+      ],
+      "gapActions": [
+        "优先纳入 NMPA 官方药品级批准页面或稳定可抓取的核准说明书附件。",
+        "具体药品官方源必须补齐适应症、目标人群、关键机制和检索关键词，避免只保留药名。"
+      ]
+    },
+    {
+      "id": "nmpa-package-insert-direct-refresh",
+      "title": "NMPA package insert 直链更新",
+      "manifestFiles": ["nmpa-package-inserts.sources.json"],
+      "sourceType": "drug_label",
+      "preferredDocumentClasses": ["drug_label"],
+      "allowedDocumentClasses": ["drug_label"],
+      "preferredSearchPolicies": ["regulatory"],
+      "priorityDrugs": [
+        "GARDASIL 9",
+        "吸附无细胞百白破联合疫苗"
+      ],
+      "gapActions": [
+        "优先补稳定可抓取的 NMPA 核准说明书 PDF 直链，不用二跳页面替代说明书正文。",
+        "package insert 直链必须保留中文品名、商品名或英文名、适应证/接种对象关键词，确保自动化和检索都能命中。"
+      ]
+    }
+  ]
+}
