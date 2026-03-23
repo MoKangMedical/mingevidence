@@ -1,0 +1,306 @@
+{
+  "generatedAt": "2026-03-23T00:25:07.910Z",
+  "jobs": [
+    {
+      "id": "china-guideline-fulltext-refresh",
+      "title": "中国指南正文更新",
+      "sourceType": "china_guideline",
+      "manifestFiles": [
+        "china-guidelines.sources.json"
+      ],
+      "activeSourceCount": 3,
+      "preferredSourceCount": 2,
+      "preferredSources": [
+        {
+          "id": "csco-lung-guideline-2016-v1",
+          "title": "中国临床肿瘤学会（CSCO）原发性肺癌诊疗指南 2016.V1",
+          "documentClass": "guideline",
+          "searchPolicy": "direct",
+          "specialtyTags": [
+            "肿瘤"
+          ],
+          "url": "https://www.csco.org.cn/uploadfile/2016/1123/14798652219569.pdf"
+        },
+        {
+          "id": "csc-nste-acs-guideline-2024",
+          "title": "非 ST 段抬高型急性冠脉综合征诊断和治疗指南（2024）",
+          "documentClass": "guideline",
+          "searchPolicy": "direct",
+          "specialtyTags": [
+            "心血管"
+          ],
+          "url": "https://csc.cma.org.cn/attach/0/46bfbba77f4249aebc2ae9b70eef5377.pdf"
+        }
+      ],
+      "coverage": [
+        {
+          "label": "肿瘤",
+          "activeCount": 2,
+          "preferredCount": 1,
+          "status": "healthy",
+          "currentSources": [
+            {
+              "id": "csco-lung-guideline-2016-v1",
+              "title": "中国临床肿瘤学会（CSCO）原发性肺癌诊疗指南 2016.V1",
+              "documentClass": "guideline",
+              "searchPolicy": "direct",
+              "specialtyTags": [
+                "肿瘤"
+              ],
+              "url": "https://www.csco.org.cn/uploadfile/2016/1123/14798652219569.pdf"
+            },
+            {
+              "id": "csco-lung-2025-update",
+              "title": "csco-lung-2025-update",
+              "documentClass": "guideline_update",
+              "searchPolicy": "direct",
+              "specialtyTags": [
+                "肿瘤"
+              ],
+              "url": "https://www.csco.org.cn/cn/ncontent.aspx?oid=9204"
+            }
+          ],
+          "gaps": []
+        },
+        {
+          "label": "心血管",
+          "activeCount": 1,
+          "preferredCount": 1,
+          "status": "healthy",
+          "currentSources": [
+            {
+              "id": "csc-nste-acs-guideline-2024",
+              "title": "非 ST 段抬高型急性冠脉综合征诊断和治疗指南（2024）",
+              "documentClass": "guideline",
+              "searchPolicy": "direct",
+              "specialtyTags": [
+                "心血管"
+              ],
+              "url": "https://csc.cma.org.cn/attach/0/46bfbba77f4249aebc2ae9b70eef5377.pdf"
+            }
+          ],
+          "gaps": []
+        }
+      ],
+      "priorityDrugs": [],
+      "status": "healthy",
+      "issues": [],
+      "gapActions": [
+        "优先用正式指南全文或指南正文页替换公告、学习班简讯和立项公示。",
+        "新增来源时必须保留 specialtyTags、conditionTags、documentClass 和 searchPolicy，确保检索层能做硬门控。"
+      ]
+    },
+    {
+      "id": "nmpa-concrete-drug-source-refresh",
+      "title": "NMPA 具体药品官方源更新",
+      "sourceType": "nmpa_drug_notice",
+      "manifestFiles": [
+        "nmpa-drug-notices.sources.json"
+      ],
+      "activeSourceCount": 3,
+      "preferredSourceCount": 3,
+      "preferredSources": [
+        {
+          "id": "nmpa-limertinib-2025",
+          "title": "Limertinib Tablets Approved for Marketing by China NMPA",
+          "documentClass": "drug_approval_notice",
+          "searchPolicy": "regulatory",
+          "specialtyTags": [
+            "肿瘤"
+          ],
+          "url": "https://english.nmpa.gov.cn/2025-06/11/c_1101507.htm"
+        },
+        {
+          "id": "nmpa-ongericimab-2025",
+          "title": "Ongericimab Injection Approved for Marketing by China NMPA",
+          "documentClass": "drug_approval_notice",
+          "searchPolicy": "regulatory",
+          "specialtyTags": [
+            "心血管"
+          ],
+          "url": "https://english.nmpa.gov.cn/2025-02/19/c_1073648.htm"
+        },
+        {
+          "id": "nmpa-ganagliflozin-2024",
+          "title": "Ganagliflozin Proline Tablets Approved for Marketing by China NMPA",
+          "documentClass": "drug_approval_notice",
+          "searchPolicy": "regulatory",
+          "specialtyTags": [
+            "内分泌"
+          ],
+          "url": "https://english.nmpa.gov.cn/2024-01/19/c_986553.htm"
+        }
+      ],
+      "coverage": [],
+      "priorityDrugs": [
+        {
+          "drug": "limertinib",
+          "matchedCount": 1,
+          "preferredSourceCount": 1,
+          "status": "healthy",
+          "currentSources": [
+            {
+              "id": "nmpa-limertinib-2025",
+              "title": "Limertinib Tablets Approved for Marketing by China NMPA",
+              "documentClass": "drug_approval_notice",
+              "searchPolicy": "regulatory",
+              "specialtyTags": [
+                "肿瘤"
+              ],
+              "url": "https://english.nmpa.gov.cn/2025-06/11/c_1101507.htm"
+            }
+          ],
+          "gaps": []
+        },
+        {
+          "drug": "ongericimab",
+          "matchedCount": 1,
+          "preferredSourceCount": 1,
+          "status": "healthy",
+          "currentSources": [
+            {
+              "id": "nmpa-ongericimab-2025",
+              "title": "Ongericimab Injection Approved for Marketing by China NMPA",
+              "documentClass": "drug_approval_notice",
+              "searchPolicy": "regulatory",
+              "specialtyTags": [
+                "心血管"
+              ],
+              "url": "https://english.nmpa.gov.cn/2025-02/19/c_1073648.htm"
+            }
+          ],
+          "gaps": []
+        },
+        {
+          "drug": "ganagliflozin",
+          "matchedCount": 1,
+          "preferredSourceCount": 1,
+          "status": "healthy",
+          "currentSources": [
+            {
+              "id": "nmpa-ganagliflozin-2024",
+              "title": "Ganagliflozin Proline Tablets Approved for Marketing by China NMPA",
+              "documentClass": "drug_approval_notice",
+              "searchPolicy": "regulatory",
+              "specialtyTags": [
+                "内分泌"
+              ],
+              "url": "https://english.nmpa.gov.cn/2024-01/19/c_986553.htm"
+            }
+          ],
+          "gaps": []
+        }
+      ],
+      "status": "healthy",
+      "issues": [],
+      "gapActions": [
+        "优先纳入 NMPA 官方药品级批准页面或稳定可抓取的核准说明书附件。",
+        "具体药品官方源必须补齐适应症、目标人群、关键机制和检索关键词，避免只保留药名。"
+      ]
+    },
+    {
+      "id": "nmpa-package-insert-direct-refresh",
+      "title": "NMPA package insert 直链更新",
+      "sourceType": "drug_label",
+      "manifestFiles": [
+        "nmpa-package-inserts.sources.json"
+      ],
+      "activeSourceCount": 2,
+      "preferredSourceCount": 2,
+      "preferredSources": [
+        {
+          "id": "nmpa-gardasil9-package-insert-2024",
+          "title": "九价人乳头瘤病毒疫苗（酿酒酵母）说明书",
+          "documentClass": "drug_label",
+          "searchPolicy": "regulatory",
+          "specialtyTags": [
+            "感染",
+            "妇科",
+            "预防接种"
+          ],
+          "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20241022/swzp-ym20240105gyzzSJ20215001smsSPC.pdf"
+        },
+        {
+          "id": "nmpa-dtap-package-insert-2021",
+          "title": "吸附无细胞百白破联合疫苗说明书",
+          "documentClass": "drug_label",
+          "searchPolicy": "regulatory",
+          "specialtyTags": [
+            "感染",
+            "儿科",
+            "预防接种"
+          ],
+          "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20230523/swzp-ym20210601gyzzS20200001smsSPC.pdf"
+        }
+      ],
+      "coverage": [],
+      "priorityDrugs": [
+        {
+          "drug": "GARDASIL 9",
+          "matchedCount": 1,
+          "preferredSourceCount": 1,
+          "status": "healthy",
+          "currentSources": [
+            {
+              "id": "nmpa-gardasil9-package-insert-2024",
+              "title": "九价人乳头瘤病毒疫苗（酿酒酵母）说明书",
+              "documentClass": "drug_label",
+              "searchPolicy": "regulatory",
+              "specialtyTags": [
+                "感染",
+                "妇科",
+                "预防接种"
+              ],
+              "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20241022/swzp-ym20240105gyzzSJ20215001smsSPC.pdf"
+            }
+          ],
+          "gaps": []
+        },
+        {
+          "drug": "吸附无细胞百白破联合疫苗",
+          "matchedCount": 2,
+          "preferredSourceCount": 2,
+          "status": "healthy",
+          "currentSources": [
+            {
+              "id": "nmpa-gardasil9-package-insert-2024",
+              "title": "九价人乳头瘤病毒疫苗（酿酒酵母）说明书",
+              "documentClass": "drug_label",
+              "searchPolicy": "regulatory",
+              "specialtyTags": [
+                "感染",
+                "妇科",
+                "预防接种"
+              ],
+              "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20241022/swzp-ym20240105gyzzSJ20215001smsSPC.pdf"
+            },
+            {
+              "id": "nmpa-dtap-package-insert-2021",
+              "title": "吸附无细胞百白破联合疫苗说明书",
+              "documentClass": "drug_label",
+              "searchPolicy": "regulatory",
+              "specialtyTags": [
+                "感染",
+                "儿科",
+                "预防接种"
+              ],
+              "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20230523/swzp-ym20210601gyzzS20200001smsSPC.pdf"
+            }
+          ],
+          "gaps": []
+        }
+      ],
+      "status": "healthy",
+      "issues": [],
+      "gapActions": [
+        "优先补稳定可抓取的 NMPA 核准说明书 PDF 直链，不用二跳页面替代说明书正文。",
+        "package insert 直链必须保留中文品名、商品名或英文名、适应证/接种对象关键词，确保自动化和检索都能命中。"
+      ]
+    }
+  ],
+  "summary": {
+    "totalJobs": 3,
+    "healthyJobs": 3,
+    "attentionJobs": 0
+  }
+}
