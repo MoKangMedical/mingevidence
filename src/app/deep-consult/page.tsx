@@ -65,6 +65,7 @@ export default async function DeepConsultPage(props: PageProps<"/deep-consult">)
           <div className="query-panel__actions">
             <button type="submit">更新 DeepConsult 工作流</button>
             <Link href="/search">回到搜索页</Link>
+            <Link href={`/cases?q=${encodeURIComponent(resolvedQuery)}`}>转入病例工作台</Link>
           </div>
         </form>
       </section>

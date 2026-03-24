@@ -132,6 +132,8 @@ GitHub Actions 工作流：
 - [docs/01_品牌与命名.md](./docs/01_品牌与命名.md)
 - [docs/02_系统架构.md](./docs/02_系统架构.md)
 - [docs/03_0到1路线.md](./docs/03_0到1路线.md)
+- [docs/04_知识底座蓝图.md](./docs/04_知识底座蓝图.md)
+- [docs/05_平台产品架构.md](./docs/05_平台产品架构.md)
 
 ## 下一步
 

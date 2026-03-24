@@ -2,9 +2,12 @@ import Link from "next/link";
 
 import { SiteHeader } from "@/components/site-header";
 import {
+  architectureLayers,
   brandSummary,
   executionRoadmap,
   landingStats,
+  platformFlows,
+  platformModules,
   productPillars,
 } from "@/lib/platform-data";
 
@@ -79,6 +82,26 @@ export default function Home() {
 
       <section className="section-block section-block--muted">
         <div className="section-heading">
+          <span className="eyebrow">Platform Modules</span>
+          <h2>把演示页扩成医生真的会反复打开的平台</h2>
+          <p>
+            真正可用的临床产品，不是只有一个搜索框，而是把搜索、病例、药品、预警和机构治理放到同一个连续工作流里。
+          </p>
+        </div>
+        <div className="pillar-grid">
+          {platformModules.map((module) => (
+            <article className="pillar-card" key={module.name}>
+              <span>{module.audience}</span>
+              <h3>{module.name}</h3>
+              <p>{module.value}</p>
+              <p className="pillar-card__visual">{module.visualization}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-block section-block--muted">
+        <div className="section-heading">
           <span className="eyebrow">0-90 Days</span>
           <h2>从 0 到 1 的执行路径已经拆开</h2>
           <p>我已经把创业动作和产品动作合到一套路线里，下一步可以直接按这个节奏往试点推进。</p>
@@ -93,6 +116,48 @@ export default function Home() {
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-block">
+        <div className="section-heading">
+          <span className="eyebrow">User Journeys</span>
+          <h2>平台要围绕场景闭环，而不是围绕接口闭环</h2>
+          <p>
+            首页、搜索、DeepConsult 只是入口。真正决定用户留存的，是门诊、住院、药品核查和机构更新能不能连成一条线。
+          </p>
+        </div>
+        <div className="roadmap-grid">
+          {platformFlows.map((flow) => (
+            <article className="roadmap-card" key={flow.title}>
+              <span>{flow.trigger}</span>
+              <h3>{flow.title}</h3>
+              <ul className="bullet-list">
+                {flow.steps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-block section-block--muted">
+        <div className="section-heading">
+          <span className="eyebrow">Architecture</span>
+          <h2>产品架构需要从“答案生成”升级到“临床平台”</h2>
+          <p>
+            底层仍然是知识底座和检索引擎，但上层必须加上病例会话、机构治理和标准化集成，才能真正进入医院工作流。
+          </p>
+        </div>
+        <div className="roadmap-grid">
+          {architectureLayers.map((item) => (
+            <article className="roadmap-card" key={item.layer}>
+              <span>{item.layer}</span>
+              <h3>{item.capability}</h3>
+              <p>{item.note}</p>
             </article>
           ))}
         </div>

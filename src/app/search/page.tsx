@@ -64,6 +64,9 @@ export default async function SearchPage(props: PageProps<"/search">) {
           <div className="query-panel__actions">
             <button type="submit">生成证据视图</button>
             <Link href="/deep-consult">进入 DeepConsult</Link>
+            <Link href={query ? `/cases?q=${encodeURIComponent(query)}` : "/cases"}>
+              保存到病例工作台
+            </Link>
           </div>
         </form>
       </section>

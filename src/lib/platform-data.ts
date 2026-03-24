@@ -39,6 +39,25 @@ export type ConsultEvidenceMatrix = {
   operationalNote: string;
 };
 
+export type PlatformModule = {
+  name: string;
+  audience: string;
+  value: string;
+  visualization: string;
+};
+
+export type PlatformFlow = {
+  title: string;
+  trigger: string;
+  steps: string[];
+};
+
+export type ArchitectureLayer = {
+  layer: string;
+  capability: string;
+  note: string;
+};
+
 const evidenceLibrary: Record<string, Omit<SearchExperience, "query">> = {
   oncology: {
     specialty: "肿瘤",
@@ -321,6 +340,90 @@ export const brandSummary = {
   oneLiner: "面向中国医生的 AI 临床证据平台",
   promise: "让每一次临床判断，都有清晰来源、适用边界和中国本地化解释。",
 };
+
+export const platformModules: PlatformModule[] = [
+  {
+    name: "临床搜索入口",
+    audience: "医生",
+    value: "用自然语言问题直接进入临床证据、指南位阶、药品边界和中国可及性解释。",
+    visualization: "搜索框 + 证据卡片流 + 指南/标签/研究分栏结果。",
+  },
+  {
+    name: "病例工作台",
+    audience: "医生",
+    value: "围绕单个患者串起问题拆解、方案对比、病程记录、监测和随访，不再是一次性问答。",
+    visualization: "病程时间轴 + 关键指标面板 + 下一步任务清单。",
+  },
+  {
+    name: "药品与标签中心",
+    audience: "医生 / 药师",
+    value: "统一查看 NMPA、FDA、说明书、适应症、剂量、禁忌和支付限制。",
+    visualization: "双栏标签对照 + 剂量卡片 + 风险高亮。",
+  },
+  {
+    name: "中国人群预警面板",
+    audience: "专科 / MDT",
+    value: "把中国人群证据沉淀成风险分层、复发预警、不良事件监测和随访提示。",
+    visualization: "风险热图 + 事件时间线 + 分层漏斗。",
+  },
+  {
+    name: "机构治理后台",
+    audience: "医院 / 科室管理员",
+    value: "管理用户、反馈、审计、高风险问题、内容版本和院内知识接入。",
+    visualization: "运营驾驶舱 + 审计列表 + 更新记录。",
+  },
+];
+
+export const platformFlows: PlatformFlow[] = [
+  {
+    title: "门诊即时问答",
+    trigger: "门诊场景下需要快速给出可解释、可执行的首轮证据答案",
+    steps: ["提问", "结构化答案 + 引用", "保存到病例工作台"],
+  },
+  {
+    title: "住院病例研判",
+    trigger: "复杂住院患者需要多轮证据核对、药品边界确认和治疗调整",
+    steps: ["创建病例会话", "接入诊断/并发症/用药", "输出病程化建议与监测节点"],
+  },
+  {
+    title: "药品标签核查",
+    trigger: "医生或药师要核对适应症、剂量、禁忌与中美监管差异",
+    steps: ["进入药品中心", "查看 NMPA/FDA 对照", "输出监管边界与临床提示"],
+  },
+  {
+    title: "机构持续更新",
+    trigger: "医院需要持续掌握正式源变化和高风险使用情况",
+    steps: ["自动刷新正式源", "审查失败源与版本变更", "同步触发公开展示与内部发布"],
+  },
+];
+
+export const architectureLayers: ArchitectureLayer[] = [
+  {
+    layer: "体验层",
+    capability: "搜索、病例、药品、预警、后台五个工作区",
+    note: "以医生任务组织入口，而不是以技术功能组织入口。",
+  },
+  {
+    layer: "应用服务层",
+    capability: "身份认证、病例会话、收藏、反馈、审计、通知",
+    note: "把搜索结果变成可连续使用的工作流资产。",
+  },
+  {
+    layer: "证据引擎层",
+    capability: "query understanding、chunk rerank、标签对照、病程模板、风险分流",
+    note: "中国指南优先，监管标签做边界层，PubMed 做研究增强层。",
+  },
+  {
+    layer: "知识底座层",
+    capability: "中国指南、NMPA/FDA 文件、PubMed、中国人群分层信号",
+    note: "统一 schema、统一版本、统一引用输出。",
+  },
+  {
+    layer: "治理与集成层",
+    capability: "高风险拒答、版本审计、机构管理、EHR/SMART on FHIR",
+    note: "先做到可信和可审计，再推进医院深度嵌入。",
+  },
+];
 
 export const landingStats = [
   { label: "目标用户", value: "中国临床医生", detail: "先从肿瘤、心血管、感染切入" },

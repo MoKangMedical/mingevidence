@@ -4,7 +4,7 @@ import { getOptionalDoctorSession } from "@/lib/auth";
 import { brandSummary } from "@/lib/platform-data";
 
 type SiteHeaderProps = {
-  current?: "home" | "search" | "consult" | "progress";
+  current?: "home" | "search" | "consult" | "progress" | "cases";
 };
 
 export async function SiteHeader({ current = "home" }: SiteHeaderProps) {
@@ -31,6 +31,12 @@ export async function SiteHeader({ current = "home" }: SiteHeaderProps) {
           href="/search"
         >
           证据搜索
+        </Link>
+        <Link
+          className={current === "cases" ? "nav-link is-active" : "nav-link"}
+          href="/cases"
+        >
+          病例工作台
         </Link>
         <Link
           className={current === "progress" ? "nav-link is-active" : "nav-link"}
