@@ -39,6 +39,11 @@ export default async function CaseWorkspaceIndex(props: PageProps<"/cases">) {
             病例工作台会保存当前问题、病程摘要、追问历史和病例助手回答。它不是搜索结果的替代，而是把搜索和
             DeepConsult 变成一个可连续使用的病例会话。
           </p>
+          {defaultQuery ? (
+            <p>
+              当前已经从其他入口带入问题：`{defaultQuery}`。你可以直接补充病程摘要后创建病例，不需要重新整理上下文。
+            </p>
+          ) : null}
         </div>
         <CreateCaseForm defaultQuery={defaultQuery} />
       </section>

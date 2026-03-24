@@ -11,7 +11,7 @@ export async function SiteHeader({ current = "home" }: SiteHeaderProps) {
   const doctor = await getOptionalDoctorSession();
 
   return (
-    <header className="site-header">
+    <header className="site-header" data-theme="medroundtable">
       <Link className="brand-mark" href="/">
         <span className="brand-mark__kanji">{brandSummary.name}</span>
         <span className="brand-mark__meta">

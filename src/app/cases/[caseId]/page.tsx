@@ -47,6 +47,14 @@ export default async function CaseWorkspaceDetail(
               <span>最近更新</span>
               <strong>{new Date(workspace.updatedAt).toLocaleString("zh-CN")}</strong>
             </div>
+            <div className="signal-grid__item">
+              <span>责任医生</span>
+              <strong>{workspace.doctorName}</strong>
+            </div>
+            <div className="signal-grid__item">
+              <span>会话轮次</span>
+              <strong>{workspace.messages.length} 条记录</strong>
+            </div>
           </div>
         </div>
       </section>

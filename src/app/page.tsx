@@ -32,7 +32,7 @@ export default function Home() {
           </p>
           <div className="hero__actions">
             <Link href="/search">进入证据搜索</Link>
-            <Link href="/progress">查看进展看板</Link>
+            <Link href="/cases">进入病例工作台</Link>
             <Link href="/deep-consult">查看 DeepConsult</Link>
           </div>
         </div>
