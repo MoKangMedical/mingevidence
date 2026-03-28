@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-27T19:12:25.507Z",
+  "generatedAt": "2026-03-28T19:01:04.756Z",
   "summary": {
     "totalTargets": 7,
     "verifiedTargets": 0,
@@ -23,7 +23,7 @@
         "TAGRISSO",
         "泰瑞沙"
       ],
-      "registryHitCount": 6,
+      "registryHitCount": 4,
       "verifiedDirectLinkCount": 0,
       "status": "awaiting_direct_link_verification",
       "resolverStatus": "canonical_candidate_selected",
@@ -141,52 +141,15 @@
           "drugCode": "86979096002178",
           "drugClass": "化学药品",
           "resolverScore": 2097
-        },
-        {
-          "channel": "domestic",
-          "genericName": "甲磺酸奥希替尼片",
-          "englishName": "Osimertinib Mesylate Tablets",
-          "brandName": "",
-          "brandNameEnglish": "",
-          "dosageForm": "片剂",
-          "specification": "40mg（按C₂₈H₃₃N₇O₂计）",
-          "packSize": "",
-          "approvalNumber": "国药准字H20234356",
-          "originalApprovalNumber": "",
-          "approvedAt": "2023-10-24",
-          "approvalExpiresAt": "",
-          "marketingAuthorizationHolder": "复星万邦（江苏）医药集团有限公司",
-          "manufacturer": "复星万邦（江苏）医药集团有限公司",
-          "manufacturerCountry": "",
-          "manufacturingAddress": "江苏省徐州市金山桥开发区综合区洞山南侧",
-          "drugCode": "86901729000718",
-          "drugClass": "化学药品",
-          "resolverScore": 2055
-        },
-        {
-          "channel": "domestic",
-          "genericName": "甲磺酸奥希替尼片",
-          "englishName": "Osimertinib Mesylate Tablets",
-          "brandName": "",
-          "brandNameEnglish": "",
-          "dosageForm": "片剂",
-          "specification": "80mg（按C₂₈H₃₃N₇O₂计）",
-          "packSize": "",
-          "approvalNumber": "国药准字H20234357",
-          "originalApprovalNumber": "",
-          "approvedAt": "2023-10-24",
-          "approvalExpiresAt": "",
-          "marketingAuthorizationHolder": "复星万邦（江苏）医药集团有限公司",
-          "manufacturer": "复星万邦（江苏）医药集团有限公司",
-          "manufacturerCountry": "",
-          "manufacturingAddress": "江苏省徐州市金山桥开发区综合区洞山南侧",
-          "drugCode": "86901729000701",
-          "drugClass": "化学药品",
-          "resolverScore": 2055
         }
       ],
       "verifiedDirectLinks": [],
-      "channelErrors": [],
+      "channelErrors": [
+        {
+          "channel": "domestic",
+          "message": "Failed to obtain access token for domestic: {\"reason\":\"Read timed out\",\"error_code\":\"10000\"}"
+        }
+      ],
       "resolutionOverride": {
         "preferredChannels": [
           "import",
