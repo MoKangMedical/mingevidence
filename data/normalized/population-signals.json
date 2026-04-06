@@ -17,7 +17,7 @@
       "复发",
       "监测"
     ],
-    "evidenceCount": 5,
+    "evidenceCount": 4,
     "evidence": [
       {
         "pmid": "40293180",
@@ -47,15 +47,6 @@
         "summary": "Carcinoembryonic antigen (CEA)&#x2011;related cell adhesion molecule 6 (CEACAM6) is a cell adhesion protein of the CEA family of glycosyl phosphatidyl inositol anchored cell surface glycoproteins. A wealth of research has demonstrated that CEACAM6 is generally upregulated in pancreatic adenocarcinoma, breast cancer, non&#x2011;small cell lung cancer, gastric"
       },
       {
-        "pmid": "36048538",
-        "title": "Targeting acetylcholine signaling modulates persistent drug tolerance in EGFR-mutant lung cancer and impedes tumor relapse.",
-        "journal": "The Journal of clinical investigation",
-        "publishedAt": "2022-10-17",
-        "url": "https://doi.org/10.1172/JCI160152",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "Although first-line epidermal growth factor receptor (EGFR) tyrosine kinase inhibitor (TKI) therapy is effective for treating EGFR-mutant non-small cell lung cancer (NSCLC), it is now understood that drug-tolerant persister (DTP) cells escaping from initial treatment eventually drives drug resistance. Here, through integration of metabolomics and transcripto"
-      },
-      {
         "pmid": "34339292",
         "title": "Amivantamab in EGFR Exon 20 Insertion-Mutated Non-Small-Cell Lung Cancer Progressing on Platinum Chemotherapy: Initial Results From the CHRYSALIS Phase I Study.",
         "journal": "Journal of clinical oncology : official journal of the American Society of Clinical Oncology",
@@ -63,79 +54,6 @@
         "url": "https://doi.org/10.1200/JCO.21.00662",
         "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
         "summary": "Non-small-cell lung cancer (NSCLC) with epidermal growth factor receptor (EGFR) exon 20 insertion (Exon20ins) mutations exhibits inherent resistance to approved tyrosine kinase inhibitors. Amivantamab, an EGFR-MET bispecific antibody with immune cell-directing activity, binds to each receptor's extracellular domain, bypassing resistance at the tyrosine kinas"
-      }
-    ],
-    "operatingNote": "重点沉淀风险分层、耐药预警、治疗后复发监测和伴随诊断规则。"
-  },
-  {
-    "id": "cn-egfr-lung-cancer-risk_screening",
-    "programId": "cn-egfr-lung-cancer",
-    "diseaseArea": "肺癌",
-    "targetPopulation": "中国 EGFR 突变非小细胞肺癌人群",
-    "signalName": "肺癌中国人群risk_screening",
-    "stage": "risk_screening",
-    "intent": "prediction",
-    "keywords": [
-      "EGFR",
-      "NSCLC",
-      "中国",
-      "Chinese",
-      "队列",
-      "耐药",
-      "复发",
-      "监测"
-    ],
-    "evidenceCount": 2,
-    "evidence": [
-      {
-        "pmid": "40097663",
-        "title": "Molecular residual disease analysis of adjuvant osimertinib in resected EGFR-mutated stage IB-IIIA non-small-cell lung cancer.",
-        "journal": "Nature medicine",
-        "publishedAt": "2025-03-17",
-        "url": "https://doi.org/10.1038/s41591-025-03577-y",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "Osimertinib-a third-generation epidermal growth factor receptor-tyrosine kinase inhibitor-is recommended as adjuvant therapy for resected stage IB-IIIA epidermal growth factor receptor-mutated non-small-cell lung cancer, based on significant disease-free survival (DFS) and overall survival improvement shown in the previously reported phase&#x2009;3 ADAURA tr"
-      },
-      {
-        "pmid": "38648979",
-        "title": "Antibody-drug conjugates in lung and breast cancer: current evidence and future directions-a position statement from the ETOP IBCSG Partners Foundation.",
-        "journal": "Annals of oncology : official journal of the European Society for Medical Oncology",
-        "publishedAt": "2024-04-20",
-        "url": "https://doi.org/10.1016/j.annonc.2024.04.002",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "Following the approval of the first antibody-drug conjugates (ADCs) in the early 2000s, development has increased dramatically, with 14 ADCs now approved and >100 in clinical development. In lung cancer, trastuzumab deruxtecan (T-DXd) is approved in human epidermal growth factor receptor 2 (HER2)-mutated, unresectable or metastatic non-small-cell lung cancer"
-      }
-    ],
-    "operatingNote": "重点沉淀风险分层、耐药预警、治疗后复发监测和伴随诊断规则。"
-  },
-  {
-    "id": "cn-egfr-lung-cancer-response_monitoring",
-    "programId": "cn-egfr-lung-cancer",
-    "diseaseArea": "肺癌",
-    "targetPopulation": "中国 EGFR 突变非小细胞肺癌人群",
-    "signalName": "肺癌中国人群response_monitoring",
-    "stage": "response_monitoring",
-    "intent": "monitoring",
-    "keywords": [
-      "EGFR",
-      "NSCLC",
-      "中国",
-      "Chinese",
-      "队列",
-      "耐药",
-      "复发",
-      "监测"
-    ],
-    "evidenceCount": 1,
-    "evidence": [
-      {
-        "pmid": "38049664",
-        "title": "The role of APOBEC3B in lung tumor evolution and targeted cancer therapy resistance.",
-        "journal": "Nature genetics",
-        "publishedAt": "2023-12-04",
-        "url": "https://doi.org/10.1038/s41588-023-01592-8",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "In this study, the impact of the apolipoprotein B mRNA-editing catalytic subunit-like (APOBEC) enzyme APOBEC3B (A3B) on epidermal growth factor receptor (EGFR)-driven lung cancer was assessed. A3B expression in EGFR mutant (EGFRmut) non-small-cell lung cancer (NSCLC) mouse models constrained tumorigenesis, while A3B expression in tumors treated with EGFR-tar"
       }
     ],
     "operatingNote": "重点沉淀风险分层、耐药预警、治疗后复发监测和伴随诊断规则。"
@@ -158,17 +76,8 @@
       "复发",
       "监测"
     ],
-    "evidenceCount": 2,
+    "evidenceCount": 1,
     "evidence": [
-      {
-        "pmid": "37020004",
-        "title": "Lung adenocarcinoma promotion by air pollutants.",
-        "journal": "Nature",
-        "publishedAt": "2023-04-05",
-        "url": "https://doi.org/10.1038/s41586-023-05874-3",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "A complete understanding of how exposure to environmental substances promotes cancer formation is lacking. More than 70&#x2009;years ago, tumorigenesis was proposed to occur in a two-step process: an initiating step that induces mutations in healthy cells, followed by a promoter step that triggers cancer development1. Here we propose that environmental parti"
-      },
       {
         "pmid": "35140113",
         "title": "Single-cell transcriptome analysis revealed a suppressive tumor immune microenvironment in EGFR mutant lung adenocarcinoma.",
