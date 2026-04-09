@@ -20,6 +20,15 @@
     "evidenceCount": 4,
     "evidence": [
       {
+        "pmid": "41310499",
+        "title": "Prevalence and therapeutic response of EGFR T790I mutation in NSCLC patients with acquired resistance to EGFR-TKIs: a retrospective cohort study.",
+        "journal": "BMC cancer",
+        "publishedAt": "2025-11-27",
+        "url": "https://doi.org/10.1186/s12885-025-14885-4",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "The EGFR T790I mutation is a potential resistance mechanism against EGFR tyrosine kinase inhibitors (TKIs) in non-small cell lung cancer (NSCLC). However, its prevalence and clinical significance remain unexplored. We aim to delineate the mutational spectrum of EGFR T790I in NSCLC patients and investigate its association with clinical outcomes and resistance"
+      },
+      {
         "pmid": "40293180",
         "title": "Zongertinib in Previously Treated HER2-Mutant Non-Small-Cell Lung Cancer.",
         "journal": "The New England journal of medicine",
@@ -36,15 +45,6 @@
         "url": "https://doi.org/10.1016/j.annonc.2024.05.541",
         "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
         "summary": "Amivantamab-lazertinib significantly prolonged progression-free survival (PFS) versus osimertinib in patients with epidermal growth factor receptor (EGFR)-mutant advanced non-small-cell lung cancer [NSCLC; hazard ratio (HR) 0.70; P < 0.001], including those with a history of brain metastases (HR 0.69). Patients with TP53 co-mutations, detectable circulating "
-      },
-      {
-        "pmid": "36048538",
-        "title": "Targeting acetylcholine signaling modulates persistent drug tolerance in EGFR-mutant lung cancer and impedes tumor relapse.",
-        "journal": "The Journal of clinical investigation",
-        "publishedAt": "2022-10-17",
-        "url": "https://doi.org/10.1172/JCI160152",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "Although first-line epidermal growth factor receptor (EGFR) tyrosine kinase inhibitor (TKI) therapy is effective for treating EGFR-mutant non-small cell lung cancer (NSCLC), it is now understood that drug-tolerant persister (DTP) cells escaping from initial treatment eventually drives drug resistance. Here, through integration of metabolomics and transcripto"
       },
       {
         "pmid": "34339292",
@@ -79,24 +79,6 @@
     "evidenceCount": 3,
     "evidence": [
       {
-        "pmid": "40097663",
-        "title": "Molecular residual disease analysis of adjuvant osimertinib in resected EGFR-mutated stage IB-IIIA non-small-cell lung cancer.",
-        "journal": "Nature medicine",
-        "publishedAt": "2025-03-17",
-        "url": "https://doi.org/10.1038/s41591-025-03577-y",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "Osimertinib-a third-generation epidermal growth factor receptor-tyrosine kinase inhibitor-is recommended as adjuvant therapy for resected stage IB-IIIA epidermal growth factor receptor-mutated non-small-cell lung cancer, based on significant disease-free survival (DFS) and overall survival improvement shown in the previously reported phase&#x2009;3 ADAURA tr"
-      },
-      {
-        "pmid": "38648979",
-        "title": "Antibody-drug conjugates in lung and breast cancer: current evidence and future directions-a position statement from the ETOP IBCSG Partners Foundation.",
-        "journal": "Annals of oncology : official journal of the European Society for Medical Oncology",
-        "publishedAt": "2024-04-20",
-        "url": "https://doi.org/10.1016/j.annonc.2024.04.002",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "Following the approval of the first antibody-drug conjugates (ADCs) in the early 2000s, development has increased dramatically, with 14 ADCs now approved and >100 in clinical development. In lung cancer, trastuzumab deruxtecan (T-DXd) is approved in human epidermal growth factor receptor 2 (HER2)-mutated, unresectable or metastatic non-small-cell lung cancer"
-      },
-      {
         "pmid": "35149428",
         "title": "Consensus for HER2 alterations testing in non-small-cell lung cancer.",
         "journal": "ESMO open",
@@ -104,38 +86,24 @@
         "url": "https://doi.org/10.1016/j.esmoop.2022.100395",
         "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
         "summary": "Human epidermal growth factor receptor 2 (HER2) is a transmembrane glycoprotein receptor with intracellular tyrosine kinase activity. Its alterations, including mutation, amplification and overexpression, could result in oncogenic potential and have been detected in many cancers such as non-small-cell lung cancer (NSCLC). Such alterations are, in general, co"
-      }
-    ],
-    "operatingNote": "重点沉淀风险分层、耐药预警、治疗后复发监测和伴随诊断规则。"
-  },
-  {
-    "id": "cn-egfr-lung-cancer-response_monitoring",
-    "programId": "cn-egfr-lung-cancer",
-    "diseaseArea": "肺癌",
-    "targetPopulation": "中国 EGFR 突变非小细胞肺癌人群",
-    "signalName": "肺癌中国人群response_monitoring",
-    "stage": "response_monitoring",
-    "intent": "monitoring",
-    "keywords": [
-      "EGFR",
-      "NSCLC",
-      "中国",
-      "Chinese",
-      "队列",
-      "耐药",
-      "复发",
-      "监测"
-    ],
-    "evidenceCount": 1,
-    "evidence": [
+      },
       {
-        "pmid": "38049664",
-        "title": "The role of APOBEC3B in lung tumor evolution and targeted cancer therapy resistance.",
-        "journal": "Nature genetics",
-        "publishedAt": "2023-12-04",
-        "url": "https://doi.org/10.1038/s41588-023-01592-8",
+        "pmid": "35096611",
+        "title": "Comprehensive Comparative Molecular Characterization of Young and Old Lung Cancer Patients.",
+        "journal": "Frontiers in oncology",
+        "publishedAt": "2022-01-12",
+        "url": "https://doi.org/10.3389/fonc.2021.806845",
         "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "In this study, the impact of the apolipoprotein B mRNA-editing catalytic subunit-like (APOBEC) enzyme APOBEC3B (A3B) on epidermal growth factor receptor (EGFR)-driven lung cancer was assessed. A3B expression in EGFR mutant (EGFRmut) non-small-cell lung cancer (NSCLC) mouse models constrained tumorigenesis, while A3B expression in tumors treated with EGFR-tar"
+        "summary": "Young lung cancer as a small subgroup of lung cancer has not been fully studied. Most of the previous studies focused on the clinicopathological features, but studies of molecular characteristics are still few and limited. Here, we explore the characteristics of prognosis and variation in young lung cancer patients with NSCLC. A total of 5639 young lung canc"
+      },
+      {
+        "pmid": "32645388",
+        "title": "Establishment and validation of a novel droplet digital PCR assay for ultrasensitive detection and dynamic monitoring of EGFR mutations in peripheral blood samples of non-small-cell lung cancer patients.",
+        "journal": "Clinica chimica acta; international journal of clinical chemistry",
+        "publishedAt": "2020-07-06",
+        "url": "https://doi.org/10.1016/j.cca.2020.07.003",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "Droplet digital PCR (ddPCR)-based blood detection of EGFR mutations plays significant roles in the individualized therapy of non-small-cell lung cancer (NSCLC) patients. However, a standard assay that is approved by health authorities is still lacking. Additionally, the proper application of this method in clinical settings also needs further investigation. "
       }
     ],
     "operatingNote": "重点沉淀风险分层、耐药预警、治疗后复发监测和伴随诊断规则。"
@@ -158,17 +126,8 @@
       "复发",
       "监测"
     ],
-    "evidenceCount": 2,
+    "evidenceCount": 1,
     "evidence": [
-      {
-        "pmid": "37020004",
-        "title": "Lung adenocarcinoma promotion by air pollutants.",
-        "journal": "Nature",
-        "publishedAt": "2023-04-05",
-        "url": "https://doi.org/10.1038/s41586-023-05874-3",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "A complete understanding of how exposure to environmental substances promotes cancer formation is lacking. More than 70&#x2009;years ago, tumorigenesis was proposed to occur in a two-step process: an initiating step that induces mutations in healthy cells, followed by a promoter step that triggers cancer development1. Here we propose that environmental parti"
-      },
       {
         "pmid": "35140113",
         "title": "Single-cell transcriptome analysis revealed a suppressive tumor immune microenvironment in EGFR mutant lung adenocarcinoma.",
@@ -180,5 +139,187 @@
       }
     ],
     "operatingNote": "重点沉淀风险分层、耐药预警、治疗后复发监测和伴随诊断规则。"
+  },
+  {
+    "id": "cn-af-anticoagulation-response_monitoring",
+    "programId": "cn-af-anticoagulation",
+    "diseaseArea": "房颤抗凝",
+    "targetPopulation": "中国房颤抗凝治疗人群",
+    "signalName": "房颤抗凝中国人群response_monitoring",
+    "stage": "response_monitoring",
+    "intent": "monitoring",
+    "keywords": [
+      "房颤",
+      "抗凝",
+      "出血",
+      "卒中",
+      "中国",
+      "Chinese",
+      "预测",
+      "预警"
+    ],
+    "evidenceCount": 3,
+    "evidence": [
+      {
+        "pmid": "40148760",
+        "title": "Efficacy, safety, and bleeding risk factor analysis of oral anticoagulants in AF patients&#x2009;&#x2265;&#x2009;65 years of age: a multicenter retrospective cohort study.",
+        "journal": "BMC geriatrics",
+        "publishedAt": "2025-03-27",
+        "url": "https://doi.org/10.1186/s12877-025-05838-4",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "Stroke prevention in elderly patients with atrial fibrillation (AF) is challenging and requires a balance between thromboembolic prevention and bleeding. The comparison of novel oral anticoagulants (NOACs) and warfarin in clinical practice in elderly Asian patients has not been well studied. The purpose of this study was to evaluate the efficacy and safety o"
+      },
+      {
+        "pmid": "37601803",
+        "title": "Management and Anticoagulation Treatment of Non-Valvular Atrial Fibrillation in Elderly Patients: The Dali Study.",
+        "journal": "International journal of general medicine",
+        "publishedAt": "2023-08-14",
+        "url": "https://doi.org/10.2147/IJGM.S418674",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "Non-valvular atrial fibrillation (NVAF) is associated with increased stroke in elderly populations, yet anticoagulant therapy is underutilized. We analyzed clinical characteristics and anticoagulation treatment rates of elderly NVAF patients hospitalized in Dali, China, to identify potential contributing factors. We collected data for 155 elderly patients wi"
+      },
+      {
+        "pmid": "34737236",
+        "title": "Renal outcomes in Asian patients receiving oral anticoagulants for non-valvular atrial fibrillation.",
+        "journal": "Hong Kong medical journal = Xianggang yi xue za zhi",
+        "publishedAt": "2021-11-05",
+        "url": "https://doi.org/10.12809/hkmj209201",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "Patients with non-valvular atrial fibrillation (NVAF) may be prescribed warfarin or a non-vitamin K oral anticoagulant (NOAC). There is increasing evidence that NOACs are superior to warfarin in terms of renal function preservation. This study aimed to compare renal outcomes in Chinese patients with NVAF between patients receiving NOACs and patients receivin"
+      }
+    ],
+    "operatingNote": "重点沉淀卒中/出血风险分层、围手术期中断、药物切换与全程监测信号。"
+  },
+  {
+    "id": "cn-af-anticoagulation-diagnosis",
+    "programId": "cn-af-anticoagulation",
+    "diseaseArea": "房颤抗凝",
+    "targetPopulation": "中国房颤抗凝治疗人群",
+    "signalName": "房颤抗凝中国人群diagnosis",
+    "stage": "diagnosis",
+    "intent": "diagnosis",
+    "keywords": [
+      "房颤",
+      "抗凝",
+      "出血",
+      "卒中",
+      "中国",
+      "Chinese",
+      "预测",
+      "预警"
+    ],
+    "evidenceCount": 1,
+    "evidence": [
+      {
+        "pmid": "37580139",
+        "title": "Clinical outcomes in elderly atrial fibrillation patients at increased bleeding risk treated with very low dose vs. regular-dose non-vitamin K antagonist oral anticoagulants: a nationwide cohort study.",
+        "journal": "European heart journal. Cardiovascular pharmacotherapy",
+        "publishedAt": "2023-01-01",
+        "url": "https://doi.org/10.1093/ehjcvp/pvad058",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "The Edoxaban Low-Dose for Elder Care Atrial Fibrillation Patients (ELDERCARE-AF) trial showed that edoxaban at a very low dosage (VLD) of 15&#xa0;mg/day was more effective than a placebo at preventing stroke/systemic embolism without significantly increasing the risk of serious bleeding. We aimed to compare the effectiveness and safety for VLD non-vitamin K "
+      }
+    ],
+    "operatingNote": "重点沉淀卒中/出血风险分层、围手术期中断、药物切换与全程监测信号。"
+  },
+  {
+    "id": "cn-af-anticoagulation-adverse_event_monitoring",
+    "programId": "cn-af-anticoagulation",
+    "diseaseArea": "房颤抗凝",
+    "targetPopulation": "中国房颤抗凝治疗人群",
+    "signalName": "房颤抗凝中国人群adverse_event_monitoring",
+    "stage": "adverse_event_monitoring",
+    "intent": "monitoring",
+    "keywords": [
+      "房颤",
+      "抗凝",
+      "出血",
+      "卒中",
+      "中国",
+      "Chinese",
+      "预测",
+      "预警"
+    ],
+    "evidenceCount": 5,
+    "evidence": [
+      {
+        "pmid": "31782613",
+        "title": "Accuracy of HAS-BLED and other bleeding risk assessment tools in predicting major bleeding events in atrial fibrillation: A network meta-analysis.",
+        "journal": "Journal of thrombosis and haemostasis : JTH",
+        "publishedAt": "2020-01-17",
+        "url": "https://doi.org/10.1111/jth.14692",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "Preventing thrombosis is an important part of atrial fibrillation (AF) treatment. However, it may increase the risk of bleeding, and bleeding risk assessment tools' predictive value remains unclear. This network meta-analysis investigated the sensitivity and specificity of HAS-BLED, and other bleeding risk assessment tools, to predict major bleeding events i"
+      },
+      {
+        "pmid": "31103697",
+        "title": "Effectiveness and Safety of Four Direct Oral&#xa0;Anticoagulants in Asian Patients With&#xa0;Nonvalvular Atrial Fibrillation.",
+        "journal": "Chest",
+        "publishedAt": "2019-05-16",
+        "url": "https://doi.org/10.1016/j.chest.2019.04.108",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "Whether four direct oral anticoagulants (DOACs) are superior to warfarin in Asian patients with nonvalvular atrial fibrillation (NVAF) remains unclear. This nationwide retrospective cohort study was based on data from Taiwan's National Health Insurance Research Database from June 1, 2012, to December 31, 2017, covering patients with NVAF taking edoxaban (n&#"
+      },
+      {
+        "pmid": "30575175",
+        "title": "Anticoagulation after catheter ablation of atrial fibrillation: An unnecessary evil? A systematic review and meta-analysis.",
+        "journal": "Journal of cardiovascular electrophysiology",
+        "publishedAt": "2019-01-07",
+        "url": "https://doi.org/10.1111/jce.13822",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "Anticoagulation in patients with atrial fibrillation (AF) is currently based on clinical parameters (CHA2 DS 2 -VASc score) that have been shown to predict cerebrovascular events (CVE). Controversy exists as to whether CVE risk persists unmodified after successful catheter ablation, as observational studies suggest a lower risk of CVE. Current guidelines rec"
+      },
+      {
+        "pmid": "23103146",
+        "title": "Stroke risk and suboptimal thromboprophylaxis in Chinese patients with atrial fibrillation: would the novel oral anticoagulants have an impact?",
+        "journal": "International journal of cardiology",
+        "publishedAt": "2012-10-23",
+        "url": "https://doi.org/10.1016/j.ijcard.2012.09.187",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "The risk of stroke associated with atrial fibrillation (AF) is higher in Far Eastern population than in Western population, and warfarin use suboptimal. There is uncertainty whether the novel oral anticoagulants (NOACs) would have a major impact on stroke prevention in Far Eastern populations with AF. We investigated current antithrombotic therapy use on str"
+      },
+      {
+        "pmid": "20031794",
+        "title": "Anticoagulation control and prediction of adverse events in patients with atrial fibrillation: a systematic review.",
+        "journal": "Circulation. Cardiovascular quality and outcomes",
+        "publishedAt": "2008-11-05",
+        "url": "https://doi.org/10.1161/CIRCOUTCOMES.108.796185",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "To date, there has been no systematic examination of the relationship between international normalized ratio (INR) control measurements and the prediction of adverse events in patients with atrial fibrillation on oral anticoagulation. We searched MEDLINE, EMBASE, and Cochrane through January 2008 for studies of atrial fibrillation patients receiving vitamin-"
+      }
+    ],
+    "operatingNote": "重点沉淀卒中/出血风险分层、围手术期中断、药物切换与全程监测信号。"
+  },
+  {
+    "id": "cn-af-anticoagulation-early_warning",
+    "programId": "cn-af-anticoagulation",
+    "diseaseArea": "房颤抗凝",
+    "targetPopulation": "中国房颤抗凝治疗人群",
+    "signalName": "房颤抗凝中国人群early_warning",
+    "stage": "early_warning",
+    "intent": "warning",
+    "keywords": [
+      "房颤",
+      "抗凝",
+      "出血",
+      "卒中",
+      "中国",
+      "Chinese",
+      "预测",
+      "预警"
+    ],
+    "evidenceCount": 1,
+    "evidence": [
+      {
+        "pmid": "27885969",
+        "title": "36th International Symposium on Intensive Care and Emergency Medicine : Brussels, Belgium. 15-18 March 2016.",
+        "journal": "Critical care (London, England)",
+        "publishedAt": "2016-04-20",
+        "url": "https://doi.org/10.1186/s13054-016-1208-6",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "P001 - Sepsis impairs the capillary response within hypoxic capillaries and decreases erythrocyte oxygen-dependent ATP efflux R. M. Bateman, M. D. Sharpe, J. E. Jagger, C. G. Ellis P002 - Lower serum immunoglobulin G2 level does not predispose to severe flu. J. Sol&#xe9;-Viol&#xe1;n, M. L&#xf3;pez-Rodr&#xed;guez, E. Herrera-Ramos, J. Ru&#xed;z-Hern&#xe1;ndez"
+      }
+    ],
+    "operatingNote": "重点沉淀卒中/出血风险分层、围手术期中断、药物切换与全程监测信号。"
   }
 ]
