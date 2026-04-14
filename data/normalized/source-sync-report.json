@@ -1,11 +1,17 @@
 {
-  "syncStartedAt": "2026-04-13T19:39:38.861Z",
-  "syncFinishedAt": "2026-04-13T19:40:18.875Z",
+  "syncStartedAt": "2026-04-14T19:41:43.132Z",
+  "syncFinishedAt": "2026-04-14T19:42:22.708Z",
   "sourceCount": 12,
-  "recordCount": 12,
-  "chunkCount": 1687,
-  "failedSourceCount": 0,
-  "failures": [],
+  "recordCount": 11,
+  "chunkCount": 1131,
+  "failedSourceCount": 1,
+  "failures": [
+    {
+      "id": "csc-nste-acs-guideline-2024",
+      "url": "https://csc.cma.org.cn/attach/0/46bfbba77f4249aebc2ae9b70eef5377.pdf",
+      "error": "fetch failed"
+    }
+  ],
   "sources": [
     {
       "id": "csco-lung-guideline-2016-v1",
@@ -26,8 +32,9 @@
       "url": "https://csc.cma.org.cn/attach/0/46bfbba77f4249aebc2ae9b70eef5377.pdf",
       "title": "非 ST 段抬高型急性冠脉综合征诊断和治疗指南（2024）",
       "publishedAt": "2024-06-01",
-      "chunkCount": 556,
-      "status": "synced"
+      "chunkCount": 0,
+      "status": "failed",
+      "error": "fetch failed"
     },
     {
       "id": "csco-lung-2025-update",
