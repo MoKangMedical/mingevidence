@@ -17,17 +17,8 @@
       "复发",
       "监测"
     ],
-    "evidenceCount": 4,
+    "evidenceCount": 3,
     "evidence": [
-      {
-        "pmid": "41310499",
-        "title": "Prevalence and therapeutic response of EGFR T790I mutation in NSCLC patients with acquired resistance to EGFR-TKIs: a retrospective cohort study.",
-        "journal": "BMC cancer",
-        "publishedAt": "2025-11-27",
-        "url": "https://doi.org/10.1186/s12885-025-14885-4",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "The EGFR T790I mutation is a potential resistance mechanism against EGFR tyrosine kinase inhibitors (TKIs) in non-small cell lung cancer (NSCLC). However, its prevalence and clinical significance remain unexplored. We aim to delineate the mutational spectrum of EGFR T790I in NSCLC patients and investigate its association with clinical outcomes and resistance"
-      },
       {
         "pmid": "40293180",
         "title": "Zongertinib in Previously Treated HER2-Mutant Non-Small-Cell Lung Cancer.",
@@ -76,7 +67,7 @@
       "复发",
       "监测"
     ],
-    "evidenceCount": 3,
+    "evidenceCount": 1,
     "evidence": [
       {
         "pmid": "35149428",
@@ -86,24 +77,6 @@
         "url": "https://doi.org/10.1016/j.esmoop.2022.100395",
         "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
         "summary": "Human epidermal growth factor receptor 2 (HER2) is a transmembrane glycoprotein receptor with intracellular tyrosine kinase activity. Its alterations, including mutation, amplification and overexpression, could result in oncogenic potential and have been detected in many cancers such as non-small-cell lung cancer (NSCLC). Such alterations are, in general, co"
-      },
-      {
-        "pmid": "35096611",
-        "title": "Comprehensive Comparative Molecular Characterization of Young and Old Lung Cancer Patients.",
-        "journal": "Frontiers in oncology",
-        "publishedAt": "2022-01-12",
-        "url": "https://doi.org/10.3389/fonc.2021.806845",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "Young lung cancer as a small subgroup of lung cancer has not been fully studied. Most of the previous studies focused on the clinicopathological features, but studies of molecular characteristics are still few and limited. Here, we explore the characteristics of prognosis and variation in young lung cancer patients with NSCLC. A total of 5639 young lung canc"
-      },
-      {
-        "pmid": "32645388",
-        "title": "Establishment and validation of a novel droplet digital PCR assay for ultrasensitive detection and dynamic monitoring of EGFR mutations in peripheral blood samples of non-small-cell lung cancer patients.",
-        "journal": "Clinica chimica acta; international journal of clinical chemistry",
-        "publishedAt": "2020-07-06",
-        "url": "https://doi.org/10.1016/j.cca.2020.07.003",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "Droplet digital PCR (ddPCR)-based blood detection of EGFR mutations plays significant roles in the individualized therapy of non-small-cell lung cancer (NSCLC) patients. However, a standard assay that is approved by health authorities is still lacking. Additionally, the proper application of this method in clinical settings also needs further investigation. "
       }
     ],
     "operatingNote": "重点沉淀风险分层、耐药预警、治疗后复发监测和伴随诊断规则。"
@@ -139,119 +112,5 @@
       }
     ],
     "operatingNote": "重点沉淀风险分层、耐药预警、治疗后复发监测和伴随诊断规则。"
-  },
-  {
-    "id": "cn-af-anticoagulation-response_monitoring",
-    "programId": "cn-af-anticoagulation",
-    "diseaseArea": "房颤抗凝",
-    "targetPopulation": "中国房颤抗凝治疗人群",
-    "signalName": "房颤抗凝中国人群response_monitoring",
-    "stage": "response_monitoring",
-    "intent": "monitoring",
-    "keywords": [
-      "房颤",
-      "抗凝",
-      "出血",
-      "卒中",
-      "中国",
-      "Chinese",
-      "预测",
-      "预警"
-    ],
-    "evidenceCount": 2,
-    "evidence": [
-      {
-        "pmid": "40148760",
-        "title": "Efficacy, safety, and bleeding risk factor analysis of oral anticoagulants in AF patients&#x2009;&#x2265;&#x2009;65 years of age: a multicenter retrospective cohort study.",
-        "journal": "BMC geriatrics",
-        "publishedAt": "2025-03-27",
-        "url": "https://doi.org/10.1186/s12877-025-05838-4",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "Stroke prevention in elderly patients with atrial fibrillation (AF) is challenging and requires a balance between thromboembolic prevention and bleeding. The comparison of novel oral anticoagulants (NOACs) and warfarin in clinical practice in elderly Asian patients has not been well studied. The purpose of this study was to evaluate the efficacy and safety o"
-      },
-      {
-        "pmid": "34737236",
-        "title": "Renal outcomes in Asian patients receiving oral anticoagulants for non-valvular atrial fibrillation.",
-        "journal": "Hong Kong medical journal = Xianggang yi xue za zhi",
-        "publishedAt": "2021-11-05",
-        "url": "https://doi.org/10.12809/hkmj209201",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "Patients with non-valvular atrial fibrillation (NVAF) may be prescribed warfarin or a non-vitamin K oral anticoagulant (NOAC). There is increasing evidence that NOACs are superior to warfarin in terms of renal function preservation. This study aimed to compare renal outcomes in Chinese patients with NVAF between patients receiving NOACs and patients receivin"
-      }
-    ],
-    "operatingNote": "重点沉淀卒中/出血风险分层、围手术期中断、药物切换与全程监测信号。"
-  },
-  {
-    "id": "cn-af-anticoagulation-diagnosis",
-    "programId": "cn-af-anticoagulation",
-    "diseaseArea": "房颤抗凝",
-    "targetPopulation": "中国房颤抗凝治疗人群",
-    "signalName": "房颤抗凝中国人群diagnosis",
-    "stage": "diagnosis",
-    "intent": "diagnosis",
-    "keywords": [
-      "房颤",
-      "抗凝",
-      "出血",
-      "卒中",
-      "中国",
-      "Chinese",
-      "预测",
-      "预警"
-    ],
-    "evidenceCount": 1,
-    "evidence": [
-      {
-        "pmid": "37580139",
-        "title": "Clinical outcomes in elderly atrial fibrillation patients at increased bleeding risk treated with very low dose vs. regular-dose non-vitamin K antagonist oral anticoagulants: a nationwide cohort study.",
-        "journal": "European heart journal. Cardiovascular pharmacotherapy",
-        "publishedAt": "2023-01-01",
-        "url": "https://doi.org/10.1093/ehjcvp/pvad058",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "The Edoxaban Low-Dose for Elder Care Atrial Fibrillation Patients (ELDERCARE-AF) trial showed that edoxaban at a very low dosage (VLD) of 15&#xa0;mg/day was more effective than a placebo at preventing stroke/systemic embolism without significantly increasing the risk of serious bleeding. We aimed to compare the effectiveness and safety for VLD non-vitamin K "
-      }
-    ],
-    "operatingNote": "重点沉淀卒中/出血风险分层、围手术期中断、药物切换与全程监测信号。"
-  },
-  {
-    "id": "cn-af-anticoagulation-adverse_event_monitoring",
-    "programId": "cn-af-anticoagulation",
-    "diseaseArea": "房颤抗凝",
-    "targetPopulation": "中国房颤抗凝治疗人群",
-    "signalName": "房颤抗凝中国人群adverse_event_monitoring",
-    "stage": "adverse_event_monitoring",
-    "intent": "monitoring",
-    "keywords": [
-      "房颤",
-      "抗凝",
-      "出血",
-      "卒中",
-      "中国",
-      "Chinese",
-      "预测",
-      "预警"
-    ],
-    "evidenceCount": 2,
-    "evidence": [
-      {
-        "pmid": "31103697",
-        "title": "Effectiveness and Safety of Four Direct Oral&#xa0;Anticoagulants in Asian Patients With&#xa0;Nonvalvular Atrial Fibrillation.",
-        "journal": "Chest",
-        "publishedAt": "2019-05-16",
-        "url": "https://doi.org/10.1016/j.chest.2019.04.108",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "Whether four direct oral anticoagulants (DOACs) are superior to warfarin in Asian patients with nonvalvular atrial fibrillation (NVAF) remains unclear. This nationwide retrospective cohort study was based on data from Taiwan's National Health Insurance Research Database from June 1, 2012, to December 31, 2017, covering patients with NVAF taking edoxaban (n&#"
-      },
-      {
-        "pmid": "23103146",
-        "title": "Stroke risk and suboptimal thromboprophylaxis in Chinese patients with atrial fibrillation: would the novel oral anticoagulants have an impact?",
-        "journal": "International journal of cardiology",
-        "publishedAt": "2012-10-23",
-        "url": "https://doi.org/10.1016/j.ijcard.2012.09.187",
-        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
-        "summary": "The risk of stroke associated with atrial fibrillation (AF) is higher in Far Eastern population than in Western population, and warfarin use suboptimal. There is uncertainty whether the novel oral anticoagulants (NOACs) would have a major impact on stroke prevention in Far Eastern populations with AF. We investigated current antithrombotic therapy use on str"
-      }
-    ],
-    "operatingNote": "重点沉淀卒中/出血风险分层、围手术期中断、药物切换与全程监测信号。"
   }
 ]
