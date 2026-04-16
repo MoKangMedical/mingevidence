@@ -17,8 +17,17 @@
       "复发",
       "监测"
     ],
-    "evidenceCount": 3,
+    "evidenceCount": 4,
     "evidence": [
+      {
+        "pmid": "41310499",
+        "title": "Prevalence and therapeutic response of EGFR T790I mutation in NSCLC patients with acquired resistance to EGFR-TKIs: a retrospective cohort study.",
+        "journal": "BMC cancer",
+        "publishedAt": "2025-11-27",
+        "url": "https://doi.org/10.1186/s12885-025-14885-4",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "The EGFR T790I mutation is a potential resistance mechanism against EGFR tyrosine kinase inhibitors (TKIs) in non-small cell lung cancer (NSCLC). However, its prevalence and clinical significance remain unexplored. We aim to delineate the mutational spectrum of EGFR T790I in NSCLC patients and investigate its association with clinical outcomes and resistance"
+      },
       {
         "pmid": "40293180",
         "title": "Zongertinib in Previously Treated HER2-Mutant Non-Small-Cell Lung Cancer.",
@@ -67,7 +76,7 @@
       "复发",
       "监测"
     ],
-    "evidenceCount": 1,
+    "evidenceCount": 3,
     "evidence": [
       {
         "pmid": "35149428",
@@ -77,6 +86,24 @@
         "url": "https://doi.org/10.1016/j.esmoop.2022.100395",
         "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
         "summary": "Human epidermal growth factor receptor 2 (HER2) is a transmembrane glycoprotein receptor with intracellular tyrosine kinase activity. Its alterations, including mutation, amplification and overexpression, could result in oncogenic potential and have been detected in many cancers such as non-small-cell lung cancer (NSCLC). Such alterations are, in general, co"
+      },
+      {
+        "pmid": "35096611",
+        "title": "Comprehensive Comparative Molecular Characterization of Young and Old Lung Cancer Patients.",
+        "journal": "Frontiers in oncology",
+        "publishedAt": "2022-01-12",
+        "url": "https://doi.org/10.3389/fonc.2021.806845",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "Young lung cancer as a small subgroup of lung cancer has not been fully studied. Most of the previous studies focused on the clinicopathological features, but studies of molecular characteristics are still few and limited. Here, we explore the characteristics of prognosis and variation in young lung cancer patients with NSCLC. A total of 5639 young lung canc"
+      },
+      {
+        "pmid": "32645388",
+        "title": "Establishment and validation of a novel droplet digital PCR assay for ultrasensitive detection and dynamic monitoring of EGFR mutations in peripheral blood samples of non-small-cell lung cancer patients.",
+        "journal": "Clinica chimica acta; international journal of clinical chemistry",
+        "publishedAt": "2020-07-06",
+        "url": "https://doi.org/10.1016/j.cca.2020.07.003",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "Droplet digital PCR (ddPCR)-based blood detection of EGFR mutations plays significant roles in the individualized therapy of non-small-cell lung cancer (NSCLC) patients. However, a standard assay that is approved by health authorities is still lacking. Additionally, the proper application of this method in clinical settings also needs further investigation. "
       }
     ],
     "operatingNote": "重点沉淀风险分层、耐药预警、治疗后复发监测和伴随诊断规则。"
