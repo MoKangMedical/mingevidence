@@ -141,3 +141,9 @@ GitHub Actions 工作流：
 2. 在 chunk rerank 之上接入向量召回和 cross-encoder 重排
 3. 把中国人群分层信号接进 DeepConsult 和预警模块
 4. 接入数据库替代本地文件日志与会话
+
+## 📐 理论基础
+
+> **Harness理论**：在AI领域，Harness（环境设计）比模型本身更重要。使性能提升64%。
+
+> **红杉论点**：从卖工具到卖结果。
