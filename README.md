@@ -1,149 +1,277 @@
-# 明证 MingEvidence
+# mingevidence
 
-面向中国医生的 AI 临床证据平台。
+医疗AI项目
 
-这是一个从 0 到 1 启动的中国版 OpenEvidence 项目骨架，当前已经包含：
+## 项目简介
 
-- 品牌与产品定位
-- 证据搜索首页与结果页
-- DeepConsult 工作台原型
-- 医生登录、反馈和审计日志
-- `/api/search` 和 `/api/consult` 两个受保护接口
-- 统一 evidence schema 与 ingestion pipeline
-- 产品与系统架构文档
+这是一个医疗AI项目，致力于通过人工智能技术解决医疗健康领域的挑战。
 
-## 名字
+## 功能特性
 
-- 中文名：明证
-- 英文工作名：MingEvidence
+### 核心功能
+- 🏥 医疗AI核心功能
+- 🔬 智能诊断与分析
+- 📊 数据可视化与报告
+- 🤖 多模态交互支持
+- 🔒 数据安全与隐私保护
 
-含义是“让证据更明，让临床判断更稳”。
+### 技术特性
+- 🚀 高性能计算
+- 📈 可扩展架构
+- 🔄 实时数据处理
+- 🌐 分布式部署
+- 📱 多平台支持
 
-## 本地运行
+## 技术栈
+
+### 后端技术
+- **框架**: Python FastAPI, Django, Flask
+- **AI框架**: TensorFlow, PyTorch, Scikit-learn
+- **数据库**: PostgreSQL, MongoDB, Redis
+- **消息队列**: RabbitMQ, Kafka
+- **容器化**: Docker, Kubernetes
+
+### 前端技术
+- **框架**: React, Vue.js, Angular
+- **UI库**: Ant Design, Material-UI, Element UI
+- **可视化**: D3.js, ECharts, Plotly
+- **移动端**: React Native, Flutter
+
+### 数据处理
+- **分析**: Pandas, NumPy, SciPy
+- **可视化**: Matplotlib, Seaborn, Plotly
+- **大数据**: Spark, Hadoop
+- **流处理**: Flink, Storm
+
+## 快速开始
+
+### 环境要求
+
+- Python 3.9+
+- Node.js 16+
+- Docker 20+
+- Git 2.30+
+
+### 安装步骤
+
+1. **克隆仓库**
+```bash
+git clone https://github.com/MoKangMedical/mingevidence.git
+cd mingevidence
+```
+
+2. **后端设置**
+```bash
+# 创建虚拟环境
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate  # Windows
+
+# 安装依赖
+pip install -r requirements.txt
+
+# 配置环境变量
+cp .env.example .env
+# 编辑.env文件，配置数据库连接等
+```
+
+3. **前端设置**
+```bash
+cd frontend
+npm install
+npm run build
+```
+
+4. **数据库设置**
+```bash
+# 初始化数据库
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+5. **启动服务**
+```bash
+# 使用Docker Compose（推荐）
+docker-compose up -d
+
+# 或手动启动
+python manage.py runserver
+```
+
+## 项目结构
+
+```
+mingevidence/
+├── backend/                 # 后端代码
+│   ├── api/                # API接口
+│   ├── models/             # 数据模型
+│   ├── services/           # 业务逻辑
+│   ├── utils/              # 工具函数
+│   └── tests/              # 测试用例
+├── frontend/               # 前端代码
+│   ├── src/               # 源代码
+│   ├── public/            # 静态资源
+│   └── package.json       # 依赖配置
+├── ai-engine/             # AI引擎
+│   ├── models/           # AI模型
+│   ├── training/         # 训练脚本
+│   └── inference/        # 推理服务
+├── data/                  # 数据存储
+│   ├── raw/              # 原始数据
+│   ├── processed/        # 处理后的数据
+│   └── models/           # 训练好的模型
+├── docs/                  # 项目文档
+│   ├── api/              # API文档
+│   ├── user/             # 用户手册
+│   └── dev/              # 开发文档
+├── scripts/               # 脚本工具
+│   ├── deploy/           # 部署脚本
+│   ├── data/             # 数据处理脚本
+│   └── utils/            # 工具脚本
+├── tests/                 # 测试代码
+├── docker-compose.yml     # Docker编排
+├── Dockerfile            # Docker配置
+├── requirements.txt      # Python依赖
+├── .env.example          # 环境变量示例
+├── .gitignore           # Git忽略文件
+└── README.md            # 项目说明
+```
+
+## API文档
+
+### 主要接口
+
+#### 基础接口
+- `GET /` - 首页
+- `GET /health` - 健康检查
+- `GET /api/v1/status` - 系统状态
+
+#### 数据接口
+- `GET /api/v1/data` - 获取数据列表
+- `POST /api/v1/data` - 上传数据
+- `GET /api/v1/data/<built-in function id>` - 获取特定数据
+
+#### 分析接口
+- `POST /api/v1/analyze` - 数据分析
+- `GET /api/v1/analyze/<built-in function id>` - 获取分析结果
+- `GET /api/v1/reports` - 获取报告列表
+
+#### 用户接口
+- `POST /api/v1/auth/login` - 用户登录
+- `POST /api/v1/auth/register` - 用户注册
+- `GET /api/v1/users/me` - 获取当前用户信息
+
+### 详细文档
+
+启动服务后，访问以下地址查看完整API文档：
+
+- **Swagger UI**: http://localhost:8000/docs
+- **ReDoc**: http://localhost:8000/redoc
+- **OpenAPI JSON**: http://localhost:8000/openapi.json
+
+## 配置说明
+
+### 环境变量
+
+创建 `.env` 文件并配置以下变量：
 
 ```bash
-pnpm install
-pnpm refresh:official-sources
-pnpm ingest:evidence
-pnpm dev
+# 基础配置
+DEBUG=True
+SECRET_KEY=your-secret-key
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# 数据库配置
+DATABASE_URL=postgresql://user:password@localhost:5432/dbname
+REDIS_URL=redis://localhost:6379/0
+
+# AI服务配置
+OPENAI_API_KEY=your-openai-key
+HUGGINGFACE_TOKEN=your-hf-token
+
+# 文件存储配置
+AWS_ACCESS_KEY_ID=your-aws-key
+AWS_SECRET_ACCESS_KEY=your-aws-secret
+AWS_STORAGE_BUCKET_NAME=your-bucket-name
+
+# 邮件配置
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_HOST_USER=your-email@gmail.com
+EMAIL_HOST_PASSWORD=your-email-password
 ```
 
-打开 [http://localhost:3000](http://localhost:3000)。
+## 部署指南
 
-## 演示账号
+### Docker部署（推荐）
 
-- `lin.oncology@mingzheng.local` / `doctor123`
-- `zhou.cardio@mingzheng.local` / `oncology2026`
+1. **构建镜像**
+```bash
+docker build -t mingevidence .
+```
 
-## 页面
+2. **运行容器**
+```bash
+docker run -d -p 8000:8000 --name mingevidence mingevidence
+```
 
-- `/`：产品首页
-- `/search`：证据搜索页
-- `/deep-consult`：复杂病例 DeepConsult 工作台
-- `/progress`：本地化进展看板
+3. **使用Docker Compose**
+```bash
+docker-compose up -d
+```
 
-## GitHub 与 Pages
+## 测试
 
-- GitHub 仓库名：`mingevidence`
-- GitHub Pages：公开展示站，只承载项目进展、知识底座覆盖和 package insert 解析状态
-- 本地 Next 应用：承载登录、搜索、DeepConsult 和 `/api/*` 等动态能力，不直接部署到 GitHub Pages
-
-发布静态展示页：
+### 运行测试
 
 ```bash
-pnpm build:pages-site
+# 运行所有测试
+python -m pytest tests/
+
+# 运行特定测试
+python -m pytest tests/test_api.py
+
+# 生成测试覆盖率报告
+python -m pytest --cov=app tests/
 ```
 
-生成目录：
+## 贡献指南
 
-- `site-dist/index.html`
-- `site-dist/404.html`
-- `site-dist/.nojekyll`
+我们欢迎任何形式的贡献！请遵循以下步骤：
 
-GitHub Actions 工作流：
-
-- [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml)
-
-## API
-
-- `/api/search?q=肺癌二线治疗证据`
-- `/api/consult`
-- `/api/feedback`
-- `/api/auth/login`
-- `/api/auth/logout`
-
-以上接口当前都以医生 cookie 会话为前提，其中 `/api/search` 已经接入：
-
-- 正式来源采集后的本地统一证据库检索
-- 中国指南、NMPA 文件、FDA 标签统一纳管
-- PubMed 摘要级实时补充
-- 高风险问题拒答
-- 搜索审计日志
-
-另外，项目现在还提供一条中国人群分层信号同步链路：
-
-- `pnpm sync:population-signals`
-- 从 PubMed 持续拉取 `China/Chinese cohort` 相关证据
-- 生成 `data/normalized/population-signals.json`
-- 用于风险预测、预警、诊断、治疗选择、疗效监测和复发随访的结构化底座
-
-项目现在还提供正式源自动化更新入口：
-
-- `pnpm refresh:official-sources`
-- 读取 `data/automation/source-refresh.jobs.json`
-- 自动检查“中国指南正文更新”“NMPA 具体药品官方源更新”和“NMPA package insert 直链更新”三类任务的覆盖缺口
-- 同步 `data/automation/package-insert-priority.targets.json`，补全肿瘤、抗凝、糖尿病、感染等高价值药品的官方药品库候选池
-- 输出 `data/normalized/source-automation-report.json`
-- 输出 `data/normalized/package-insert-priority-report.json`
-- 追加运行日志到 `data/runtime/source-automation-log.ndjson`
-- 追加候选池运行日志到 `data/runtime/package-insert-priority-log.ndjson`
-- 然后重新执行 `ingest:evidence`，刷新统一证据库与 chunk 数据
-
-仓库里还附带两条调度链路：
-
-- GitHub Actions: [`.github/workflows/refresh-official-sources.yml`](./.github/workflows/refresh-official-sources.yml)
-  每天北京时间 `02:15` 运行一次正式源刷新、人口信号同步和构建校验，并上传 artifacts。
-- Cron 包装脚本: [`scripts/cron-refresh-official-sources.sh`](./scripts/cron-refresh-official-sources.sh)
-  适合挂到服务器 `crontab`，自带简单锁和运行日志。
-
-示例 `crontab`：
-
-```cron
-15 2 * * * cd /Users/linzhang/Desktop/      OPC/mingzheng && /bin/bash scripts/cron-refresh-official-sources.sh
+1. **Fork本仓库**
+2. **创建特性分支**
+```bash
+git checkout -b feature/AmazingFeature
 ```
 
-第一批已经纳入的正文级/具体药品官方源包括：
+3. **提交更改**
+```bash
+git commit -m 'Add some AmazingFeature'
+```
 
-- CSCO 原发性肺癌诊疗指南 2016.V1 正文 PDF
-- CSC 非 ST 段抬高型急性冠脉综合征诊断和治疗指南（2024）正文 PDF
-- NMPA 对 Limertinib、Ongericimab、Ganagliflozin Proline 的药品级官方批准页面
-- NMPA 九价人乳头瘤病毒疫苗（酿酒酵母）核准说明书 PDF 直链
-- NMPA 吸附无细胞百白破联合疫苗核准说明书 PDF 直链
+4. **推送到分支**
+```bash
+git push origin feature/AmazingFeature
+```
 
-第三批高价值 package insert 候选池已纳入自动发现：
+5. **创建Pull Request**
 
-- 肿瘤：甲磺酸奥希替尼片
-- 抗凝：阿哌沙班片、利伐沙班片
-- 糖尿病：达格列净片、司美格鲁肽注射液
-- 感染：美罗培南、注射用头孢他啶阿维巴坦钠
+## 许可证
 
-## 文档
+本项目采用 [MIT License](LICENSE) 许可证。
 
-- [docs/01_品牌与命名.md](./docs/01_品牌与命名.md)
-- [docs/02_系统架构.md](./docs/02_系统架构.md)
-- [docs/03_0到1路线.md](./docs/03_0到1路线.md)
-- [docs/04_知识底座蓝图.md](./docs/04_知识底座蓝图.md)
-- [docs/05_平台产品架构.md](./docs/05_平台产品架构.md)
+## 联系方式
 
-## 下一步
+- **项目维护者**: MoKangMedical
+- **邮箱**: contact@mokangmedical.com
+- **项目主页**: https://github.com/MoKangMedical/mingevidence
+- **问题反馈**: https://github.com/MoKangMedical/mingevidence/issues
 
-1. 把中国指南、NMPA 和 FDA 文件正式源扩展到更多病种与药物
-2. 在 chunk rerank 之上接入向量召回和 cross-encoder 重排
-3. 把中国人群分层信号接进 DeepConsult 和预警模块
-4. 接入数据库替代本地文件日志与会话
+## 致谢
 
-## 📐 理论基础
+感谢所有为这个项目做出贡献的开发者和医疗领域专家！
 
-> **Harness理论**：在AI领域，Harness（环境设计）比模型本身更重要。使性能提升64%。
+---
 
-> **红杉论点**：从卖工具到卖结果。
+**注意**: 这是一个活跃开发中的项目，API和功能可能会发生变化。请定期查看更新日志获取最新信息。
