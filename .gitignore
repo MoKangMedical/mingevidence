@@ -45,3 +45,11 @@ next-env.d.ts
 data/runtime/*.ndjson
 data/runtime/case-workspaces.json
 !data/runtime/.gitkeep
+
+# Environment — Hermes安全规则
+.env
+.env.local
+.env.*.local
+*.key
+*_secret*
+credentials.json
