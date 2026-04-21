@@ -1,11 +1,22 @@
 {
-  "syncStartedAt": "2026-04-20T19:33:45.219Z",
-  "syncFinishedAt": "2026-04-20T19:34:26.778Z",
+  "syncStartedAt": "2026-04-21T19:37:12.761Z",
+  "syncFinishedAt": "2026-04-21T19:37:59.316Z",
   "sourceCount": 12,
-  "recordCount": 12,
-  "chunkCount": 1687,
-  "failedSourceCount": 0,
-  "failures": [],
+  "recordCount": 10,
+  "chunkCount": 1130,
+  "failedSourceCount": 2,
+  "failures": [
+    {
+      "id": "csc-nste-acs-guideline-2024",
+      "url": "https://csc.cma.org.cn/attach/0/46bfbba77f4249aebc2ae9b70eef5377.pdf",
+      "error": "fetch failed"
+    },
+    {
+      "id": "csc-cardio-guideline-2025-call",
+      "url": "https://csc.cma.org.cn/art/2025/9/23/art_591_59215.html",
+      "error": "fetch failed"
+    }
+  ],
   "sources": [
     {
       "id": "csco-lung-guideline-2016-v1",
@@ -26,8 +37,9 @@
       "url": "https://csc.cma.org.cn/attach/0/46bfbba77f4249aebc2ae9b70eef5377.pdf",
       "title": "非 ST 段抬高型急性冠脉综合征诊断和治疗指南（2024）",
       "publishedAt": "2024-06-01",
-      "chunkCount": 556,
-      "status": "synced"
+      "chunkCount": 0,
+      "status": "failed",
+      "error": "fetch failed"
     },
     {
       "id": "csco-lung-2025-update",
@@ -46,10 +58,11 @@
       "documentClass": "announcement",
       "searchPolicy": "exclude",
       "url": "https://csc.cma.org.cn/art/2025/9/23/art_591_59215.html",
-      "title": "2025年第一批CSC指南共识立项公示",
+      "title": "csc-cardio-guideline-2025-call",
       "publishedAt": "2025-09-23",
-      "chunkCount": 1,
-      "status": "synced"
+      "chunkCount": 0,
+      "status": "failed",
+      "error": "fetch failed"
     },
     {
       "id": "nmpa-label-writing-principle-2024",
