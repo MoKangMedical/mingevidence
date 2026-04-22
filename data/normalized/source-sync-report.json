@@ -1,20 +1,15 @@
 {
-  "syncStartedAt": "2026-04-21T19:37:12.761Z",
-  "syncFinishedAt": "2026-04-21T19:37:59.316Z",
+  "syncStartedAt": "2026-04-22T19:38:45.000Z",
+  "syncFinishedAt": "2026-04-22T19:39:25.664Z",
   "sourceCount": 12,
-  "recordCount": 10,
-  "chunkCount": 1130,
-  "failedSourceCount": 2,
+  "recordCount": 11,
+  "chunkCount": 1652,
+  "failedSourceCount": 1,
   "failures": [
     {
-      "id": "csc-nste-acs-guideline-2024",
-      "url": "https://csc.cma.org.cn/attach/0/46bfbba77f4249aebc2ae9b70eef5377.pdf",
-      "error": "fetch failed"
-    },
-    {
-      "id": "csc-cardio-guideline-2025-call",
-      "url": "https://csc.cma.org.cn/art/2025/9/23/art_591_59215.html",
-      "error": "fetch failed"
+      "id": "fda-tagrisso-label",
+      "url": "https://api.fda.gov/drug/label.json",
+      "error": "Failed to fetch openFDA label fda-tagrisso-label: 404"
     }
   ],
   "sources": [
@@ -37,9 +32,8 @@
       "url": "https://csc.cma.org.cn/attach/0/46bfbba77f4249aebc2ae9b70eef5377.pdf",
       "title": "非 ST 段抬高型急性冠脉综合征诊断和治疗指南（2024）",
       "publishedAt": "2024-06-01",
-      "chunkCount": 0,
-      "status": "failed",
-      "error": "fetch failed"
+      "chunkCount": 556,
+      "status": "synced"
     },
     {
       "id": "csco-lung-2025-update",
@@ -58,11 +52,10 @@
       "documentClass": "announcement",
       "searchPolicy": "exclude",
       "url": "https://csc.cma.org.cn/art/2025/9/23/art_591_59215.html",
-      "title": "csc-cardio-guideline-2025-call",
+      "title": "2025年第一批CSC指南共识立项公示",
       "publishedAt": "2025-09-23",
-      "chunkCount": 0,
-      "status": "failed",
-      "error": "fetch failed"
+      "chunkCount": 1,
+      "status": "synced"
     },
     {
       "id": "nmpa-label-writing-principle-2024",
@@ -137,9 +130,10 @@
       "searchPolicy": "regulatory",
       "url": "https://api.fda.gov/drug/label.json",
       "title": "TAGRISSO (osimertinib) FDA label",
-      "publishedAt": "2024-09-25",
-      "chunkCount": 35,
-      "status": "synced"
+      "publishedAt": "unknown",
+      "chunkCount": 0,
+      "status": "failed",
+      "error": "Failed to fetch openFDA label fda-tagrisso-label: 404"
     },
     {
       "id": "fda-apixaban-label",

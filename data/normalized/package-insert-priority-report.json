@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-21T19:37:12.724Z",
+  "generatedAt": "2026-04-22T19:38:44.963Z",
   "summary": {
     "totalTargets": 7,
     "verifiedTargets": 0,
@@ -876,7 +876,7 @@
       "channels": [
         "domestic"
       ],
-      "registryHitCount": 6,
+      "registryHitCount": 5,
       "verifiedDirectLinkCount": 0,
       "status": "awaiting_direct_link_verification",
       "resolverStatus": "canonical_candidate_selected",
@@ -1013,27 +1013,6 @@
           "drugCode": "86901052000058",
           "drugClass": "化学药品",
           "resolverScore": 2056
-        },
-        {
-          "channel": "domestic",
-          "genericName": "美罗培南",
-          "englishName": "",
-          "brandName": "",
-          "brandNameEnglish": "",
-          "dosageForm": "",
-          "specification": "----",
-          "packSize": "",
-          "approvalNumber": "国药准字H20093531",
-          "originalApprovalNumber": "国药准字H20093531/Y20190006291",
-          "approvedAt": "2021-04-22",
-          "approvalExpiresAt": "",
-          "marketingAuthorizationHolder": "",
-          "manufacturer": "上海上药新亚药业有限公司",
-          "manufacturerCountry": "",
-          "manufacturingAddress": "上海市浦东新区川沙路978号",
-          "drugCode": "86900796001611",
-          "drugClass": "化学药品",
-          "resolverScore": 2053
         }
       ],
       "verifiedDirectLinks": [],
