@@ -1,17 +1,11 @@
 {
-  "syncStartedAt": "2026-04-22T19:38:45.000Z",
-  "syncFinishedAt": "2026-04-22T19:39:25.664Z",
+  "syncStartedAt": "2026-04-23T19:40:58.203Z",
+  "syncFinishedAt": "2026-04-23T19:41:40.673Z",
   "sourceCount": 12,
-  "recordCount": 11,
-  "chunkCount": 1652,
-  "failedSourceCount": 1,
-  "failures": [
-    {
-      "id": "fda-tagrisso-label",
-      "url": "https://api.fda.gov/drug/label.json",
-      "error": "Failed to fetch openFDA label fda-tagrisso-label: 404"
-    }
-  ],
+  "recordCount": 12,
+  "chunkCount": 1687,
+  "failedSourceCount": 0,
+  "failures": [],
   "sources": [
     {
       "id": "csco-lung-guideline-2016-v1",
@@ -130,10 +124,9 @@
       "searchPolicy": "regulatory",
       "url": "https://api.fda.gov/drug/label.json",
       "title": "TAGRISSO (osimertinib) FDA label",
-      "publishedAt": "unknown",
-      "chunkCount": 0,
-      "status": "failed",
-      "error": "Failed to fetch openFDA label fda-tagrisso-label: 404"
+      "publishedAt": "2024-09-25",
+      "chunkCount": 35,
+      "status": "synced"
     },
     {
       "id": "fda-apixaban-label",
