@@ -112,5 +112,197 @@
       }
     ],
     "operatingNote": "重点沉淀风险分层、耐药预警、治疗后复发监测和伴随诊断规则。"
+  },
+  {
+    "id": "cn-af-anticoagulation-early_warning",
+    "programId": "cn-af-anticoagulation",
+    "diseaseArea": "房颤抗凝",
+    "targetPopulation": "中国房颤抗凝治疗人群",
+    "signalName": "房颤抗凝中国人群early_warning",
+    "stage": "early_warning",
+    "intent": "warning",
+    "keywords": [
+      "房颤",
+      "抗凝",
+      "出血",
+      "卒中",
+      "中国",
+      "Chinese",
+      "预测",
+      "预警"
+    ],
+    "evidenceCount": 1,
+    "evidence": [
+      {
+        "pmid": "27885969",
+        "title": "36th International Symposium on Intensive Care and Emergency Medicine : Brussels, Belgium. 15-18 March 2016.",
+        "journal": "Critical care (London, England)",
+        "publishedAt": "2016-04-20",
+        "url": "https://doi.org/10.1186/s13054-016-1208-6",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "P001 - Sepsis impairs the capillary response within hypoxic capillaries and decreases erythrocyte oxygen-dependent ATP efflux R. M. Bateman, M. D. Sharpe, J. E. Jagger, C. G. Ellis P002 - Lower serum immunoglobulin G2 level does not predispose to severe flu. J. Sol&#xe9;-Viol&#xe1;n, M. L&#xf3;pez-Rodr&#xed;guez, E. Herrera-Ramos, J. Ru&#xed;z-Hern&#xe1;ndez"
+      }
+    ],
+    "operatingNote": "重点沉淀卒中/出血风险分层、围手术期中断、药物切换与全程监测信号。"
+  },
+  {
+    "id": "cn-diabetes-ckd-treatment_selection",
+    "programId": "cn-diabetes-ckd",
+    "diseaseArea": "糖尿病合并慢性肾病",
+    "targetPopulation": "中国糖尿病合并慢性肾病人群",
+    "signalName": "糖尿病合并慢性肾病中国人群treatment_selection",
+    "stage": "treatment_selection",
+    "intent": "treatment",
+    "keywords": [
+      "糖尿病",
+      "CKD",
+      "肾病",
+      "中国",
+      "Chinese",
+      "进展",
+      "预测",
+      "监测"
+    ],
+    "evidenceCount": 1,
+    "evidence": [
+      {
+        "pmid": "40063957",
+        "title": "Evaluation and Management of Chronic Kidney Disease: Synopsis of the Kidney Disease: Improving Global Outcomes 2024 Clinical Practice Guideline.",
+        "journal": "Annals of internal medicine",
+        "publishedAt": "2025-03-11",
+        "url": "https://doi.org/10.7326/ANNALS-24-01926",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "The Kidney Disease: Improving Global Outcomes (KDIGO) organization updated its existing clinical practice guideline in 2024 to provide guidance on the evaluation, management, and treatment of chronic kidney disease (CKD) in adults and children who are not receiving kidney replacement therapy. The KDIGO CKD Guideline Work Group defined the scope of the guidel"
+      }
+    ],
+    "operatingNote": "重点沉淀肾功能恶化、心肾结局预警、治疗响应和长期随访信号。"
+  },
+  {
+    "id": "cn-diabetes-ckd-response_monitoring",
+    "programId": "cn-diabetes-ckd",
+    "diseaseArea": "糖尿病合并慢性肾病",
+    "targetPopulation": "中国糖尿病合并慢性肾病人群",
+    "signalName": "糖尿病合并慢性肾病中国人群response_monitoring",
+    "stage": "response_monitoring",
+    "intent": "monitoring",
+    "keywords": [
+      "糖尿病",
+      "CKD",
+      "肾病",
+      "中国",
+      "Chinese",
+      "进展",
+      "预测",
+      "监测"
+    ],
+    "evidenceCount": 1,
+    "evidence": [
+      {
+        "pmid": "39955553",
+        "title": "Predicting major adverse cardiac events in diabetes and chronic kidney disease: a machine learning study from the Silesia Diabetes-Heart Project.",
+        "journal": "Cardiovascular diabetology",
+        "publishedAt": "2025-02-15",
+        "url": "https://doi.org/10.1186/s12933-025-02615-w",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "People living with diabetes mellitus (DM) and chronic kidney disease (CKD) are at significantly high risk of cardiovascular events (CVEs), however the predictive performance of traditional risk prediction methods are limited. We utilised machine learning (ML) model to predict CVEs in persons with DM and CKD from the Silesia Diabetes-Heart Project, a routine "
+      }
+    ],
+    "operatingNote": "重点沉淀肾功能恶化、心肾结局预警、治疗响应和长期随访信号。"
+  },
+  {
+    "id": "cn-diabetes-ckd-early_warning",
+    "programId": "cn-diabetes-ckd",
+    "diseaseArea": "糖尿病合并慢性肾病",
+    "targetPopulation": "中国糖尿病合并慢性肾病人群",
+    "signalName": "糖尿病合并慢性肾病中国人群early_warning",
+    "stage": "early_warning",
+    "intent": "warning",
+    "keywords": [
+      "糖尿病",
+      "CKD",
+      "肾病",
+      "中国",
+      "Chinese",
+      "进展",
+      "预测",
+      "监测"
+    ],
+    "evidenceCount": 1,
+    "evidence": [
+      {
+        "pmid": "39042512",
+        "title": "Large-Scale Proteomics Improve Prediction of Chronic Kidney Disease in People With Diabetes.",
+        "journal": "Diabetes care",
+        "publishedAt": "2024-01-01",
+        "url": "https://doi.org/10.2337/dc24-0290",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "To develop and validate a protein risk score for predicting chronic kidney disease (CKD) in patients with diabetes and compare its predictive performance with a validated clinical risk model (CKD Prediction Consortium [CKD-PC]) and CKD polygenic risk score. This cohort study included 2,094 patients with diabetes who had proteomics and genetic information and"
+      }
+    ],
+    "operatingNote": "重点沉淀肾功能恶化、心肾结局预警、治疗响应和长期随访信号。"
+  },
+  {
+    "id": "cn-diabetes-ckd-adverse_event_monitoring",
+    "programId": "cn-diabetes-ckd",
+    "diseaseArea": "糖尿病合并慢性肾病",
+    "targetPopulation": "中国糖尿病合并慢性肾病人群",
+    "signalName": "糖尿病合并慢性肾病中国人群adverse_event_monitoring",
+    "stage": "adverse_event_monitoring",
+    "intent": "monitoring",
+    "keywords": [
+      "糖尿病",
+      "CKD",
+      "肾病",
+      "中国",
+      "Chinese",
+      "进展",
+      "预测",
+      "监测"
+    ],
+    "evidenceCount": 1,
+    "evidence": [
+      {
+        "pmid": "36104509",
+        "title": "Epidemiology and risk of cardiovascular disease in populations with chronic kidney disease.",
+        "journal": "Nature reviews. Nephrology",
+        "publishedAt": "2022-09-14",
+        "url": "https://doi.org/10.1038/s41581-022-00616-6",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "Chronic kidney disease (CKD) is defined by a low glomerular filtration rate or high albuminuria, and affects 15-20% of adults globally. CKD increases the risk of various adverse outcomes, but cardiovascular disease (CVD) is of particular relevance because it is the leading cause of death in this clinical population. CKD is associated with several CVD outcome"
+      }
+    ],
+    "operatingNote": "重点沉淀肾功能恶化、心肾结局预警、治疗响应和长期随访信号。"
+  },
+  {
+    "id": "cn-diabetes-ckd-diagnosis",
+    "programId": "cn-diabetes-ckd",
+    "diseaseArea": "糖尿病合并慢性肾病",
+    "targetPopulation": "中国糖尿病合并慢性肾病人群",
+    "signalName": "糖尿病合并慢性肾病中国人群diagnosis",
+    "stage": "diagnosis",
+    "intent": "diagnosis",
+    "keywords": [
+      "糖尿病",
+      "CKD",
+      "肾病",
+      "中国",
+      "Chinese",
+      "进展",
+      "预测",
+      "监测"
+    ],
+    "evidenceCount": 1,
+    "evidence": [
+      {
+        "pmid": "31703124",
+        "title": "Development of Risk Prediction Equations for Incident Chronic Kidney Disease.",
+        "journal": "JAMA",
+        "publishedAt": "2019-01-01",
+        "url": "https://doi.org/10.1001/jama.2019.17379",
+        "populationHint": "China/Chinese cohort or population mentioned in PubMed retrieval query",
+        "summary": "Early identification of individuals at elevated risk of developing chronic kidney disease (CKD) could improve clinical care through enhanced surveillance and better management of underlying health conditions. To develop assessment tools to identify individuals at increased risk of CKD, defined by reduced estimated glomerular filtration rate (eGFR). Individua"
+      }
+    ],
+    "operatingNote": "重点沉淀肾功能恶化、心肾结局预警、治疗响应和长期随访信号。"
   }
 ]

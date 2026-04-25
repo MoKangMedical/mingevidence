@@ -1,27 +1,11 @@
 {
-  "syncStartedAt": "2026-04-24T19:12:36.400Z",
-  "syncFinishedAt": "2026-04-24T19:13:20.651Z",
+  "syncStartedAt": "2026-04-25T19:11:42.527Z",
+  "syncFinishedAt": "2026-04-25T19:12:37.612Z",
   "sourceCount": 12,
-  "recordCount": 9,
-  "chunkCount": 1429,
-  "failedSourceCount": 3,
-  "failures": [
-    {
-      "id": "nmpa-label-writing-principle-2024",
-      "url": "https://www.nmpa.gov.cn/directory/web/nmpa/images/1641548277568026809.pdf",
-      "error": "fetch failed"
-    },
-    {
-      "id": "nmpa-gardasil9-package-insert-2024",
-      "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20241022/swzp-ym20240105gyzzSJ20215001smsSPC.pdf",
-      "error": "fetch failed"
-    },
-    {
-      "id": "nmpa-dtap-package-insert-2021",
-      "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20230523/swzp-ym20210601gyzzS20200001smsSPC.pdf",
-      "error": "fetch failed"
-    }
-  ],
+  "recordCount": 12,
+  "chunkCount": 1687,
+  "failedSourceCount": 0,
+  "failures": [],
   "sources": [
     {
       "id": "csco-lung-guideline-2016-v1",
@@ -75,9 +59,8 @@
       "url": "https://www.nmpa.gov.cn/directory/web/nmpa/images/1641548277568026809.pdf",
       "title": "古代经典名方中药复方制剂说明书撰写指导原则（试行）",
       "publishedAt": "2024-05-08",
-      "chunkCount": 0,
-      "status": "failed",
-      "error": "fetch failed"
+      "chunkCount": 17,
+      "status": "synced"
     },
     {
       "id": "nmpa-gardasil9-package-insert-2024",
@@ -87,9 +70,8 @@
       "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20241022/swzp-ym20240105gyzzSJ20215001smsSPC.pdf",
       "title": "九价人乳头瘤病毒疫苗（酿酒酵母）说明书",
       "publishedAt": "2024-01-05",
-      "chunkCount": 0,
-      "status": "failed",
-      "error": "fetch failed"
+      "chunkCount": 232,
+      "status": "synced"
     },
     {
       "id": "nmpa-dtap-package-insert-2021",
@@ -99,9 +81,8 @@
       "url": "https://www.nmpa.gov.cn/datasearch/attach/upload/sms/20230523/swzp-ym20210601gyzzS20200001smsSPC.pdf",
       "title": "吸附无细胞百白破联合疫苗说明书",
       "publishedAt": "2021-06-01",
-      "chunkCount": 0,
-      "status": "failed",
-      "error": "fetch failed"
+      "chunkCount": 9,
+      "status": "synced"
     },
     {
       "id": "nmpa-limertinib-2025",
