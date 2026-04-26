@@ -1,0 +1,125 @@
+{
+  "version": "1.0.0",
+  "description": "系统综述模板库",
+  "templates": [
+    {
+      "id": "sr-intervention",
+      "name": "干预措施系统综述",
+      "description": "评估干预措施效果的系统综述模板",
+      "sections": [
+        {
+          "title": "背景与目的",
+          "required": true,
+          "items": ["研究背景", "研究问题", "PICO框架", "纳入排除标准"]
+        },
+        {
+          "title": "方法",
+          "required": true,
+          "items": ["检索策略", "数据库选择", "文献筛选", "数据提取", "质量评价", "统计分析"]
+        },
+        {
+          "title": "结果",
+          "required": true,
+          "items": ["文献筛选流程图", "纳入研究特征", "质量评价结果", "Meta分析结果", "异质性分析"]
+        },
+        {
+          "title": "讨论",
+          "required": true,
+          "items": ["主要发现", "证据质量", "局限性", "临床意义", "未来研究方向"]
+        }
+      ],
+      "pico_template": {
+        "P": "目标人群",
+        "I": "干预措施",
+        "C": "对照措施",
+        "O": "结局指标"
+      }
+    },
+    {
+      "id": "sr-diagnostic",
+      "name": "诊断准确性系统综述",
+      "description": "评估诊断试验准确性的系统综述模板",
+      "sections": [
+        {
+          "title": "背景与目的",
+          "required": true,
+          "items": ["目标疾病", "待评价试验", "金标准", "研究问题"]
+        },
+        {
+          "title": "方法",
+          "required": true,
+          "items": ["检索策略", "纳入标准", "数据提取", "质量评价QUADAS-2", "统计分析"]
+        },
+        {
+          "title": "结果",
+          "required": true,
+          "items": ["敏感性", "特异性", "SROC曲线", "似然比", "诊断比值比"]
+        }
+      ],
+      "quadas2_domains": ["病例选择", "待评价试验", "金标准", "流程与时机"]
+    },
+    {
+      "id": "sr-prognostic",
+      "name": "预后因素系统综述",
+      "description": "评估预后因素的系统综述模板",
+      "sections": [
+        {
+          "title": "背景与目的",
+          "required": true,
+          "items": ["目标疾病", "预后因素", "结局指标", "时间框架"]
+        },
+        {
+          "title": "方法",
+          "required": true,
+          "items": ["检索策略", "纳入标准", "数据提取", "质量评价QUIPS", "统计分析"]
+        }
+      ],
+      "quips_domains": ["研究参与", "预后因素测量", "结局测量", "混杂因素", "统计分析"]
+    },
+    {
+      "id": "sr-etiology",
+      "name": "病因学系统综述",
+      "description": "评估病因/危险因素的系统综述模板",
+      "sections": [
+        {
+          "title": "背景与目的",
+          "required": true,
+          "items": ["暴露因素", "目标疾病", "研究人群", "研究设计"]
+        },
+        {
+          "title": "方法",
+          "required": true,
+          "items": ["检索策略", "纳入标准", "数据提取", "偏倚评估", "效应量合成"]
+        }
+      ]
+    },
+    {
+      "id": "sr-qualitative",
+      "name": "质性研究系统综述",
+      "description": "综合质性研究证据的系统综述模板",
+      "sections": [
+        {
+          "title": "背景与目的",
+          "required": true,
+          "items": ["研究现象", "研究人群", "研究情境"]
+        },
+        {
+          "title": "方法",
+          "required": true,
+          "items": ["检索策略", "纳入标准", "质量评价CASP", "主题综合"]
+        }
+      ]
+    }
+  ],
+  "common_databases": [
+    {"name": "PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov/", "type": "biomedical"},
+    {"name": "Embase", "url": "https://www.embase.com/", "type": "biomedical"},
+    {"name": "Cochrane Library", "url": "https://www.cochranelibrary.com/", "type": "systematic_reviews"},
+    {"name": "Web of Science", "url": "https://www.webofscience.com/", "type": "multidisciplinary"},
+    {"name": "CNKI", "url": "https://www.cnki.net/", "type": "chinese"},
+    {"name": "万方数据", "url": "https://www.wanfangdata.com.cn/", "type": "chinese"},
+    {"name": "CBM", "url": "http://www.sinomed.ac.cn/", "type": "chinese_biomedical"},
+    {"name": "PsycINFO", "url": "https://www.apa.org/pubs/databases/psycinfo", "type": "psychology"},
+    {"name": "CINAHL", "url": "https://www.ebsco.com/products/research-databases/cinahl-complete", "type": "nursing"}
+  ]
+}

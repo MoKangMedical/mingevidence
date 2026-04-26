@@ -1,0 +1,136 @@
+{
+  "version": "1.0.0",
+  "description": "Cochrane系统综述方案模板库",
+  "organization": {
+    "name": "Cochrane",
+    "full_name": "Cochrane Collaboration",
+    "website": "https://www.cochrane.org/",
+    "library_url": "https://www.cochranelibrary.com/"
+  },
+  "protocol_sections": [
+    {
+      "id": "title",
+      "name": "标题",
+      "description": "Cochrane系统综述标题应包含干预措施、目标人群和结局",
+      "required": true,
+      "items": ["综述类型", "干预措施", "目标人群", "结局指标"]
+    },
+    {
+      "id": "background",
+      "name": "背景",
+      "description": "描述研究问题的背景和重要性",
+      "required": true,
+      "items": ["疾病描述", "现有治疗", "干预措施原理", "为何需要此综述"]
+    },
+    {
+      "id": "objectives",
+      "name": "目的",
+      "description": "使用PICO格式明确陈述研究目的",
+      "required": true,
+      "items": ["主要目的", "次要目的"]
+    },
+    {
+      "id": "methods",
+      "name": "方法",
+      "description": "详细描述综述方法",
+      "required": true,
+      "items": [
+        "纳入标准",
+        "检索方法",
+        "数据收集与分析",
+        "偏倚风险评估",
+        "数据合成"
+      ]
+    }
+  ],
+  "risk_of_bias_tool": {
+    "version": "RoB 2.0",
+    "domains": [
+      {
+        "id": "D1",
+        "name": "随机化过程产生的偏倚",
+        "signaling_questions": [
+          "随机序列是否产生恰当？",
+          "随机分配是否隐藏？",
+          "组间基线差异是否可解释？"
+        ]
+      },
+      {
+        "id": "D2",
+        "name": "偏离预期干预的偏倚",
+        "signaling_questions": [
+          "参与者是否知晓分组？",
+          "护理人员是否知晓分组？",
+          "偏离预期干预是否平衡？"
+        ]
+      },
+      {
+        "id": "D3",
+        "name": "结局数据缺失导致的偏倚",
+        "signaling_questions": [
+          "结局数据是否完整？",
+          "缺失数据是否在组间平衡？",
+          "是否使用恰当方法处理缺失？"
+        ]
+      },
+      {
+        "id": "D4",
+        "name": "结局测量的偏倚",
+        "signaling_questions": [
+          "结局测量者是否知晓分组？",
+          "结局测量方法是否恰当？",
+          "测量方法是否在组间一致？"
+        ]
+      },
+      {
+        "id": "D5",
+        "name": "选择性报告结果的偏倚",
+        "signaling_questions": [
+          "是否预先注册方案？",
+          "报告结果是否与方案一致？",
+          "是否报告所有预设结局？"
+        ]
+      }
+    ],
+    "judgments": ["低风险", "存在一些担忧", "高风险"]
+  },
+  "review_types": [
+    {
+      "id": "intervention",
+      "name": "干预措施综述",
+      "description": "评估干预措施的利弊"
+    },
+    {
+      "id": "diagnostic",
+      "name": "诊断准确性综述",
+      "description": "评估诊断试验的准确性"
+    },
+    {
+      "id": "prognosis",
+      "name": "预后综述",
+      "description": "评估预后因素"
+    },
+    {
+      "id": "qualitative",
+      "name": "质性证据综述",
+      "description": "综合质性研究"
+    },
+    {
+      "id": "overviews",
+      "name": "综述之综述",
+      "description": "综合多个系统综述的证据"
+    },
+    {
+      "id": "methodology",
+      "name": "方法学综述",
+      "description": "评估系统综述方法"
+    }
+  ],
+  "quality_standards": {
+    "minimum_studies": 2,
+    "databases_required": 2,
+    "independent_screening": true,
+    "dual_data_extraction": true,
+    "protocol_registration": "PROSPERO或Cochrane"
+  }
+}

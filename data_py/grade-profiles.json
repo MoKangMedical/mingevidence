@@ -1,0 +1,156 @@
+{
+  "version": "2.0",
+  "description": "GRADE证据质量评价档案",
+  "full_name": "Grading of Recommendations, Assessment, Development and Evaluation",
+  "url": "https://www.gradeworkinggroup.org/",
+  "evidence_quality_levels": [
+    {
+      "level": "高",
+      "symbol": "⊕⊕⊕⊕",
+      "description": "非常确信估计值接近真实值",
+      "further_research": "不太可能改变对效应估计的信心"
+    },
+    {
+      "level": "中",
+      "symbol": "⊕⊕⊕⊖",
+      "description": "对效应估计有中等信心；真实值可能接近估计值，但可能有显著差异",
+      "further_research": "可能对效应估计的信心产生重要影响"
+    },
+    {
+      "level": "低",
+      "symbol": "⊕⊕⊖⊖",
+      "description": "对效应估计的信心有限；真实值可能与估计值有显著差异",
+      "further_research": "很可能对效应估计的信心产生重要影响"
+    },
+    {
+      "level": "极低",
+      "symbol": "⊕⊖⊖⊖",
+      "description": "对效应估计几乎没有信心；真实值可能与估计值有很大不同",
+      "further_research": "任何估计都很不确定"
+    }
+  ],
+  "downgrade_factors": [
+    {
+      "id": "risk_of_bias",
+      "name": "偏倚风险",
+      "description": "纳入研究存在局限性",
+      "criteria": [
+        "随机化方法不当",
+        "分配隐藏不充分",
+        "盲法缺失",
+        "不完整结局数据",
+        "选择性报告"
+      ],
+      "downgrade_options": [0, -1, -2]
+    },
+    {
+      "id": "inconsistency",
+      "name": "不一致性",
+      "description": "研究结果间存在差异",
+      "criteria": [
+        "点估计值差异大",
+        "置信区间重叠少",
+        "I²值高",
+        "统计检验异质性显著"
+      ],
+      "downgrade_options": [0, -1, -2]
+    },
+    {
+      "id": "indirectness",
+      "name": "间接性",
+      "description": "证据不直接回答研究问题",
+      "criteria": [
+        "人群不同",
+        "干预措施不同",
+        "对照不同",
+        "结局不同",
+        "研究设计间接"
+      ],
+      "downgrade_options": [0, -1, -2]
+    },
+    {
+      "id": "imprecision",
+      "name": "不精确性",
+      "description": "效应估计不够精确",
+      "criteria": [
+        "置信区间宽",
+        "样本量不足",
+        "事件数少",
+        "信息量不够"
+      ],
+      "downgrade_options": [0, -1, -2]
+    },
+    {
+      "id": "publication_bias",
+      "name": "发表偏倚",
+      "description": "可能存在发表偏倚",
+      "criteria": [
+        "漏斗图不对称",
+        "Egger检验显著",
+        "小样本研究效应",
+        "有未发表研究的证据"
+      ],
+      "downgrade_options": [0, -1, -2]
+    }
+  ],
+  "upgrade_factors": [
+    {
+      "id": "large_effect",
+      "name": "大效应量",
+      "description": "效应量大且一致",
+      "criteria": [
+        "相对风险>2或<0.5",
+        "效应量大且无混杂"
+      ],
+      "upgrade_options": [0, 1, 2]
+    },
+    {
+      "id": "dose_response",
+      "name": "剂量-反应关系",
+      "description": "存在剂量-反应梯度",
+      "criteria": [
+        "效应量随剂量增加",
+        "存在线性或非线性关系"
+      ],
+      "upgrade_options": [0, 1]
+    },
+    {
+      "id": "confounding",
+      "name": "残余混杂",
+      "description": "所有合理混杂可能降低效应",
+      "criteria": [
+        "混杂方向一致降低效应",
+        "效应在调整后仍然显著"
+      ],
+      "upgrade_options": [0, 1]
+    }
+  ],
+  "summary_of_findings_table": {
+    "columns": [
+      "结局指标",
+      "研究数/参与者数",
+      "证据质量",
+      "相对效应(95%CI)",
+      "绝对效应(95%CI)",
+      "备注"
+    ],
+    "max_outcomes": 7
+  },
+  "evidence_profiles": [
+    {
+      "id": "efficacy",
+      "name": "疗效证据档案",
+      "outcome_types": ["主要结局", "次要结局"]
+    },
+    {
+      "id": "safety",
+      "name": "安全性证据档案",
+      "outcome_types": ["严重不良事件", "一般不良事件"]
+    },
+    {
+      "id": "patient_important",
+      "name": "患者重要结局档案",
+      "outcome_types": ["死亡率", "生活质量", "功能状态"]
+    }
+  ]
+}

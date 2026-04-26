@@ -1,0 +1,119 @@
+{
+  "version": "1.0.0",
+  "description": "森林图可视化配置",
+  "default_settings": {
+    "width": 800,
+    "height": "auto",
+    "margin": {"top": 40, "right": 40, "bottom": 40, "left": 40},
+    "font_family": "Arial, sans-serif",
+    "font_size": 12,
+    "colors": {
+      "point_estimate": "#2166AC",
+      "confidence_interval": "#2166AC",
+      "summary_diamond": "#B2182B",
+      "reference_line": "#666666",
+      "background_stripe": "#F7F7F7",
+      "favors_left": "#2166AC",
+      "favors_right": "#B2182B"
+    }
+  },
+  "plot_types": [
+    {
+      "id": "standard",
+      "name": "标准森林图",
+      "description": "显示各研究效应量和置信区间",
+      "components": [
+        "study_labels",
+        "effect_sizes",
+        "confidence_intervals",
+        "weight_squares",
+        "summary_diamond",
+        "reference_line",
+        "axis",
+        "favors_labels"
+      ]
+    },
+    {
+      "id": "subgroup",
+      "name": "亚组森林图",
+      "description": "按亚组分层显示效应量",
+      "components": [
+        "subgroup_labels",
+        "subgroup_summary",
+        "overall_summary",
+        "interaction_test"
+      ]
+    },
+    {
+      "id": "cumulative",
+      "name": "累积Meta分析森林图",
+      "description": "按时间顺序逐步添加研究",
+      "components": [
+        "cumulative_effects",
+        "timeline_axis"
+      ]
+    },
+    {
+      "id": "influence",
+      "name": "敏感性分析森林图",
+      "description": "逐一剔除研究后的效应量",
+      "components": [
+        "leave_one_out_effects",
+        "overall_effect_reference"
+      ]
+    }
+  ],
+  "layout": {
+    "columns": [
+      {"name": "study", "width": 200, "align": "left", "content": "研究名称"},
+      {"name": "events_treatment", "width": 60, "align": "center", "content": "干预组事件"},
+      {"name": "total_treatment", "width": 60, "align": "center", "content": "干预组总数"},
+      {"name": "events_control", "width": 60, "align": "center", "content": "对照组事件"},
+      {"name": "total_control", "width": 60, "align": "center", "content": "对照组总数"},
+      {"name": "weight", "width": 60, "align": "center", "content": "权重(%)"},
+      {"name": "effect_plot", "width": 280, "align": "center", "content": "效应量及95%CI"}
+    ],
+    "header_row": true,
+    "group_headers": true,
+    "summary_rows": true
+  },
+  "scale_options": {
+    "x_axis": {
+      "scale_type": ["linear", "log"],
+      "tick_count": 5,
+      "grid_lines": true
+    },
+    "auto_range": true,
+    "show_reference_line": true,
+    "reference_value": null
+  },
+  "annotations": {
+    "show_weight": true,
+    "show_effect_ci": true,
+    "show_p_value": true,
+    "show_i_squared": true,
+    "show_tau_squared": true,
+    "show_prediction_interval": false,
+    "diamond_summary": true
+  },
+  "export_formats": ["png", "svg", "pdf", "tiff"],
+  "accessibility": {
+    "alt_text": true,
+    "high_contrast_mode": false,
+    "colorblind_safe": true
+  },
+  "libraries": {
+    "python": {
+      "matplotlib": "matplotlib + numpy",
+      "forestplot": "forestplot package"
+    },
+    "r": {
+      "meta": "meta package",
+      "metafor": "metafor package",
+      "forestploter": "forestploter package"
+    },
+    "javascript": {
+      "d3": "D3.js"
+    }
+  }
+}

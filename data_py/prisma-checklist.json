@@ -1,0 +1,72 @@
+{
+  "version": "2020",
+  "description": "PRISMA 2020系统综述报告清单",
+  "full_name": "Preferred Reporting Items for Systematic Reviews and Meta-Analyses",
+  "reference": "Page MJ, McKenzie JE, Bossuyt PM, et al. The PRISMA 2020 statement. BMJ. 2021;372:n71.",
+  "url": "https://www.prisma-statement.org/",
+  "checklist": {
+    "title": [
+      {"id": "1", "item": "标题", "description": "识别为系统综述、Meta分析或两者", "section": "标题"}
+    ],
+    "abstract": [
+      {"id": "2", "item": "结构化摘要", "description": "提供结构化摘要，包括背景、目的、数据来源、研究纳入标准、参与者和干预措施、主要结局指标、数据综合方法、结果、局限性、结论和系统综述注册号", "section": "摘要"}
+    ],
+    "introduction": [
+      {"id": "3", "item": "理论依据", "description": "描述进行系统综述的理论依据", "section": "背景"},
+      {"id": "4", "item": "目的", "description": "明确陈述研究问题或目的，使用PICO框架", "section": "目的"}
+    ],
+    "methods": [
+      {"id": "5", "item": "方案和注册", "description": "提供系统综述方案的注册号及注册平台", "section": "方案"},
+      {"id": "6", "item": "纳入标准", "description": "明确说明纳入研究的资格标准", "section": "纳入标准"},
+      {"id": "7", "item": "信息来源", "description": "列出所有检索的数据库及其他信息来源", "section": "信息来源"},
+      {"id": "8", "item": "检索策略", "description": "提供至少一个数据库的完整电子检索策略", "section": "检索"},
+      {"id": "9", "item": "选择过程", "description": "描述选择纳入研究的方法", "section": "研究选择"},
+      {"id": "10", "item": "数据提取", "description": "描述从纳入研究中提取数据的方法", "section": "数据收集"},
+      {"id": "11", "item": "数据项", "description": "列出所有需要提取的数据项", "section": "数据项"},
+      {"id": "12", "item": "偏倚风险评估", "description": "描述评估纳入研究偏倚风险的方法", "section": "偏倚风险"},
+      {"id": "13", "item": "效应量测量", "description": "描述效应量的测量指标", "section": "效应量"},
+      {"id": "14", "item": "数据合成方法", "description": "描述数据合成和Meta分析的方法", "section": "数据合成"},
+      {"id": "15", "item": "报告偏倚评估", "description": "描述评估报告偏倚的方法", "section": "报告偏倚"},
+      {"id": "16", "item": "确定性评估", "description": "描述证据确定性评估方法（如GRADE）", "section": "确定性"}
+    ],
+    "results": [
+      {"id": "17", "item": "研究选择", "description": "提供研究筛选流程图", "section": "研究选择"},
+      {"id": "18", "item": "研究特征", "description": "描述纳入研究的特征", "section": "研究特征"},
+      {"id": "19", "item": "偏倚风险", "description": "报告纳入研究的偏倚风险评估结果", "section": "偏倚风险"},
+      {"id": "20", "item": "单项研究结果", "description": "报告所有纳入研究的效应量结果", "section": "单项研究"},
+      {"id": "21", "item": "数据合成", "description": "报告Meta分析和其他数据合成的结果", "section": "数据合成"},
+      {"id": "22", "item": "报告偏倚", "description": "报告发表偏倚评估结果", "section": "报告偏倚"},
+      {"id": "23", "item": "确定性评估", "description": "报告证据确定性评估结果", "section": "确定性"}
+    ],
+    "discussion": [
+      {"id": "24", "item": "讨论", "description": "讨论主要发现、局限性、临床和研究意义", "section": "讨论"}
+    ],
+    "other": [
+      {"id": "25", "item": "注册和方案", "description": "提供注册信息和方案获取途径", "section": "其他"},
+      {"id": "26", "item": "资金来源", "description": "描述系统综述的资金来源", "section": "资金"},
+      {"id": "27", "item": "利益冲突", "description": "声明潜在利益冲突", "section": "利益冲突"}
+    ]
+  },
+  "flow_diagram": {
+    "stages": [
+      {"name": "识别", "items": ["数据库检索", "其他来源"]},
+      {"name": "筛选", "items": ["去重后记录数", "排除原因"]},
+      {"name": "纳入", "items": ["定性合成", "定量合成"]}
+    ],
+    "template": {
+      "identification": {"database": 0, "other": 0},
+      "screening": {"records": 0, "excluded": 0},
+      "eligibility": {"assessed": 0, "excluded_with_reasons": 0},
+      "included": {"qualitative": 0, "quantitative": 0}
+    }
+  },
+  "extensions": [
+    {"name": "PRISMA-S", "description": "检索策略报告扩展"},
+    {"name": "PRISMA-DTA", "description": "诊断准确性综述扩展"},
+    {"name": "PRISMA-NMA", "description": "网状Meta分析扩展"},
+    {"name": "PRISMA-IPD", "description": "个体参与者数据综述扩展"},
+    {"name": "PRISMA-Harms", "description": "不良事件报告扩展"},
+    {"name": "PRISMA-P", "description": "综述方案报告扩展"},
+    {"name": "PRISMA-CI", "description": "复杂干预综述扩展"}
+  ]
+}

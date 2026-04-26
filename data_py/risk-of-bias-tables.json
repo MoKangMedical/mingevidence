@@ -1,0 +1,133 @@
+{
+  "version": "1.0.0",
+  "description": "偏倚风险评估表格模板",
+  "tools": [
+    {
+      "id": "rob2",
+      "name": "RoB 2.0",
+      "applicable": "随机对照试验",
+      "reference": "Sterne JAC, et al. BMJ. 2019;366:l4898",
+      "domains": [
+        {
+          "id": "D1",
+          "name": "随机化过程",
+          "signals": [
+            "随机序列产生方法",
+            "分配隐藏方法",
+            "基线差异"
+          ],
+          "judgments": ["低风险", "存在一些担忧", "高风险"]
+        },
+        {
+          "id": "D2",
+          "name": "偏离预期干预",
+          "signals": [
+            "参与者盲法",
+            "实施者盲法",
+            "偏离情况"
+          ],
+          "judgments": ["低风险", "存在一些担忧", "高风险"]
+        },
+        {
+          "id": "D3",
+          "name": "结局数据缺失",
+          "signals": [
+            "缺失数据比例",
+            "缺失原因",
+            "处理方法"
+          ],
+          "judgments": ["低风险", "存在一些担忧", "高风险"]
+        },
+        {
+          "id": "D4",
+          "name": "结局测量",
+          "signals": [
+            "测量者盲法",
+            "测量方法",
+            "组间一致性"
+          ],
+          "judgments": ["低风险", "存在一些担忧", "高风险"]
+        },
+        {
+          "id": "D5",
+          "name": "选择性报告",
+          "signals": [
+            "方案注册",
+            "报告完整性",
+            "预设结局"
+          ],
+          "judgments": ["低风险", "存在一些担忧", "高风险"]
+        }
+      ],
+      "overall_judgment": ["低风险", "存在一些担忧", "高风险"]
+    },
+    {
+      "id": "robins-i",
+      "name": "ROBINS-I",
+      "applicable": "非随机干预研究",
+      "reference": "Sterne JA, et al. BMJ. 2016;355:i4919",
+      "domains": [
+        {"id": "D1", "name": "混杂偏倚", "judgments": ["低风险", "中等风险", "高风险", "极高风险"]},
+        {"id": "D2", "name": "参与者选择偏倚", "judgments": ["低风险", "中等风险", "高风险", "极高风险"]},
+        {"id": "D3", "name": "干预分类偏倚", "judgments": ["低风险", "中等风险", "高风险", "极高风险"]},
+        {"id": "D4", "name": "偏离预期干预偏倚", "judgments": ["低风险", "中等风险", "高风险", "极高风险"]},
+        {"id": "D5", "name": "缺失数据偏倚", "judgments": ["低风险", "中等风险", "高风险", "极高风险"]},
+        {"id": "D6", "name": "结局测量偏倚", "judgments": ["低风险", "中等风险", "高风险", "极高风险"]},
+        {"id": "D7", "name": "选择性报告偏倚", "judgments": ["低风险", "中等风险", "高风险", "极高风险"]}
+      ]
+    },
+    {
+      "id": "quadas-2",
+      "name": "QUADAS-2",
+      "applicable": "诊断准确性研究",
+      "reference": "Whiting PF, et al. Ann Intern Med. 2011;155(8):529-536",
+      "domains": [
+        {"id": "D1", "name": "病例选择", "judgments": ["低风险", "存在担忧", "高风险"]},
+        {"id": "D2", "name": "待评价试验", "judgments": ["低风险", "存在担忧", "高风险"]},
+        {"id": "D3", "name": "金标准", "judgments": ["低风险", "存在担忧", "高风险"]},
+        {"id": "D4", "name": "流程与时机", "judgments": ["低风险", "存在担忧", "高风险"]}
+      ]
+    },
+    {
+      "id": "nos",
+      "name": "Newcastle-Ottawa Scale",
+      "applicable": "队列研究和病例对照研究",
+      "reference": "Wells GA, et al. Ottawa Hospital Research Institute, 2014",
+      "domains": [
+        {"id": "selection", "name": "选择", "max_stars": 4, "items": ["暴露组代表性", "非暴露组选择", "暴露确定", "结局事前不存在"]},
+        {"id": "comparability", "name": "可比性", "max_stars": 2, "items": ["设计或分析控制混杂"]},
+        {"id": "outcome", "name": "结局", "max_stars": 3, "items": ["结局评估", "随访时间", "随访充分性"]}
+      ],
+      "max_total": 9
+    },
+    {
+      "id": "jbi-cross-sectional",
+      "name": "JBI横断面研究评价工具",
+      "applicable": "横断面研究",
+      "items": [
+        "纳入标准明确",
+        "研究对象和场所描述详细",
+        "暴露因素测量有效可靠",
+        "标准客观",
+        "混杂因素识别",
+        "混杂因素处理",
+        "结局测量有效可靠",
+        "统计分析恰当"
+      ],
+      "judgments": ["是", "否", "不清楚", "不适用"]
+    }
+  ],
+  "visualization": {
+    "traffic_light_plot": {
+      "colors": {
+        "low_risk": "#00CC00",
+        "some_concerns": "#FFFF00",
+        "high_risk": "#FF0000"
+      }
+    },
+    "summary_plot": {
+      "domains_on_y_axis": true,
+      "studies_on_x_axis": true
+    }
+  }
+}

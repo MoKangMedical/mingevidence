@@ -1,0 +1,114 @@
+{
+  "version": "1.0.0",
+  "description": "Meta分析配置参数库",
+  "models": [
+    {
+      "id": "fixed-effect",
+      "name": "固定效应模型",
+      "description": "假设所有研究共享一个共同的真实效应量",
+      "method": "Mantel-Haenszel",
+      "when_to_use": "研究间异质性较小（I² < 50%）",
+      "parameters": {
+        "effect_measure": ["OR", "RR", "RD", "MD", "SMD"],
+        "confidence_level": 0.95,
+        "continuity_correction": 0.5
+      }
+    },
+    {
+      "id": "random-effects",
+      "name": "随机效应模型",
+      "description": "假设研究间存在真实效应量的变异",
+      "method": "DerSimonian-Laird",
+      "when_to_use": "研究间存在显著异质性（I² ≥ 50%）",
+      "parameters": {
+        "effect_measure": ["OR", "RR", "RD", "MD", "SMD"],
+        "confidence_level": 0.95,
+        "tau2_estimator": ["DL", "REML", "PM", "SJ"]
+      }
+    },
+    {
+      "id": "bayesian",
+      "name": "贝叶斯Meta分析",
+      "description": "使用贝叶斯方法进行Meta分析",
+      "when_to_use": "纳入研究较少或需要先验信息时",
+      "parameters": {
+        "prior_distribution": "normal",
+        "mcmc_iterations": 100000,
+        "burn_in": 10000,
+        "chains": 3
+      }
+    }
+  ],
+  "heterogeneity_tests": [
+    {
+      "id": "cochran-q",
+      "name": "Cochran's Q检验",
+      "description": "检验研究间异质性是否显著",
+      "significance_level": 0.10
+    },
+    {
+      "id": "i-squared",
+      "name": "I²统计量",
+      "description": "量化异质性占总变异的比例",
+      "interpretation": [
+        {"range": "0-25%", "level": "低异质性"},
+        {"range": "25-50%", "level": "中等异质性"},
+        {"range": "50-75%", "level": "较大异质性"},
+        {"range": "75-100%", "level": "很大异质性"}
+      ]
+    },
+    {
+      "id": "tau-squared",
+      "name": "τ²统计量",
+      "description": "研究间方差的估计值"
+    },
+    {
+      "id": "prediction-interval",
+      "name": "预测区间",
+      "description": "预测未来研究中效应量的可能范围"
+    }
+  ],
+  "subgroup_analyses": [
+    {"name": "按研究设计", "variable": "study_design"},
+    {"name": "按样本量", "variable": "sample_size"},
+    {"name": "按地区", "variable": "region"},
+    {"name": "按年龄组", "variable": "age_group"},
+    {"name": "按随访时间", "variable": "follow_up_duration"},
+    {"name": "按干预剂量", "variable": "intervention_dose"}
+  ],
+  "sensitivity_analyses": [
+    {"name": "逐一剔除法", "method": "leave_one_out"},
+    {"name": "低偏倚风险研究", "method": "low_risk_only"},
+    {"name": "高质量研究", "method": "high_quality_only"},
+    {"name": "发表偏倚调整", "method": "publication_bias_adjustment"},
+    {"name": "不同效应模型", "method": "alternative_model"}
+  ],
+  "publication_bias": [
+    {
+      "id": "funnel_plot",
+      "name": "漏斗图",
+      "description": "目视检查对称性"
+    },
+    {
+      "id": "egger_test",
+      "name": "Egger检验",
+      "description": "定量检验漏斗图不对称性",
+      "applicable": "连续型结局"
+    },
+    {
+      "id": "begg_test",
+      "name": "Begg秩相关检验",
+      "description": "基于秩相关的发表偏倚检验"
+    },
+    {
+      "id": "trim_fill",
+      "name": "剪补法",
+      "description": "估计缺失研究并调整效应量"
+    },
+    {
+      "id": "fail_safe_n",
+      "name": "失安全数",
+      "description": "需要多少未发表研究才能使结果不显著"
+    }
+  ]
+}
