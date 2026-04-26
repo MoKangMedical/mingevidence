@@ -1,0 +1,93 @@
+{
+  "rob2": {
+    "name": "Cochrane ROB2 (随机对照试验)",
+    "version": "2.0",
+    "domains": [
+      {
+        "id": "D1",
+        "name": "随机化过程产生的偏倚",
+        "name_en": "Bias arising from the randomization process",
+        "signaling_questions": [
+          "是否进行了适当的随机分配序列生成？",
+          "是否进行了分配隐藏？",
+          "基线特征是否存在组间不平衡？"
+        ],
+        "judgments": ["low", "some_concerns", "high"]
+      },
+      {
+        "id": "D2",
+        "name": "因偏离预期干预产生的偏倚",
+        "name_en": "Bias due to deviations from intended interventions",
+        "signaling_questions": [
+          "参与者是否知晓分组情况？",
+          "护理人员/实施者是否知晓分组情况？",
+          "是否存在不合适的合并治疗？"
+        ],
+        "judgments": ["low", "some_concerns", "high"]
+      },
+      {
+        "id": "D3",
+        "name": "结局数据缺失导致的偏倚",
+        "name_en": "Bias due to missing outcome data",
+        "signaling_questions": [
+          "结局数据是否完整？",
+          "缺失数据是否可能与真实结局相关？",
+          "是否采用了合适的缺失数据处理方法？"
+        ],
+        "judgments": ["low", "some_concerns", "high"]
+      },
+      {
+        "id": "D4",
+        "name": "结局测量中的偏倚",
+        "name_en": "Bias in measurement of the outcome",
+        "signaling_questions": [
+          "结局测量方法是否合适？",
+          "结局评估者是否知晓分组情况？",
+          "测量方法在各组间是否一致？"
+        ],
+        "judgments": ["low", "some_concerns", "high"]
+      },
+      {
+        "id": "D5",
+        "name": "选择性报告结果的偏倚",
+        "name_en": "Bias in selection of the reported result",
+        "signaling_questions": [
+          "分析方案是否预先制定？",
+          "是否报告了所有预先设定的结局？",
+          "是否进行了未预先计划的分析？"
+        ],
+        "judgments": ["low", "some_concerns", "high"]
+      }
+    ]
+  },
+  "nos": {
+    "name": "Newcastle-Ottawa Scale (观察性研究)",
+    "version": "2021",
+    "domains": {
+      "selection": {
+        "max_stars": 4,
+        "items": [
+          {"id": "S1", "name": "暴露组的代表性", "star_if": "truly/somewhat representative"},
+          {"id": "S2", "name": "非暴露组的选择", "star_if": "from same community"},
+          {"id": "S3", "name": "暴露的确定", "star_if": "secure record/structured interview"},
+          {"id": "S4", "name": "结局事件在研究开始时未发生", "star_if": "yes"}
+        ]
+      },
+      "comparability": {
+        "max_stars": 2,
+        "items": [
+          {"id": "C1", "name": "基于设计或分析的可比性", "star_if": "controls for most important factor"},
+          {"id": "C2", "name": "基于设计或分析的可比性", "star_if": "controls for any additional factor"}
+        ]
+      },
+      "outcome": {
+        "max_stars": 3,
+        "items": [
+          {"id": "O1", "name": "结局的评估", "star_if": "independent blind assessment/record linkage"},
+          {"id": "O2", "name": "随访时间足够长", "star_if": "adequate"},
+          {"id": "O3", "name": "随访的充分性", "star_if": "complete follow-up/subjects lost<5%>"}
+        ]
+      }
+    }
+  }
+}

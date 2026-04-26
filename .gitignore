@@ -53,3 +53,8 @@ data/runtime/case-workspaces.json
 *.key
 *_secret*
 credentials.json
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/

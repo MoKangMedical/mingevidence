@@ -1,0 +1,62 @@
+{
+  "drug_vs_placebo": {
+    "name": "药物 vs 安慰剂",
+    "pattern": "在{population}中，{intervention}对比{comparison}对{outcome}的影响",
+    "example": "在2型糖尿病患者中，GLP-1受体激动剂对比安慰剂对心血管事件的影响",
+    "pico": {
+      "population": "2型糖尿病患者",
+      "intervention": "GLP-1受体激动剂",
+      "comparison": "安慰剂",
+      "outcome": "心血管事件(MACE)"
+    },
+    "search_strategy": "(diabetes mellitus, type 2[MeSH]) AND (GLP-1 receptor agonist[tiab]) AND (cardiovascular[tiab])"
+  },
+  "treatment_comparison": {
+    "name": "治疗方案对比",
+    "pattern": "{intervention}与{comparison}治疗{population}的{outcome}比较",
+    "example": "达格列净与恩格列净治疗心力衰竭的疗效比较",
+    "pico": {
+      "population": "心力衰竭患者",
+      "intervention": "达格列净",
+      "comparison": "恩格列净",
+      "outcome": "全因死亡率/心衰住院"
+    },
+    "search_strategy": "(heart failure[MeSH]) AND (dapagliflozin[tiab] OR empagliflozin[tiab])"
+  },
+  "diagnostic_accuracy": {
+    "name": "诊断准确性",
+    "pattern": "{intervention}诊断{population}中{outcome}的准确性",
+    "example": "AI辅助CT诊断肺结节的准确性",
+    "pico": {
+      "population": "疑似肺结节患者",
+      "intervention": "AI辅助CT",
+      "comparison": "传统CT阅片",
+      "outcome": "灵敏度/特异度"
+    },
+    "search_strategy": "(lung nodule[MeSH]) AND (artificial intelligence[tiab]) AND (sensitivity[tiab] OR specificity[tiab])"
+  },
+  "prognosis": {
+    "name": "预后研究",
+    "pattern": "{population}中{intervention}对{outcome}的预后价值",
+    "example": "循环肿瘤DNA对结直肠癌术后复发的预后价值",
+    "pico": {
+      "population": "结直肠癌术后患者",
+      "intervention": "ctDNA检测",
+      "comparison": "传统肿瘤标志物",
+      "outcome": "无病生存期/复发"
+    },
+    "search_strategy": "(colorectal neoplasms[MeSH]) AND (circulating tumor DNA[tiab]) AND (prognosis[tiab])"
+  },
+  "safety": {
+    "name": "安全性研究",
+    "pattern": "{intervention}在{population}中的{outcome}安全性",
+    "example": "JAK抑制剂在类风湿关节炎患者中的心血管安全性",
+    "pico": {
+      "population": "类风湿关节炎患者",
+      "intervention": "JAK抑制剂",
+      "comparison": "TNF抑制剂",
+      "outcome": "心血管不良事件"
+    },
+    "search_strategy": "(arthritis, rheumatoid[MeSH]) AND (JAK inhibitor[tiab]) AND (cardiovascular safety[tiab])"
+  }
+}

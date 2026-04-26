@@ -1,0 +1,109 @@
+{
+  "grades": {
+    "high": {
+      "score": 4,
+      "symbol": "⊕⊕⊕⊕",
+      "label": "High",
+      "description": "非常确信估计值接近真实效应：进一步研究不太可能改变我们对效应估计的信心",
+      "definition": "We are very confident that the true effect lies close to that of the estimate of the effect."
+    },
+    "moderate": {
+      "score": 3,
+      "symbol": "⊕⊕⊕◯",
+      "label": "Moderate",
+      "description": "对估计值有中等信心：真实效应可能接近估计值，但也可能存在实质差别",
+      "definition": "We are moderately confident in the effect estimate: the true effect is likely to be close to the estimate of the effect, but there is a possibility that it is substantially different."
+    },
+    "low": {
+      "score": 2,
+      "symbol": "⊕⊕◯◯",
+      "label": "Low",
+      "description": "对估计值的信心有限：真实效应可能与估计值有实质差别",
+      "definition": "Our confidence in the effect estimate is limited: the true effect may be substantially different from the estimate of the effect."
+    },
+    "very_low": {
+      "score": 1,
+      "symbol": "⊕◯◯◯",
+      "label": "Very Low",
+      "description": "对估计值几乎没有信心：真实效应可能与估计值大不相同",
+      "definition": "We have very little confidence in the effect estimate: the true effect is likely to be substantially different from the estimate of effect."
+    }
+  },
+  "downgrade_factors": {
+    "risk_of_bias": {
+      "name": "偏倚风险",
+      "name_en": "Risk of Bias",
+      "levels": {
+        "low": {"downgrade": 0, "description": "大多数证据来自低偏倚风险的研究"},
+        "moderate": {"downgrade": 1, "description": "部分研究存在偏倚风险问题"},
+        "high": {"downgrade": 2, "description": "大多数研究存在严重偏倚风险"}
+      }
+    },
+    "inconsistency": {
+      "name": "不一致性",
+      "name_en": "Inconsistency",
+      "levels": {
+        "low": {"downgrade": 0, "description": "I² < 25%，点估计在CI内"},
+        "moderate": {"downgrade": 1, "description": "I² 25-75%，可能存在不一致性"},
+        "high": {"downgrade": 2, "description": "I² > 75%，明显不一致"}
+      }
+    },
+    "indirectness": {
+      "name": "间接性",
+      "name_en": "Indirectness",
+      "levels": {
+        "low": {"downgrade": 0, "description": "人群、干预、对照、结局均直接"},
+        "moderate": {"downgrade": 1, "description": "部分间接证据"},
+        "high": {"downgrade": 2, "description": "大多数为间接证据"}
+      }
+    },
+    "imprecision": {
+      "name": "不精确性",
+      "name_en": "Imprecision",
+      "levels": {
+        "low": {"downgrade": 0, "description": "95% CI窄，最优信息样本量充足"},
+        "moderate": {"downgrade": 1, "description": "CI包含无临床意义的值"},
+        "high": {"downgrade": 2, "description": "CI很宽，样本量严重不足"}
+      }
+    },
+    "publication_bias": {
+      "name": "发表偏倚",
+      "name_en": "Publication Bias",
+      "levels": {
+        "undetected": {"downgrade": 0, "description": "未检测到发表偏倚"},
+        "suspected": {"downgrade": 1, "description": "疑似存在发表偏倚"},
+        "detected": {"downgrade": 2, "description": "明确存在发表偏倚"}
+      }
+    }
+  },
+  "upgrade_factors": {
+    "large_effect": {
+      "name": "大效应量",
+      "name_en": "Large Effect",
+      "upgrade": 1,
+      "criteria": "效应量 > 2 (RR > 2 或 RR < 0.5) 且无法用偏倚或混杂解释"
+    },
+    "dose_response": {
+      "name": "剂量反应关系",
+      "name_en": "Dose-Response Gradient",
+      "upgrade": 1,
+      "criteria": "存在明确的剂量-反应梯度"
+    },
+    "confounding": {
+      "name": "混杂因素方向",
+      "name_en": "Confounding",
+      "upgrade": 1,
+      "criteria": "所有合理的混杂因素都会降低效应量"
+    }
+  },
+  "initial_quality": {
+    "rct": {
+      "initial": "high",
+      "rationale": "随机对照试验初始定为高质量证据"
+    },
+    "observational": {
+      "initial": "low",
+      "rationale": "观察性研究初始定为低质量证据"
+    }
+  }
+}
