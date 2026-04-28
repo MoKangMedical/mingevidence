@@ -1,136 +1,98 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MingEvidence 循证医学平台</title>
-<meta name="description" content="SUBMingEvidence 循证医学平台">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a1e;color:#e2e8f0;line-height:1.6}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;background:linear-gradient(135deg,#14b8a622 0%,#0a0a1e 50%,#14b8a611 100%);position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 40%,#14b8a615,transparent 60%),radial-gradient(circle at 70% 60%,#8b5cf610,transparent 60%)}
-.hero-c{position:relative;z-index:1;max-width:800px}
-.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;margin-bottom:1rem;background:linear-gradient(135deg,#fff,#14b8a6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px}
-.hero p{font-size:1.2rem;color:rgba(255,255,255,0.7);margin-bottom:2rem}
-.cg{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.cb{padding:14px 32px;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s;border:none}
-.cp{background:linear-gradient(135deg,#14b8a6,#8b5cf6);color:#fff;box-shadow:0 4px 20px #14b8a640}
-.cp:hover{transform:translateY(-2px);box-shadow:0 8px 30px #14b8a660}
-.cs{background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2)}
-.cs:hover{background:rgba(255,255,255,0.15)}
-.section{padding:6rem 2rem;max-width:1200px;margin:0 auto}
-.st{text-align:center;font-size:2.2rem;font-weight:700;margin-bottom:1rem}
-.ss{text-align:center;color:rgba(255,255,255,0.6);margin-bottom:3rem;font-size:1.1rem}
-.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.fc{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem;transition:all .3s}
-.fc:hover{transform:translateY(-4px);border-color:#14b8a6;box-shadow:0 8px 30px rgba(0,0,0,0.3)}
-.fc h3{font-size:1.1rem;margin-bottom:.5rem;color:#fff}
-.fc p{color:rgba(255,255,255,0.6);font-size:.9rem}
-.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:900px;margin:0 auto}
-.pc{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2.5rem;text-align:center;position:relative;transition:all .3s}
-.pc.popular{border-color:#14b8a6;background:rgba(99,102,241,0.08)}
-.pb{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#14b8a6,#8b5cf6);color:#fff;padding:4px 20px;border-radius:20px;font-size:.8rem;font-weight:600}
-.pc h3{font-size:1.3rem;margin-bottom:.5rem}
-.pr{font-size:2rem;font-weight:800;color:#fff;margin:1rem 0}
-.pc p{color:rgba(255,255,255,0.6);margin-bottom:1.5rem}
-.pc .cb{width:100%;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:12px;border-radius:10px}
-.pc.popular .cb{background:linear-gradient(135deg,#14b8a6,#8b5cf6);border:none}
-.stats{display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;padding:3rem 0}
-.stat{text-align:center}
-.sn{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#14b8a6,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sl{color:rgba(255,255,255,0.5);font-size:.85rem;margin-top:.3rem}
-.cta-section{padding:4rem 2rem;text-align:center}
-footer{background:rgba(0,0,0,0.3);border-top:1px solid rgba(255,255,255,0.08);padding:3rem 2rem;text-align:center}
-.fl{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem}
-.fl a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:.85rem;transition:color .2s}
-.fl a:hover{color:#fff}
-.fc2{color:rgba(255,255,255,0.3);font-size:.8rem}
-@media(max-width:768px){.stats{gap:2rem}}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MingEvidence — MoKangMedical</title>
+<meta name="description" content="Evidence-Based Medicine Platform — AI-assisted systematic review, meta-analysis, and evidence synthesis">
+<link rel="stylesheet" href="https://mokangmedical.github.io/opc-homepage/shared-design-system.css">
 </head>
-<body style="padding-top:56px!important">
-<nav id="opc-nav" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(10,10,30,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(99,102,241,0.2);padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
-  <a href="https://mokangmedical.github.io/opc-homepage/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;font-size:15px">
-    <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="url(#ng1)" stroke-width="2.5"/><path d="M10 16h12M16 10v12" stroke="url(#ng1)" stroke-width="2.5" stroke-linecap="round"/><defs><linearGradient id="ng1" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#818cf8"/><stop offset="1" stop-color="#c084fc"/></linearGradient></defs></svg>
-    <span style="background:linear-gradient(135deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent">MoKangMedical</span>
-  </a>
-  <div style="display:flex;gap:6px;align-items:center">
-    <a href="https://mokangmedical.github.io/opc-homepage/" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:8px">生态首页</a>
-    <a href="https://github.com/MoKangMedical" target="_blank" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:8px">GitHub</a>
-    <a href="https://mokangmedical.github.io/opc-alliance/" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;padding:6px 16px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none">OPC Hub</a>
-  </div>
+<body>
+<nav class="eco-nav">
+<a class="nav-brand" href="https://mokangmedical.github.io/opc-homepage/">MoKangMedical</a>
+<div class="nav-links">
+<a href="https://github.com/MoKangMedical/mingevidence">GitHub</a>
+<a href="https://mokangmedical.github.io/opc-homepage/">Ecosystem</a>
+<a href="#features">Features</a>
+<a href="#pricing">Pricing</a>
+</div>
 </nav>
-<nav style="position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(10,10,30,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(99,102,241,0.2);padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between">
-  <a href="https://mokangmedical.github.io/opc-homepage/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;font-size:15px">
-    <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="url(#ng1)" stroke-width="2.5"/><path d="M10 16h12M16 10v12" stroke="url(#ng1)" stroke-width="2.5" stroke-linecap="round"/><defs><linearGradient id="ng1" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#818cf8"/><stop offset="1" stop-color="#c084fc"/></linearGradient></defs></svg>
-    <span style="background:linear-gradient(135deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent">MoKangMedical</span>
-  </a>
-  <div style="display:flex;gap:6px;align-items:center">
-    <a href="https://mokangmedical.github.io/opc-homepage/" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:8px">生态首页</a>
-    <a href="https://github.com/MoKangMedical" target="_blank" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:8px">GitHub</a>
-    <a href="https://mokangmedical.github.io/opc-alliance/" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;padding:6px 16px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none">OPC Hub</a>
-  </div>
-</nav>
-<div style="padding-top:56px"></div>
 
 <section class="hero">
-  <div class="hero-c">
-    <h1>MingEvidence 循证医学平台</h1>
-    <p>SUBMingEvidence 循证医学平台</p>
-    <div class="stats">
-      <div class="stat"><div class="sn">10K+</div><div class="sl">活跃用户</div></div>
-      <div class="stat"><div class="sn">50+</div><div class="sl">企业客户</div></div>
-      <div class="stat"><div class="sn">99.9%</div><div class="sl">系统可用性</div></div>
-    </div>
-    <div class="cg">
-      <button class="cb cp" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">立即体验</button>
-      <button class="cb cs" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">了解更多</button>
-    </div>
-  </div>
+<div class="badge">EBM Tools</div>
+<h1>MingEvidence</h1>
+<p class="subtitle">Evidence-Based Medicine Platform — AI-assisted systematic review, meta-analysis, and evidence synthesis</p>
+<div class="btn-group">
+<a href="https://github.com/MoKangMedical/mingevidence" class="btn btn-primary">View on GitHub</a>
+<a href="#features" class="btn btn-outline">Explore Features</a>
+</div>
+</section>
+
+<section class="section" id="stats">
+<div class="stats"><div><div class="stat-num">95%</div><div class="stat-label">Screening Accuracy</div></div><div><div class="stat-num">10x</div><div class="stat-label">Faster Reviews</div></div><div><div class="stat-num">PRISMA</div><div class="stat-label">Compliant</div></div><div><div class="stat-num">100+</div><div class="stat-label">Journals</div></div></div>
 </section>
 
 <section class="section" id="features">
-  <h2 class="st">核心能力</h2>
-  <p class="ss">六大核心技术模块，覆盖全场景需求</p>
-  <div class="fg">
-        <div class="fc"><h3>文献筛选</h3><p>AI自动筛选相关文献</p></div>
-        <div class="fc"><h3>质量评估</h3><p>ROB/NOS标准化评价</p></div>
-        <div class="fc"><h3>数据提取</h3><p>结构化数据自动提取</p></div>
-        <div class="fc"><h3>Meta分析</h3><p>一键完成统计分析</p></div>
-        <div class="fc"><h3>证据分级</h3><p>GRADE标准自动评级</p></div>
-        <div class="fc"><h3>报告生成</h3><p>PRISMA合规报告输出</p></div>
-
-  </div>
+<h2 class="section-title">Key Features</h2>
+<p class="section-desc">Powerful capabilities designed for medical professionals and researchers</p>
+<div class="card-grid"><div class="card fade-up">
+<div class="card-icon">📚</div>
+<h3>Literature Screening</h3>
+<p>AI-powered title/abstract screening with 95% sensitivity</p>
+</div><div class="card fade-up">
+<div class="card-icon">📊</div>
+<h3>Meta-Analysis</h3>
+<p>Automated forest plots, funnel plots, and heterogeneity assessment</p>
+</div><div class="card fade-up">
+<div class="card-icon">🔍</div>
+<h3>Data Extraction</h3>
+<p>Structured extraction from PDFs with validation workflows</p>
+</div><div class="card fade-up">
+<div class="card-icon">📝</div>
+<h3>PRISMA Compliance</h3>
+<p>Auto-generate PRISMA flow diagrams and checklists</p>
+</div><div class="card fade-up">
+<div class="card-icon">🤝</div>
+<h3>Collaboration</h3>
+<p>Multi-reviewer workflows with conflict resolution</p>
+</div><div class="card fade-up">
+<div class="card-icon">📈</div>
+<h3>GRADE Assessment</h3>
+<p>Automated quality of evidence evaluation</p>
+</div></div>
 </section>
 
-<section class="section" id="pricing" style="background:rgba(99,102,241,0.03);border-radius:32px;margin:0 1rem">
-  <h2 class="st">定价方案</h2>
-  <p class="ss">灵活定价，按需选择</p>
-  <div class="pg">
-      <div class="pc"><h3>学术版</h3><div class="pr">¥0</div><p>基础功能免费</p><button class="cb">开始使用</button></div>
-      <div class="pc popular"><div class="pb">最受欢迎</div><h3>专业版</h3><div class="pr">¥199/月</div><p>高级分析+导出</p><button class="cb">开始使用</button></div>
-      <div class="pc"><h3>机构版</h3><div class="pr">¥599/月</div><p>多用户+定制</p><button class="cb">开始使用</button></div>
+<section class="section" id="pricing">
+<h2 class="section-title">Pricing Plans</h2>
+<p class="section-desc">Choose the plan that fits your needs</p>
+<div class="pricing-grid"><div class="price-card ">
 
-  </div>
+<h3>Academic</h3>
+<div class="price-tag">$99/mo</div>
+<ul><li>5 reviews/year</li><li>Basic AI screening</li><li>Export tools</li></ul>
+<a href="https://github.com/MoKangMedical/mingevidence" class="btn btn-primary" style="width:100%;justify-content:center">Get Started</a>
+</div><div class="price-card featured">
+<div class="price-badge">Most Popular</div>
+<h3>Professional</h3>
+<div class="price-tag">$299/mo</div>
+<ul><li>Unlimited reviews</li><li>Advanced AI</li><li>Team collaboration</li></ul>
+<a href="https://github.com/MoKangMedical/mingevidence" class="btn btn-primary" style="width:100%;justify-content:center">Get Started</a>
+</div><div class="price-card ">
+
+<h3>Institution</h3>
+<div class="price-tag">$999/mo</div>
+<ul><li>Site license</li><li>Custom models</li><li>Training</li><li>API access</li></ul>
+<a href="https://github.com/MoKangMedical/mingevidence" class="btn btn-primary" style="width:100%;justify-content:center">Get Started</a>
+</div></div>
 </section>
 
-<section class="cta-section">
-  <h2 style="font-size:2rem;font-weight:700;margin-bottom:1rem">准备好开始了吗？</h2>
-  <p style="color:rgba(255,255,255,0.6);margin-bottom:2rem">加入MoKangMedical生态，探索AI医疗的无限可能</p>
-  <button class="cb cp" onclick="window.open('https://github.com/MoKangMedical')">开始使用</button>
-</section>
-
-<footer>
-  <div class="fl">
-    <a href="https://mokangmedical.github.io/tianyan/">天眼</a>
-    <a href="https://mokangmedical.github.io/PharmaSim/">PharmaSim</a>
-    <a href="https://mokangmedical.github.io/chronicdiseasemanagement/">ChroniCare</a>
-    <a href="https://mokangmedical.github.io/medichat-rd/">MediChat-RD</a>
-    <a href="https://mokangmedical.github.io/opc-homepage/">OPC生态</a>
-    <a href="https://github.com/MoKangMedical">GitHub</a>
-  </div>
-  <p class="fc2">&copy; 2026 MoKangMedical. All rights reserved.</p>
+<footer class="footer">
+<div class="footer-links">
+<a href="https://mokangmedical.github.io/opc-homepage/">Ecosystem Home</a>
+<a href="https://github.com/MoKangMedical">GitHub Organization</a>
+<a href="https://github.com/MoKangMedical/mingevidence">This Project</a>
+</div>
+<p>&copy; 2025 MoKangMedical. All rights reserved.</p>
 </footer>
 </body>
 </html>
