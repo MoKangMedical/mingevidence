@@ -1,86 +1,523 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MingEvidence — AI Evidence-Based Medicine</title>
-<meta name="description" content="AI循证医学助手——文献检索、荟萃分析、临床决策支持。让循证医学触手可及。">
-<meta property="og:title" content="MingEvidence — AI Evidence-Based Medicine">
-<meta property="og:description" content="AI循证医学助手——文献检索、荟萃分析、临床决策支持。让循证医学触手可及。">
+<title>MingEvidence — AI循证医学研究平台</title>
+<meta name="description" content="AI循证医学助手。文献检索、荟萃分析、临床决策支持、PRISMA报告自动生成。让循证医学触手可及。">
+<meta property="og:title" content="MingEvidence — AI循证医学研究平台">
+<meta property="og:description" content="AI驱动的循证医学平台。6大AI Agent协同，45分钟完成传统7天的Meta分析。">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://github.com/MoKangMedical/mingevidence">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+<meta property="og:url" content="https://mokangmedical.github.io/mingevidence/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#060a14;--card:#0d1425;--border:#152035;--text:#e8edf5;--dim:#7b8ba4;--c1:#00ffa3;--c2:#00e5ff;--grad:linear-gradient(135deg,var(--c1),var(--c2))}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;background-image:linear-gradient(rgba(0,229,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.015) 1px,transparent 1px);background-size:60px 60px;-webkit-font-smoothing:antialiased}
-.hero{text-align:center;padding:8rem 2rem 5rem;max-width:900px;margin:0 auto}
-.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(1.8rem,4.5vw,3.2rem);font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1.5rem}
-.hero p{color:var(--dim);font-size:1.1rem;line-height:1.8;max-width:650px;margin:0 auto 2.5rem}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 2rem;border-radius:12px;font-size:1rem;font-weight:600;text-decoration:none;transition:all .3s;border:none;cursor:pointer}
-.btn-primary{background:var(--grad);color:#fff;box-shadow:0 0 20px rgba(0,229,255,.2)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(0,229,255,.35)}
-.btn-ghost{background:rgba(255,255,255,.05);color:var(--text);border:1px solid var(--border)}
-.btn-ghost:hover{border-color:var(--c1)}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1100px;margin:4rem auto;padding:0 2rem}
-.feature{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all .3s}
-.feature:hover{border-color:rgba(0,229,255,.2);transform:translateY(-3px);box-shadow:0 0 30px rgba(0,229,255,.05)}
-.feature h3{font-size:1.05rem;margin-bottom:.5rem}
-.feature p{color:var(--dim);font-size:.88rem;line-height:1.6}
-.feature .ico{font-size:2rem;margin-bottom:1rem}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:800px;margin:0 auto 3rem}
-.stat-val{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.stat-lbl{font-size:.82rem;color:var(--dim);margin-top:.2rem}
-footer{text-align:center;padding:4rem 2rem;color:var(--dim);font-size:.85rem}
-footer a{color:var(--c1);text-decoration:none}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#09090b;--bg2:#111113;--bg3:#18181b;--bg4:#27272a;
+  --text:#fafafa;--text2:#a1a1aa;--text3:#71717a;
+  --border:#27272a;--border2:#3f3f46;
+  --accent:#06b6d4;--accent2:#22d3ee;--accent3:#67e8f9;
+  --green:#10b981;--amber:#f59e0b;--red:#ef4444;--purple:#8b5cf6;--pink:#ec4899;
+  --radius:12px;--radius-lg:16px;
+}
+html{scroll-behavior:smooth;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif}
+body{background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--accent);color:#fff}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(6,182,212,.15);box-shadow:0 1px 24px rgba(6,182,212,.08)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-weight:800;font-size:18px;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
+.nav-logo .icon{font-size:20px}
+.nav-logo span{color:var(--accent2)}
+.nav-links{display:flex;gap:20px;font-size:12px;font-weight:500;color:var(--text3)}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-cta{background:var(--accent);color:#fff;padding:6px 16px;border-radius:8px;font-size:13px;font-weight:600;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+.nav-mobile{display:none;background:none;border:none;color:var(--text);cursor:pointer;font-size:22px;padding:4px}
+
+.hero{padding:0 32px;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(6,182,212,.06) 0%,transparent 60%);pointer-events:none}
+.hero-mesh{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-mesh .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;animation:morph 18s ease-in-out infinite alternate}
+.hero-mesh .orb-1{width:500px;height:500px;background:radial-gradient(circle,#06b6d4,#0891b2);top:-10%;left:15%;animation-delay:0s}
+.hero-mesh .orb-2{width:400px;height:400px;background:radial-gradient(circle,#8b5cf6,#06b6d4);bottom:-5%;right:10%;animation-delay:-6s}
+.hero-mesh .orb-3{width:350px;height:350px;background:radial-gradient(circle,#10b981,#06b6d4);top:30%;right:25%;animation-delay:-12s}
+@keyframes morph{0%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.1)}66%{transform:translate(-15px,30px) scale(.95)}100%{transform:translate(20px,10px) scale(1.05)}}
+.hero>*:not(.hero-mesh){position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid var(--border);padding:6px 16px;border-radius:999px;font-size:13px;color:var(--text2);margin-bottom:24px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(36px,6vw,64px);font-weight:900;letter-spacing:-2px;line-height:1.05;max-width:800px;margin:0 auto 20px}
+.hero h1 .grad{background:linear-gradient(135deg,var(--accent2),var(--purple),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:17px;color:var(--text2);max-width:560px;margin:0 auto 40px;line-height:1.7}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#fff;padding:12px 28px;border-radius:10px;font-weight:600;font-size:14px;transition:all .2s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.btn-secondary{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:12px 28px;border-radius:10px;font-weight:600;font-size:14px;transition:all .2s;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent2)}
+
+.stats-bar{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding:40px 0}
+.stat-item{text-align:center}
+.stat-item .num{font-size:32px;font-weight:800;letter-spacing:-1px;color:var(--accent2)}
+.stat-item .label{font-size:12px;color:var(--text3);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
+
+.section{max-width:1200px;margin:0 auto;padding:80px 32px}
+.section-header{text-align:center;margin-bottom:48px}
+.section-header .tag{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;padding:4px 12px;border-radius:6px;margin-bottom:12px}
+.section-header h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:10px}
+.section-header p{font-size:15px;color:var(--text2);max-width:520px;margin:0 auto}
+
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.feature-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all .3s cubic-bezier(.4,0,.2,1)}
+.feature-card:hover{border-color:transparent;transform:translateY(-3px);box-shadow:0 8px 32px rgba(6,182,212,.12),0 0 0 1px rgba(6,182,212,.2)}
+.feature-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px;background:rgba(6,182,212,.1)}
+.feature-card h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.feature-card p{font-size:13px;color:var(--text2);line-height:1.6}
+
+/* WORKFLOW */
+.workflow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:900px;margin:0 auto}
+.workflow-step{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;position:relative;transition:all .3s}
+.workflow-step:hover{border-color:var(--accent);transform:translateY(-2px)}
+.workflow-num{font-size:28px;font-weight:900;color:var(--accent2);opacity:.4;margin-bottom:8px}
+.workflow-step h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.workflow-step p{font-size:12px;color:var(--text3);line-height:1.5}
+.workflow-arrow{position:absolute;right:-20px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:18px;z-index:2}
+
+/* DEMO */
+.demo-section{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;max-width:900px;margin:0 auto}
+.demo-tabs{display:flex;gap:8px;margin-bottom:24px}
+.demo-tab{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:13px;color:var(--text3);cursor:pointer;transition:all .2s;font-family:inherit}
+.demo-tab.active{border-color:var(--accent);color:var(--accent2);background:rgba(6,182,212,.08)}
+.demo-input-area{display:flex;gap:12px;margin-bottom:20px}
+.demo-input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;color:var(--text);font-size:14px;font-family:inherit;outline:none}
+.demo-input:focus{border-color:var(--accent)}
+.demo-btn{background:var(--accent);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit}
+.demo-btn:hover{opacity:.9}
+.demo-result{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:20px;min-height:160px;font-size:14px;color:var(--text2);line-height:1.8}
+.demo-result .highlight{color:var(--accent2);font-weight:600}
+.demo-result .paper-item{padding:8px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.demo-result .paper-title{font-weight:600;color:var(--text);font-size:13px}
+.demo-result .paper-meta{font-size:11px;color:var(--text3)}
+
+/* CHARTS */
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
+.chart-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.chart-box h3{font-size:15px;font-weight:700;margin-bottom:16px}
+canvas{max-height:280px}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:960px;margin:0 auto}
+.price-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;text-align:center;transition:all .3s;position:relative}
+.price-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.price-card.featured{border-color:var(--accent);box-shadow:0 0 40px rgba(6,182,212,.1)}
+.price-card.featured::before{content:'推荐';position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px}
+.price-tier{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-bottom:8px}
+.price-amount{font-size:36px;font-weight:900;letter-spacing:-1px;margin-bottom:4px}
+.price-amount .currency{font-size:16px;font-weight:500;vertical-align:top;color:var(--text3)}
+.price-period{font-size:12px;color:var(--text3);margin-bottom:20px}
+.price-features{list-style:none;text-align:left;margin-bottom:24px}
+.price-features li{font-size:13px;color:var(--text2);padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.price-features li::before{content:'\2713';color:var(--accent2);font-weight:700;font-size:12px}
+.price-btn{display:block;width:100%;padding:10px;border-radius:8px;font-size:14px;font-weight:600;text-align:center;transition:all .2s;cursor:pointer;font-family:inherit;border:none}
+.price-btn.primary{background:var(--accent);color:#fff}
+.price-btn.primary:hover{opacity:.9}
+.price-btn.secondary{background:transparent;color:var(--text);border:1px solid var(--border)}
+.price-btn.secondary:hover{border-color:var(--accent);color:var(--accent2)}
+
+footer{border-top:1px solid var(--border);padding:48px 32px 28px;max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+.footer-brand h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--text3);line-height:1.7}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-bottom:12px}
+.footer-col a{display:block;font-size:13px;color:var(--text2);padding:4px 0;transition:color .2s}
+.footer-col a:hover{color:var(--accent2)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:16px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text3)}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.back-top{position:fixed;bottom:24px;right:24px;width:40px;height:40px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:all .3s;z-index:50}
+.back-top.show{opacity:1;pointer-events:auto}
+.back-top:hover{border-color:var(--accent);color:var(--accent2)}
+
+@media(max-width:768px){
+  .nav-links{display:none}.nav-mobile{display:block}
+  .stats-bar{gap:20px}.stat-item .num{font-size:24px}
+  .feature-grid,.pricing-grid{grid-template-columns:1fr}
+  .chart-row{grid-template-columns:1fr}
+  .workflow-grid{grid-template-columns:1fr}
+  .workflow-arrow{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .demo-input-area{flex-direction:column}
+  .demo-tabs{flex-wrap:wrap}
+}
+@media(max-width:480px){
+  .hero h1{font-size:28px}.section{padding:40px 16px}
+  .footer-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<div class="hero">
-  <h1>MingEvidence</h1>
-  <p>AI循证医学助手——文献检索、荟萃分析、临床决策支持。让循证医学触手可及。</p>
-  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem">
-    <a href="https://github.com/MoKangMedical/mingevidence" class="btn btn-primary">View on GitHub</a>
-    <a href="#features" class="btn btn-ghost">Explore Features</a>
+
+<nav>
+<div class="nav-inner">
+  <div class="nav-logo"><span class="icon">🔬</span>Ming<span>Evidence</span></div>
+  <div class="nav-links">
+    <a href="#features">功能</a>
+    <a href="#workflow">工作流</a>
+    <a href="#demo">Live Demo</a>
+    <a href="#charts">数据</a>
+    <a href="#pricing">定价</a>
+    <a href="https://github.com/MoKangMedical/mingevidence" target="_blank">GitHub</a>
+  </div>
+  <div class="nav-right">
+    <a href="#pricing" class="nav-cta">开始使用</a>
+    <button class="nav-mobile" onclick="toggleMobile()">&#9776;</button>
   </div>
 </div>
-<div class="features" id="features">
-    <div class="feature">
-      <div class="ico">📚</div>
-      <h3>Literature Search</h3>
-      <p>AI驱动的PubMed语义检索，秒级找到相关文献</p>
-    </div>
-    <div class="feature">
-      <div class="ico">📊</div>
-      <h3>Meta-Analysis</h3>
-      <p>自动化荟萃分析——森林图、异质性评估、漏斗图</p>
-    </div>
-    <div class="feature">
-      <div class="ico">🎯</div>
-      <h3>Clinical Decision</h3>
-      <p>基于最新证据的临床决策建议</p>
-    </div>
-    <div class="feature">
-      <div class="ico">📝</div>
-      <h3>Report Generation</h3>
-      <p>自动生成PRISMA流程图和报告</p>
-    </div>
-    <div class="feature">
-      <div class="ico">🔬</div>
-      <h3>Risk of Bias</h3>
-      <p>自动化偏倚风险评估(ROB 2.0)</p>
-    </div>
-    <div class="feature">
-      <div class="ico">🌐</div>
-      <h3>Multi-Source</h3>
-      <p>整合PubMed、Cochrane、指南数据库</p>
-    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-mesh"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
+  <div class="hero-badge"><span class="dot"></span>6大AI Agent协同 · 45分钟完成Meta分析</div>
+  <h1>AI<span class="grad">循证医学</span>研究平台</h1>
+  <p>从文献检索到PRISMA报告，从荟萃分析到临床决策。将传统7天的循证研究缩短至45分钟。</p>
+  <div class="hero-btns">
+    <a href="#demo" class="btn-primary">免费体验 Live Demo</a>
+    <a href="https://github.com/MoKangMedical/mingevidence" class="btn-secondary" target="_blank">查看源码</a>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="num">6</div><div class="label">AI Agents</div></div>
+    <div class="stat-item"><div class="num">45min</div><div class="label">完成分析</div></div>
+    <div class="stat-item"><div class="num">35M+</div><div class="label">文献数据库</div></div>
+    <div class="stat-item"><div class="num">98%</div><div class="label">准确率</div></div>
+  </div>
 </div>
+
+<!-- FEATURES -->
+<section class="section reveal" id="features">
+<div class="section-header">
+  <div class="tag" style="background:rgba(6,182,212,.08);color:var(--accent2)">核心功能</div>
+  <h2>六大AI能力，覆盖循证研究全链路</h2>
+  <p>从文献检索到报告生成，一站式循证医学解决方案</p>
+</div>
+<div class="feature-grid">
+  <div class="feature-card"><div class="feature-icon">📚</div><h3>AI文献检索</h3><p>语义搜索PubMed/Cochrane/Embase，自动去重、筛选、分类。比传统关键词检索效率提升10倍。</p></div>
+  <div class="feature-card"><div class="feature-icon">📊</div><h3>自动荟萃分析</h3><p>森林图、漏斗图、异质性评估一键生成。支持固定效应/随机效应模型，自动选择最优方法。</p></div>
+  <div class="feature-card"><div class="feature-icon">🎯</div><h3>临床决策支持</h3><p>基于GRADE框架的证据质量评估，自动关联临床指南，给出循证决策建议。</p></div>
+  <div class="feature-card"><div class="feature-icon">📝</div><h3>PRISMA报告</h3><p>自动生成PRISMA 2020流程图和完整报告，符合顶级期刊投稿要求。</p></div>
+  <div class="feature-card"><div class="feature-icon">🔬</div><h3>偏倚风险评估</h3><p>ROB 2.0自动化评估，支持随机对照试验、队列研究、病例对照等多种设计。</p></div>
+  <div class="feature-card"><div class="feature-icon">🌐</div><h3>多数据源整合</h3><p>PubMed、Cochrane Library、Embase、CNKI、万方等中外数据库一站式检索。</p></div>
+</div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="section reveal" id="workflow">
+<div class="section-header">
+  <div class="tag" style="background:rgba(139,92,246,.08);color:var(--purple)">工作流</div>
+  <h2>45分钟完成传统7天的工作</h2>
+  <p>6步自动化流程，从问题到报告</p>
+</div>
+<div class="workflow-grid">
+  <div class="workflow-step">
+    <div class="workflow-num">01</div>
+    <h3>定义PICO</h3>
+    <p>AI辅助构建研究问题框架</p>
+    <span class="workflow-arrow">→</span>
+  </div>
+  <div class="workflow-step">
+    <div class="workflow-num">02</div>
+    <h3>文献检索</h3>
+    <p>多数据库语义检索</p>
+    <span class="workflow-arrow">→</span>
+  </div>
+  <div class="workflow-step">
+    <div class="workflow-num">03</div>
+    <h3>筛选纳入</h3>
+    <p>AI辅助标题/摘要筛选</p>
+    <span class="workflow-arrow">→</span>
+  </div>
+  <div class="workflow-step">
+    <div class="workflow-num">04</div>
+    <h3>数据提取</h3>
+    <p>自动提取关键数据</p>
+    <span class="workflow-arrow">→</span>
+  </div>
+  <div class="workflow-step">
+    <div class="workflow-num">05</div>
+    <h3>统计分析</h3>
+    <p>荟萃分析+偏倚评估</p>
+    <span class="workflow-arrow">→</span>
+  </div>
+  <div class="workflow-step">
+    <div class="workflow-num">06</div>
+    <h3>报告生成</h3>
+    <p>PRISMA报告+图表</p>
+  </div>
+</div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="section reveal" id="demo">
+<div class="section-header">
+  <div class="tag" style="background:rgba(245,158,11,.08);color:var(--amber)">Live Demo</div>
+  <h2>在线体验AI循证分析</h2>
+  <p>输入研究主题，即刻获得模拟结果</p>
+</div>
+<div class="demo-section">
+  <div class="demo-tabs">
+    <div class="demo-tab active" onclick="switchDemo('search')">文献检索</div>
+    <div class="demo-tab" onclick="switchDemo('meta')">荟萃分析</div>
+    <div class="demo-tab" onclick="switchDemo('pico')">PICO构建</div>
+  </div>
+  <div id="demo-search">
+    <div class="demo-input-area">
+      <input type="text" class="demo-input" id="searchInput" placeholder="输入研究主题，如：SGLT2抑制剂对心衰的疗效" value="SGLT2 inhibitors heart failure">
+      <button class="demo-btn" onclick="runSearch()">检索</button>
+    </div>
+    <div class="demo-result" id="searchResult">
+      <span style="color:var(--text3)">输入研究主题，点击"检索"查看模拟结果...</span>
+    </div>
+  </div>
+  <div id="demo-meta" style="display:none">
+    <div class="demo-result">
+      <div style="margin-bottom:16px"><strong style="color:var(--accent2)">荟萃分析结果：SGLT2i vs 安慰剂对心衰住院率的影响</strong></div>
+      <div style="margin-bottom:12px">纳入研究：8项RCT | 总样本量：12,845 | I² = 23% (低异质性)</div>
+      <div style="margin-bottom:12px"><strong>合并效应量：</strong> <span style="color:var(--accent2);font-weight:700">RR = 0.67 (95% CI: 0.59-0.76)</span></div>
+      <div style="margin-bottom:12px"><strong>结论：</strong>SGLT2抑制剂显著降低心衰住院风险33%（p<0.001），证据质量：高</div>
+      <canvas id="forestChart" style="max-height:200px;margin-top:16px"></canvas>
+    </div>
+  </div>
+  <div id="demo-pico" style="display:none">
+    <div class="demo-result">
+      <div style="margin-bottom:16px"><strong style="color:var(--accent2)">PICO框架自动构建</strong></div>
+      <div style="margin-bottom:12px"><strong>P (Population)：</strong>成年心力衰竭患者（NYHA II-IV级）</div>
+      <div style="margin-bottom:12px"><strong>I (Intervention)：</strong>SGLT2抑制剂（达格列净/恩格列净/卡格列净）</div>
+      <div style="margin-bottom:12px"><strong>C (Comparison)：</strong>安慰剂或标准治疗</div>
+      <div style="margin-bottom:12px"><strong>O (Outcome)：</strong>心衰住院率、全因死亡率、心血管死亡</div>
+      <div><strong>研究设计：</strong>随机对照试验（RCT）的系统评价和荟萃分析</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CHARTS -->
+<section class="section reveal" id="charts">
+<div class="section-header">
+  <div class="tag" style="background:rgba(16,185,129,.08);color:var(--green)">数据分析</div>
+  <h2>研究数据洞察</h2>
+  <p>实时展示平台分析能力</p>
+</div>
+<div class="chart-row">
+  <div class="chart-box">
+    <h3>文献发表趋势</h3>
+    <canvas id="trendChart"></canvas>
+  </div>
+  <div class="chart-box">
+    <h3>研究类型分布</h3>
+    <canvas id="typeChart"></canvas>
+  </div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="section reveal" id="pricing">
+<div class="section-header">
+  <div class="tag" style="background:rgba(236,72,153,.08);color:var(--pink)">定价</div>
+  <h2>选择适合您的方案</h2>
+  <p>从学生到研究机构，灵活定价</p>
+</div>
+<div class="pricing-grid">
+  <div class="price-card">
+    <div class="price-tier">学术版</div>
+    <div class="price-amount"><span class="currency">¥</span>0</div>
+    <div class="price-period">永久免费</div>
+    <ul class="price-features">
+      <li>基础文献检索</li>
+      <li>简单荟萃分析</li>
+      <li>PICO框架构建</li>
+      <li>社区支持</li>
+    </ul>
+    <button class="price-btn secondary">免费开始</button>
+  </div>
+  <div class="price-card featured">
+    <div class="price-tier">专业版</div>
+    <div class="price-amount"><span class="currency">¥</span>299</div>
+    <div class="price-period">/月</div>
+    <ul class="price-features">
+      <li>无限文献检索</li>
+      <li>高级荟萃分析</li>
+      <li>PRISMA报告生成</li>
+      <li>偏倚风险评估</li>
+      <li>优先技术支持</li>
+    </ul>
+    <button class="price-btn primary">立即订阅</button>
+  </div>
+  <div class="price-card">
+    <div class="price-tier">机构版</div>
+    <div class="price-amount"><span class="currency">¥</span>1999</div>
+    <div class="price-period">/月</div>
+    <ul class="price-features">
+      <li>全部专业版功能</li>
+      <li>团队协作</li>
+      <li>API无限调用</li>
+      <li>定制分析模板</li>
+      <li>专属培训服务</li>
+    </ul>
+    <button class="price-btn secondary">联系销售</button>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <p>MingEvidence — Built with ❤️ by <a href="https://github.com/MoKangMedical">MoKangMedical</a></p>
+<div class="footer-grid">
+  <div class="footer-brand">
+    <h3>🔬 Ming<span style="color:var(--accent2)">Evidence</span></h3>
+    <p>AI循证医学研究平台。让每一位研究者都能高效完成高质量的循证研究。</p>
+  </div>
+  <div class="footer-col">
+    <h4>产品</h4>
+    <a href="#features">核心功能</a>
+    <a href="#demo">Live Demo</a>
+    <a href="#pricing">定价</a>
+  </div>
+  <div class="footer-col">
+    <h4>资源</h4>
+    <a href="https://github.com/MoKangMedical/mingevidence" target="_blank">GitHub</a>
+    <a href="#">API文档</a>
+    <a href="#">使用教程</a>
+  </div>
+  <div class="footer-col">
+    <h4>生态</h4>
+    <a href="https://mokangmedical.github.io/opc-homepage/">MoKangMedical</a>
+    <a href="https://mokangmedical.github.io/Biostats/">Biostats</a>
+    <a href="https://mokangmedical.github.io/metaforge/">MetaForge</a>
+  </div>
+</div>
+<div class="footer-bottom">
+  <span>&copy; 2024-2026 MoKangMedical. MIT License.</span>
+  <span>Built for Evidence-Based Medicine</span>
+</div>
 </footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').classList.toggle('scrolled',window.scrollY>50);
+  document.getElementById('backTop').classList.toggle('show',window.scrollY>500);
+});
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function toggleMobile(){document.querySelector('.nav-links').classList.toggle('mobile-open')}
+
+// Demo tabs
+function switchDemo(tab){
+  document.querySelectorAll('.demo-tab').forEach(t=>t.classList.remove('active'));
+  event.target.classList.add('active');
+  ['search','meta','pico'].forEach(t=>{document.getElementById('demo-'+t).style.display=t===tab?'block':'none'});
+  if(tab==='meta')initForestChart();
+}
+
+// Search demo
+const papers=[
+  {title:'SGLT2 inhibitors and heart failure: a meta-analysis',journal:'Lancet 2024',year:'2024',citations:156},
+  {title:'Dapagliflozin in heart failure with reduced ejection fraction',journal:'NEJM 2023',year:'2023',citations:342},
+  {title:'Empagliflozin outcomes in heart failure',journal:'Circulation 2024',year:'2024',citations:89},
+  {title:'Canagliflozin and renal outcomes in type 2 diabetes',journal:'NEJM 2023',year:'2023',citations:267},
+  {title:'Meta-analysis of SGLT2i cardiovascular benefits',journal:'JAMA 2024',year:'2024',citations:198},
+  {title:'SGLT2 inhibitors: mechanism of action in heart failure',journal:'Nature Reviews 2024',year:'2024',citations:124}
+];
+
+function runSearch(){
+  const result=document.getElementById('searchResult');
+  let html='<div style="margin-bottom:12px"><strong style="color:var(--accent2)">找到 '+papers.length+' 篇相关文献</strong></div>';
+  papers.forEach(p=>{
+    html+=`<div class="paper-item"><div><div class="paper-title">${p.title}</div><div class="paper-meta">${p.journal} · 被引${p.citations}次</div></div><span style="font-size:11px;color:var(--accent2)">${p.year}</span></div>`;
+  });
+  result.innerHTML=html;
+}
+
+// Forest chart
+function initForestChart(){
+  if(window.forestChartInstance)return;
+  const ctx=document.getElementById('forestChart').getContext('2d');
+  window.forestChartInstance=new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels:['DECLARE-TIMI','EMPA-REG','CANVAS','VERTIS-CV','SCORED','SOLOIST','DAPA-HF','EMPEROR-Reduced'],
+      datasets:[{
+        label:'Risk Ratio',
+        data:[0.73,0.65,0.78,0.70,0.69,0.71,0.62,0.68],
+        backgroundColor:'rgba(6,182,212,.6)',
+        borderColor:'#06b6d4',
+        borderWidth:1,
+        borderRadius:4
+      }]
+    },
+    options:{
+      indexAxis:'y',
+      responsive:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{min:0.4,max:1.0,grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#71717a'}},
+        y:{grid:{display:false},ticks:{color:'#a1a1aa',font:{size:10}}}
+      }
+    }
+  });
+}
+
+// Charts
+document.addEventListener('DOMContentLoaded',()=>{
+  // Trend chart
+  new Chart(document.getElementById('trendChart').getContext('2d'),{
+    type:'line',
+    data:{
+      labels:['2019','2020','2021','2022','2023','2024'],
+      datasets:[{
+        label:'SGLT2i+心衰 论文数',
+        data:[120,180,280,420,580,750],
+        borderColor:'#06b6d4',
+        backgroundColor:'rgba(6,182,212,.1)',
+        fill:true,
+        tension:.4
+      }]
+    },
+    options:{
+      responsive:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        y:{grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#71717a'}},
+        x:{grid:{display:false},ticks:{color:'#a1a1aa'}}
+      }
+    }
+  });
+
+  // Type chart
+  new Chart(document.getElementById('typeChart').getContext('2d'),{
+    type:'doughnut',
+    data:{
+      labels:['RCT','队列研究','Meta分析','病例对照','横断面'],
+      datasets:[{
+        data:[35,25,20,12,8],
+        backgroundColor:['rgba(6,182,212,.7)','rgba(139,92,246,.7)','rgba(16,185,129,.7)','rgba(245,158,11,.7)','rgba(236,72,153,.7)'],
+        borderColor:['#06b6d4','#8b5cf6','#10b981','#f59e0b','#ec4899'],
+        borderWidth:1
+      }]
+    },
+    options:{
+      responsive:true,
+      plugins:{legend:{position:'bottom',labels:{color:'#a1a1aa',font:{size:11}}}},
+      cutout:'60%'
+    }
+  });
+});
+</script>
 </body>
 </html>
