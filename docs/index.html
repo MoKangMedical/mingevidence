@@ -1,109 +1,427 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>MinG Evidence - MoKangMedical</title>
-<meta name="description" content="Streamlined evidence synthesis for rapid systematic reviews.">
-<meta property="og:title" content="MinG Evidence - MoKangMedical">
-<meta property="og:description" content="Streamlined evidence synthesis for rapid systematic reviews.">
+<title>MingEvidence — AI循证医学分析平台</title>
+<meta name="description" content="MingEvidence 是面向临床研究者的 AI 循证医学分析平台，涵盖文献质量评估、GRADE 评价、偏倚风险评估、森林图生成与报告自动化。">
+<meta property="og:title" content="MingEvidence — AI循证医学分析平台">
+<meta property="og:description" content="面向临床研究者的智能循证医学分析平台">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mokangmedical.github.io/mingevidence/">
+<meta name="theme-color" content="#0a0a0f">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1f3e5;</text></svg>">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--p:#0ea5e9;--bg:#0a0a0f;--s:#12121a;--t:#e2e8f0;--m:#94a3b8;--b:rgba(255,255,255,.06)}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
-a{color:var(--p);text-decoration:none}
-.nav{position:fixed;top:0;left:0;right:0;background:rgba(10,10,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--b);z-index:1000;padding:.8rem 2rem;display:flex;align-items:center;justify-content:space-between}
-.nb{font-size:1.2rem;font-weight:700;color:var(--p)}
-.nl{display:flex;gap:1.5rem;align-items:center}
-.nl a{color:var(--m);font-size:.85rem;transition:color .2s}
-.nl a:hover{color:var(--t)}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,#0ea5e915,transparent 70%)}
-.hc{position:relative;max-width:800px}
-.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,#fff,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem}
-.sub{font-size:1.3rem;color:var(--m);margin-bottom:2rem}
-.cat{display:inline-block;padding:.4rem 1rem;background:#0ea5e922;border:1px solid #0ea5e944;border-radius:999px;font-size:.8rem;color:var(--p);margin-bottom:2rem}
-.btn{display:inline-block;padding:.8rem 2rem;background:var(--p);color:#fff;border-radius:8px;font-weight:600;transition:all .2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px #0ea5e940}
-.bo{display:inline-block;padding:.6rem 1.5rem;border:1px solid var(--p);color:var(--p);border-radius:8px;font-weight:500;transition:all .2s}
-.bo:hover{background:var(--p);color:#fff}
-.sec{padding:5rem 2rem;max-width:1200px;margin:0 auto}
-.st{text-align:center;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
-.ss{text-align:center;color:var(--m);margin-bottom:3rem}
-.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.fc{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:2rem;transition:all .3s}
-.fc:hover{border-color:#0ea5e940;transform:translateY(-4px)}
-.fi{width:40px;height:40px;background:#0ea5e920;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1rem}
-.fc h3{font-size:1.1rem;margin-bottom:.5rem}
-.fc p{color:var(--m);font-size:.9rem}
-.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2rem}
-.pc{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:2rem;text-align:center;transition:all .3s}
-.pc:hover{border-color:#0ea5e940}
-.pr{font-size:2.5rem;font-weight:800;color:var(--p);margin:1rem 0}
-.pc p{color:var(--m);margin-bottom:1.5rem}
-.cta{text-align:center;padding:5rem 2rem;background:linear-gradient(135deg,#0ea5e910,transparent)}
-footer{text-align:center;padding:2rem;color:var(--m);font-size:.8rem;border-top:1px solid var(--b)}
-footer a{color:var(--m)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:3rem 0}
-.stat{text-align:center}
-.stat .num{font-size:2.5rem;font-weight:800;color:var(--p)}
-.stat .lbl{color:var(--m);font-size:.85rem}
-@media(max-width:768px){.nl{display:none}.fg,.pg{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --p:#0ea5e9;--p-dim:#0284c7;--bg:#0a0a0f;--s:#111118;--s2:#16161f;
+  --t:#e2e8f0;--m:#94a3b8;--b:rgba(255,255,255,.06);--r:12px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--t);line-height:1.7;font-size:16px;overflow-x:hidden}
+a{color:var(--p);text-decoration:none;transition:color .2s}
+a:hover{color:#38bdf8}
+img{max-width:100%}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(10,10,15,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);z-index:1000;padding:.75rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-size:1.15rem;font-weight:700;color:var(--p);letter-spacing:-.02em}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{color:var(--m);font-size:.85rem;font-weight:500}
+.nav-links a:hover{color:var(--t)}
+.nav-toggle{display:none;background:none;border:none;color:var(--t);font-size:1.4rem;cursor:pointer;padding:.25rem}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 20%,rgba(14,165,233,.1),transparent 65%)}
+.hero::after{content:'';position:absolute;top:40%;left:50%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,.04),transparent 70%);transform:translate(-50%,-50%);pointer-events:none}
+.hero-content{position:relative;max-width:780px}
+.hero-badge{display:inline-block;padding:.35rem 1rem;background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.25);border-radius:999px;font-size:.78rem;color:var(--p);font-weight:600;letter-spacing:.04em;margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:.6rem}
+.hero h1 span{background:linear-gradient(135deg,#fff 30%,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.25rem;color:var(--m);margin-bottom:.5rem;font-weight:500}
+.hero-desc{font-size:1rem;color:var(--m);margin-bottom:2.5rem;max-width:560px;margin-left:auto;margin-right:auto;opacity:.85}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* BUTTONS */
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 2rem;background:var(--p);color:#fff;border-radius:8px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:all .25s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(14,165,233,.35);color:#fff}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;border:1.5px solid rgba(14,165,233,.45);color:var(--p);border-radius:8px;font-weight:500;font-size:.95rem;background:transparent;cursor:pointer;transition:all .25s}
+.btn-outline:hover{background:rgba(14,165,233,.1);color:#fff;border-color:var(--p)}
+
+/* SECTIONS */
+.section{padding:5rem 2rem;max-width:1140px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-header h2{font-size:2rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.5rem}
+.section-header p{color:var(--m);font-size:1rem;max-width:520px;margin:0 auto}
+
+/* STATS */
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding:3rem 2rem;max-width:900px;margin:0 auto;background:var(--s);border:1px solid var(--b);border-radius:var(--r)}
+.stat-item{text-align:center}
+.stat-num{font-size:2.4rem;font-weight:800;color:var(--p);line-height:1.1}
+.stat-label{color:var(--m);font-size:.85rem;margin-top:.35rem}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.feature-card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:2rem 1.5rem;transition:all .3s ease;position:relative;overflow:hidden}
+.feature-card:hover{border-color:rgba(14,165,233,.35);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--p),transparent);opacity:0;transition:opacity .3s}
+.feature-card:hover::before{opacity:1}
+.feature-icon{width:44px;height:44px;background:rgba(14,165,233,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem}
+.feature-icon svg{width:22px;height:22px;stroke:var(--p);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.feature-card h3{font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+.feature-card p{color:var(--m);font-size:.88rem;line-height:1.6}
+
+/* WORKFLOW */
+.workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
+.workflow-step{text-align:center;padding:1.5rem 1rem;position:relative}
+.workflow-step .step-num{width:36px;height:36px;border-radius:50%;background:rgba(14,165,233,.15);border:1.5px solid rgba(14,165,233,.3);color:var(--p);font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;justify-content:center;margin-bottom:.8rem}
+.workflow-step h4{font-size:.95rem;margin-bottom:.3rem}
+.workflow-step p{color:var(--m);font-size:.8rem}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:stretch}
+.pricing-card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:2.5rem 2rem;text-align:center;transition:all .3s;display:flex;flex-direction:column}
+.pricing-card:hover{border-color:rgba(14,165,233,.3)}
+.pricing-card.featured{border-color:var(--p);background:linear-gradient(180deg,rgba(14,165,233,.06),var(--s));position:relative}
+.pricing-card.featured::before{content:'';position:absolute;top:0;left:20%;right:20%;height:2px;background:var(--p);border-radius:0 0 4px 4px}
+.pricing-card h3{font-size:1.15rem;font-weight:600;margin-bottom:.3rem}
+.pricing-card .plan-desc{color:var(--m);font-size:.82rem;margin-bottom:1.2rem}
+.pricing-card .price{font-size:2.2rem;font-weight:800;color:var(--p);margin-bottom:.3rem}
+.pricing-card .price-note{color:var(--m);font-size:.78rem;margin-bottom:1.5rem}
+.pricing-card ul{list-style:none;text-align:left;margin-bottom:2rem;flex:1}
+.pricing-card li{color:var(--m);font-size:.88rem;padding:.45rem 0;border-bottom:1px solid var(--b);padding-left:1.2rem;position:relative}
+.pricing-card li::before{content:'';position:absolute;left:0;top:50%;width:6px;height:6px;border-radius:50%;background:var(--p);transform:translateY(-50%);opacity:.6}
+.pricing-card .btn-primary,.pricing-card .btn-outline{width:100%;justify-content:center}
+
+/* CTA */
+.cta-section{text-align:center;padding:5rem 2rem;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,165,233,.06),transparent 60%)}
+.cta-content{position:relative;max-width:600px;margin:0 auto}
+.cta-content h2{font-size:2rem;font-weight:700;margin-bottom:.5rem}
+.cta-content p{color:var(--m);margin-bottom:2rem;font-size:1rem}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--b);padding:2.5rem 2rem;text-align:center}
+.footer-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1rem}
+.footer-links a{color:var(--m);font-size:.82rem}
+.footer-links a:hover{color:var(--p)}
+.footer-copy{color:var(--m);font-size:.78rem;opacity:.7}
+
+/* OPC NAV WIDGET */
+.opc-nav{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999}
+.opc-nav-btn{width:48px;height:48px;border-radius:50%;background:var(--s);border:1.5px solid var(--b);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.opc-nav-btn:hover{border-color:var(--p);box-shadow:0 4px 24px rgba(14,165,233,.2)}
+.opc-nav-btn svg{width:20px;height:20px;stroke:var(--m);fill:none;stroke-width:2}
+.opc-panel{display:none;position:absolute;bottom:56px;right:0;background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:1rem;min-width:200px;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.opc-panel.open{display:block}
+.opc-panel a{display:block;padding:.5rem .75rem;color:var(--m);font-size:.82rem;border-radius:6px;transition:all .15s}
+.opc-panel a:hover{background:rgba(14,165,233,.1);color:var(--t)}
+.opc-panel-title{font-size:.72rem;color:var(--m);opacity:.5;text-transform:uppercase;letter-spacing:.08em;padding:.25rem .75rem .5rem;border-bottom:1px solid var(--b);margin-bottom:.5rem}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto}
+  .workflow{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .nav{padding:.6rem 1rem}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,15,.98);border-bottom:1px solid var(--b);padding:1rem 1.5rem;gap:.75rem}
+  .nav-toggle{display:block}
+  .hero{padding:6rem 1.25rem 3.5rem}
+  .hero h1{font-size:1.9rem}
+  .hero-sub{font-size:1.05rem}
+  .hero-desc{font-size:.9rem}
+  .hero-actions{flex-direction:column;align-items:center}
+  .features-grid{grid-template-columns:1fr}
+  .workflow{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:1fr;gap:1.25rem;padding:2rem 1.5rem}
+  .stat-num{font-size:1.8rem}
+  .section{padding:3.5rem 1.25rem}
+  .section-header h2{font-size:1.5rem}
+}
 </style>
 </head>
 <body>
+
+<!-- NAVIGATION -->
 <nav class="nav">
-<a href="https://mokangmedical.github.io/opc-homepage/" class="nb">MoKangMedical</a>
-<div class="nl">
-<a href="#features">Features</a>
-<a href="#pricing">Pricing</a>
-<a href="https://github.com/MoKangMedical/mingevidence">GitHub</a>
-<a href="https://mokangmedical.github.io/opc-homepage/">Ecosystem</a>
-</div>
+  <a href="#" class="nav-brand">MingEvidence</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+  <div class="nav-links">
+    <a href="#features">功能特性</a>
+    <a href="#workflow">工作流程</a>
+    <a href="#pricing">定价方案</a>
+    <a href="https://github.com/MoKangMedical/mingevidence">GitHub</a>
+    <a href="https://mokangmedical.github.io/opc-homepage/">OPC 生态</a>
+  </div>
 </nav>
+
+<!-- HERO -->
 <section class="hero">
-<div class="hc">
-<span class="cat">Evidence Medicine</span>
-<h1>MinG Evidence</h1>
-<p class="sub">Minimalist Evidence Synthesis</p>
-<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-<a href="https://github.com/MoKangMedical/mingevidence" class="btn">View on GitHub</a>
-<a href="#features" class="bo">Explore Features</a>
-</div>
-</div>
+  <div class="hero-content">
+    <span class="hero-badge">AI 循证医学分析平台</span>
+    <h1><span>MingEvidence</span></h1>
+    <p class="hero-sub">智能循证医学分析与系统评价辅助平台</p>
+    <p class="hero-desc">面向临床研究者和循证医学团队，提供从文献筛选到报告生成的全流程 AI 辅助，支持 GRADE 评价、偏倚风险评估与森林图自动生成。</p>
+    <div class="hero-actions">
+      <a href="https://github.com/MoKangMedical/mingevidence" class="btn-primary">免费开始使用</a>
+      <a href="#features" class="btn-outline">了解功能</a>
+    </div>
+  </div>
 </section>
-<section class="sec" id="features">
-<h2 class="st">Capabilities</h2>
-<p class="ss">Streamlined evidence synthesis for rapid systematic reviews.</p>
-<div class="fg"><div class="fc"><div class="fi">◆</div><h3>Rapid Screening</h3><p>Advanced rapid screening capabilities powered by AI</p></div><div class="fc"><div class="fi">◇</div><h3>Evidence Mapping</h3><p>Advanced evidence mapping capabilities powered by AI</p></div><div class="fc"><div class="fi">◈</div><h3>Quality Assessment</h3><p>Advanced quality assessment capabilities powered by AI</p></div><div class="fc"><div class="fi">◉</div><h3>Summary Tables</h3><p>Advanced summary tables capabilities powered by AI</p></div><div class="fc"><div class="fi">◊</div><h3>Export Tools</h3><p>Advanced export tools capabilities powered by AI</p></div><div class="fc"><div class="fi">○</div><h3>Team Workflow</h3><p>Advanced team workflow capabilities powered by AI</p></div>
+
+<!-- STATS -->
+<div class="stats-bar" id="stats">
+  <div class="stat-item">
+    <div class="stat-num" data-val="100">0</div>
+    <div class="stat-label">评估工具与量表</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num" data-val="5">0</div>
+    <div class="stat-label">证据等级分类体系</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num" data-val="50">0</div>
+    <div class="stat-label">支持期刊格式</div>
+  </div>
 </div>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-header">
+    <h2>核心功能</h2>
+    <p>覆盖循证医学研究全流程的专业分析工具</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+      </div>
+      <h3>文献质量评估</h3>
+      <p>基于 AMSTAR-2、ROBIS 等国际标准工具，AI 辅助完成文献质量的快速评估与分级，减少人工评分的主观偏差。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 15l3 3-3 3"/></svg>
+      </div>
+      <h3>证据等级分类</h3>
+      <p>遵循牛津循证医学中心证据等级体系，自动对纳入研究进行 1-5 级证据分类，支持自定义分类规则。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h3>GRADE 评价</h3>
+      <p>内置完整的 GRADE 证据质量评价流程，涵盖偏倚风险、不一致性、间接性、不精确性和发表偏倚五个维度。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+      </div>
+      <h3>偏倚风险评估</h3>
+      <p>支持 RoB 2.0、ROBINS-I 等主流偏倚风险评估工具，自动生成偏倚风险总结图和流量图，直观呈现评估结果。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+      </div>
+      <h3>森林图生成</h3>
+      <p>一键生成符合出版标准的森林图，支持固定效应和随机效应模型、亚组分析、敏感性分析等多种统计图表。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
+      </div>
+      <h3>报告自动化</h3>
+      <p>基于 PRISMA 2020 规范自动生成系统评价报告框架，支持 Word、LaTeX 多种导出格式，适配 50+ 主流期刊模板。</p>
+    </div>
+  </div>
 </section>
-<section class="sec" id="pricing">
-<h2 class="st">Pricing</h2>
-<p class="ss">Flexible plans for every scale</p>
-<div class="pg">
-<div class="pc"><h3>Starter</h3><div class="pr">Free</div><p>Basic features and community support</p><a href="https://github.com/MoKangMedical/mingevidence" class="bo">Get Started</a></div>
-<div class="pc"><h3>Professional</h3><div class="pr">$299/mo</div><p>Full access with priority support</p><a href="https://github.com/MoKangMedical/mingevidence" class="bo">Start Trial</a></div>
-<div class="pc"><h3>Enterprise</h3><div class="pr">Custom</div><p>Custom deployment with SLA</p><a href="https://github.com/MoKangMedical/mingevidence" class="bo">Contact Sales</a></div>
-</div>
+
+<!-- WORKFLOW -->
+<section class="section" id="workflow">
+  <div class="section-header">
+    <h2>工作流程</h2>
+    <p>从文献导入到报告输出，四步完成循证分析</p>
+  </div>
+  <div class="workflow">
+    <div class="workflow-step">
+      <div class="step-num">1</div>
+      <h4>文献导入</h4>
+      <p>支持 PubMed、CNKI、万方等多数据库批量导入</p>
+    </div>
+    <div class="workflow-step">
+      <div class="step-num">2</div>
+      <h4>智能筛选</h4>
+      <p>AI 辅助标题/摘要筛选与全文评估</p>
+    </div>
+    <div class="workflow-step">
+      <div class="step-num">3</div>
+      <h4>质量评价</h4>
+      <p>自动完成偏倚风险与 GRADE 评级</p>
+    </div>
+    <div class="workflow-step">
+      <div class="step-num">4</div>
+      <h4>报告输出</h4>
+      <p>生成图表与符合规范的评价报告</p>
+    </div>
+  </div>
 </section>
-<section class="cta">
-<h2>Ready to get started?</h2>
-<p style="color:var(--m);margin-bottom:2rem">Join leading organizations using MinG Evidence</p>
-<a href="https://github.com/MoKangMedical/mingevidence" class="btn">Get Started Free</a>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section-header">
+    <h2>定价方案</h2>
+    <p>灵活的方案，满足不同规模的研究需求</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <h3>免费版</h3>
+      <p class="plan-desc">个人研究者入门</p>
+      <div class="price">免费</div>
+      <p class="price-note">永久免费，社区支持</p>
+      <ul>
+        <li>基础文献质量评估</li>
+        <li>标准森林图生成</li>
+        <li>PRISMA 流程图</li>
+        <li>最多 50 篇文献/项目</li>
+        <li>社区论坛支持</li>
+      </ul>
+      <a href="https://github.com/MoKangMedical/mingevidence" class="btn-outline">开始使用</a>
+    </div>
+    <div class="pricing-card featured">
+      <h3>研究者版</h3>
+      <p class="plan-desc">专业研究团队</p>
+      <div class="price">&#xA5;199<span style="font-size:.9rem;font-weight:400;color:var(--m)"> /月</span></div>
+      <p class="price-note">按年付费享八折优惠</p>
+      <ul>
+        <li>全部免费版功能</li>
+        <li>完整 GRADE 评价系统</li>
+        <li>高级偏倚风险评估</li>
+        <li>无限文献数量</li>
+        <li>多期刊模板导出</li>
+        <li>优先技术支持</li>
+      </ul>
+      <a href="#contact" class="btn-primary">开始试用</a>
+    </div>
+    <div class="pricing-card">
+      <h3>机构版</h3>
+      <p class="plan-desc">医院与科研院所</p>
+      <div class="price">定制</div>
+      <p class="price-note">根据需求灵活配置</p>
+      <ul>
+        <li>全部研究者版功能</li>
+        <li>私有化部署方案</li>
+        <li>团队协作与权限管理</li>
+        <li>API 接口集成</li>
+        <li>定制培训服务</li>
+        <li>专属客户经理</li>
+      </ul>
+      <a href="#contact" class="btn-outline">联系咨询</a>
+    </div>
+  </div>
 </section>
-<footer>
-<p>&copy; 2025 MoKangMedical. All rights reserved. | <a href="https://mokangmedical.github.io/opc-homepage/">Ecosystem</a> | <a href="https://github.com/MoKangMedical">GitHub</a></p>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-content">
+    <h2>开始您的循证研究之旅</h2>
+    <p>加入使用 MingEvidence 的临床研究团队，让 AI 为您的系统评价提供有力支撑。</p>
+    <div class="hero-actions">
+      <a href="https://github.com/MoKangMedical/mingevidence" class="btn-primary">免费注册</a>
+      <a href="mailto:contact@mokangmedical.com" class="btn-outline">联系我们</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://mokangmedical.github.io/opc-homepage/">OPC 生态</a>
+    <a href="https://github.com/MoKangMedical/mingevidence">GitHub 仓库</a>
+    <a href="https://github.com/MoKangMedical/mingevidence/issues">问题反馈</a>
+    <a href="https://github.com/MoKangMedical/mingevidence/blob/main/LICENSE">开源协议</a>
+    <a href="https://mokangmedical.github.io/opc-homepage/">MoKangMedical</a>
+  </div>
+  <p class="footer-copy">&copy; 2025 MoKangMedical / OPC Ecosystem. All rights reserved.</p>
 </footer>
+
+<!-- OPC NAV WIDGET -->
+<div class="opc-nav">
+  <div class="opc-panel" id="opcPanel">
+    <div class="opc-panel-title">OPC 生态</div>
+    <a href="https://mokangmedical.github.io/opc-homepage/">OPC 首页</a>
+    <a href="https://github.com/MoKangMedical">GitHub 组织</a>
+    <a href="https://github.com/MoKangMedical/mingevidence">MingEvidence</a>
+    <a href="https://mokangmedical.github.io/opc-homepage/">更多项目</a>
+  </div>
+  <div class="opc-nav-btn" id="opcBtn" title="OPC 导航">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+  </div>
+</div>
+
 <script>
-// Scroll reveal animation
-const obs=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.style.opacity='1';i.target.style.transform='translateY(0)';obs.unobserve(i.target)}})},{threshold:.1});
-document.querySelectorAll('.fc,.pc').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='all 0.6s ease';obs.observe(el)});
+// Mobile nav toggle - close on link click
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+// OPC nav widget toggle
+document.getElementById('opcBtn').addEventListener('click',function(){
+  document.getElementById('opcPanel').classList.toggle('open');
+});
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.opc-nav')){
+    document.getElementById('opcPanel').classList.remove('open');
+  }
+});
+
+// Scroll reveal
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.style.opacity='1';
+      entry.target.style.transform='translateY(0)';
+      obs.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.feature-card,.pricing-card,.workflow-step').forEach(function(el){
+  el.style.opacity='0';
+  el.style.transform='translateY(24px)';
+  el.style.transition='opacity 0.6s ease, transform 0.6s ease';
+  obs.observe(el);
+});
+
 // Counter animation
-document.querySelectorAll('.stat .num').forEach(el=>{const t=parseInt(el.dataset.val||0);let c=0;const s=t/60;const tm=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(tm)}el.textContent=Math.floor(c).toLocaleString()},25)});
+var counterObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      var nums=entry.target.querySelectorAll('.stat-num');
+      nums.forEach(function(el){
+        var target=parseInt(el.getAttribute('data-val'))||0;
+        var current=0;
+        var step=target/50;
+        var timer=setInterval(function(){
+          current+=step;
+          if(current>=target){current=target;clearInterval(timer);}
+          el.textContent=Math.floor(current)+'+';
+        },30);
+      });
+      counterObs.unobserve(entry.target);
+    }
+  });
+},{threshold:0.3});
+counterObs.observe(document.getElementById('stats'));
 </script>
 </body>
 </html>
