@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PICO Search Builder -- MingEvidence</title>
+<meta name="description" content="Structured PICO framework search builder for evidence-based medicine research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#09090b;--bg2:#111113;--bg3:#18181b;--bg4:#27272a;
+  --text:#fafafa;--text2:#a1a1aa;--text3:#71717a;
+  --border:#27272a;--border2:#3f3f46;
+  --accent:#6366f1;--accent2:#818cf8;--accent3:#a5b4fc;
+  --green:#10b981;--amber:#f59e0b;--red:#ef4444;--purple:#8b5cf6;--pink:#ec4899;
+  --radius:12px;--radius-lg:16px;
+}
+html{scroll-behavior:smooth;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif}
+body{background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--accent);color:#fff}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(99,102,241,.12);box-shadow:0 1px 24px rgba(99,102,241,.06)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-weight:800;font-size:18px;letter-spacing:-.5px;display:flex;align-items:center;gap:8px;color:var(--text)}
+.nav-logo span{color:var(--accent2)}
+.nav-links{display:flex;gap:20px;font-size:12px;font-weight:500;color:var(--text3)}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--accent2)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-cta{background:var(--accent);color:#fff;padding:6px 16px;border-radius:8px;font-size:13px;font-weight:600;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+.nav-mobile{display:none;background:none;border:none;color:var(--text);cursor:pointer;font-size:22px;padding:4px}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 32px;z-index:99}
+.mobile-menu a{display:block;padding:10px 0;font-size:14px;color:var(--text2);border-bottom:1px solid var(--border)}
+.mobile-menu a:last-child{border:none}
+.mobile-menu.open{display:block}
+
+/* PAGE HEADER */
+.page-header{padding:120px 32px 60px;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(99,102,241,.08) 0%,transparent 60%);pointer-events:none}
+.page-header h1{font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-2px;margin-bottom:16px;position:relative}
+.page-header h1 .grad{background:linear-gradient(135deg,var(--accent2),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-header p{font-size:16px;color:var(--text2);max-width:600px;margin:0 auto;line-height:1.7;position:relative}
+
+/* BUILDER */
+.builder{max-width:960px;margin:0 auto;padding:40px 32px 80px}
+.pico-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;margin-bottom:24px;transition:border-color .3s}
+.pico-card:focus-within{border-color:rgba(99,102,241,.4)}
+.pico-label{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.pico-letter{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;flex-shrink:0}
+.pico-letter.p{background:rgba(99,102,241,.15);color:var(--accent2)}
+.pico-letter.i{background:rgba(139,92,246,.15);color:var(--purple)}
+.pico-letter.c{background:rgba(16,185,129,.15);color:var(--green)}
+.pico-letter.o{background:rgba(245,158,11,.15);color:var(--amber)}
+.pico-letter.s{background:rgba(236,72,153,.15);color:var(--pink)}
+.pico-label-text h3{font-size:16px;font-weight:700;margin-bottom:2px}
+.pico-label-text p{font-size:12px;color:var(--text3)}
+
+.pico-input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 16px;color:var(--text);font-size:14px;font-family:inherit;outline:none;transition:border-color .2s}
+.pico-input:focus{border-color:var(--accent)}
+.pico-input::placeholder{color:var(--text3)}
+
+.tag-suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tag-btn{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:6px 12px;font-size:12px;color:var(--text2);cursor:pointer;font-family:inherit;transition:all .2s}
+.tag-btn:hover{border-color:var(--accent);color:var(--accent2);background:rgba(99,102,241,.08)}
+.tag-btn.selected{border-color:var(--accent);color:var(--accent2);background:rgba(99,102,241,.12)}
+
+/* SEARCH OUTPUT */
+.output-section{margin-top:40px}
+.output-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px}
+.output-header h2{font-size:20px;font-weight:800}
+.output-actions{display:flex;gap:8px}
+.action-btn{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:13px;color:var(--text2);cursor:pointer;font-family:inherit;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.action-btn:hover{border-color:var(--accent);color:var(--accent2)}
+.action-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.action-btn.primary:hover{opacity:.9}
+
+.query-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;font-size:14px;line-height:1.8;color:var(--text2);font-family:'JetBrains Mono',monospace,inherit;position:relative}
+.query-box .kw{color:var(--accent2);font-weight:600}
+.query-box .op{color:var(--amber);font-weight:700}
+.query-box .field{color:var(--green)}
+.query-box .paren{color:var(--text3)}
+
+.db-selector{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.db-chip{display:flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:13px;color:var(--text2);cursor:pointer;transition:all .2s}
+.db-chip.active{border-color:var(--accent);color:var(--accent2);background:rgba(99,102,241,.08)}
+.db-chip input{display:none}
+.db-check{width:16px;height:16px;border:2px solid var(--border2);border-radius:4px;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:10px}
+.db-chip.active .db-check{border-color:var(--accent);background:var(--accent);color:#fff}
+
+/* TEMPLATES */
+.templates{margin-top:40px}
+.templates h3{font-size:16px;font-weight:700;margin-bottom:16px}
+.template-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.template-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;cursor:pointer;transition:all .3s}
+.template-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 20px rgba(99,102,241,.1)}
+.template-card h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.template-card p{font-size:12px;color:var(--text3);line-height:1.5}
+.template-card .tag{display:inline-block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:2px 8px;border-radius:4px;margin-top:8px;background:rgba(99,102,241,.1);color:var(--accent2)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:48px 32px 28px;max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+.footer-brand h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--text3);line-height:1.7}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-bottom:12px}
+.footer-col a{display:block;font-size:13px;color:var(--text2);padding:4px 0;transition:color .2s}
+.footer-col a:hover{color:var(--accent2)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:16px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text3)}
+
+@media(max-width:768px){
+  .nav-links{display:none}.nav-mobile{display:block}
+  .builder{padding:20px 16px 60px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .output-header{flex-direction:column;align-items:flex-start}
+  .template-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr}
+  .db-selector{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-inner">
+  <a href="index.html" class="nav-logo">Ming<span>Evidence</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#features">Features</a>
+    <a href="pico.html" class="active">PICO Builder</a>
+    <a href="grade.html">GRADE</a>
+    <a href="https://github.com/MoKangMedical/mingevidence" target="_blank">GitHub</a>
+  </div>
+  <div class="nav-right">
+    <a href="index.html#demo" class="nav-cta">Try Demo</a>
+    <button class="nav-mobile" onclick="document.getElementById('mobileMenu').classList.toggle('open')">&#9776;</button>
+  </div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="pico.html">PICO Builder</a>
+  <a href="grade.html">GRADE Assessment</a>
+  <a href="https://github.com/MoKangMedical/mingevidence" target="_blank">GitHub</a>
+</div>
+
+<div class="page-header">
+  <h1>PICO <span class="grad">Search Builder</span></h1>
+  <p>Convert your clinical question into an optimized, database-ready search strategy using the PICO framework.</p>
+</div>
+
+<div class="builder">
+
+  <!-- P - Population -->
+  <div class="pico-card">
+    <div class="pico-label">
+      <div class="pico-letter p">P</div>
+      <div class="pico-label-text">
+        <h3>Population / Problem</h3>
+        <p>Who is the patient group or what is the condition?</p>
+      </div>
+    </div>
+    <input type="text" class="pico-input" id="pPopulation" placeholder="e.g.: adults with type 2 diabetes mellitus" oninput="buildQuery()">
+    <div class="tag-suggestions">
+      <span class="tag-btn" onclick="addTag('pPopulation','heart failure patients')">Heart Failure</span>
+      <span class="tag-btn" onclick="addTag('pPopulation','type 2 diabetes mellitus')">Type 2 Diabetes</span>
+      <span class="tag-btn" onclick="addTag('pPopulation','adults with hypertension')">Hypertension</span>
+      <span class="tag-btn" onclick="addTag('pPopulation','patients with COPD')">COPD</span>
+      <span class="tag-btn" onclick="addTag('pPopulation','acute ischemic stroke')">Ischemic Stroke</span>
+      <span class="tag-btn" onclick="addTag('pPopulation','breast cancer patients')">Breast Cancer</span>
+    </div>
+  </div>
+
+  <!-- I - Intervention -->
+  <div class="pico-card">
+    <div class="pico-label">
+      <div class="pico-letter i">I</div>
+      <div class="pico-label-text">
+        <h3>Intervention</h3>
+        <p>What treatment, exposure, or diagnostic test?</p>
+      </div>
+    </div>
+    <input type="text" class="pico-input" id="pIntervention" placeholder="e.g.: SGLT2 inhibitors" oninput="buildQuery()">
+    <div class="tag-suggestions">
+      <span class="tag-btn" onclick="addTag('pIntervention','SGLT2 inhibitors')">SGLT2i</span>
+      <span class="tag-btn" onclick="addTag('pIntervention','GLP-1 receptor agonists')">GLP-1 RA</span>
+      <span class="tag-btn" onclick="addTag('pIntervention','immune checkpoint inhibitors')">Checkpoint Inhibitors</span>
+      <span class="tag-btn" onclick="addTag('pIntervention','metformin')">Metformin</span>
+      <span class="tag-btn" onclick="addTag('pIntervention','statin therapy')">Statin Therapy</span>
+      <span class="tag-btn" onclick="addTag('pIntervention','cognitive behavioral therapy')">CBT</span>
+    </div>
+  </div>
+
+  <!-- C - Comparison -->
+  <div class="pico-card">
+    <div class="pico-label">
+      <div class="pico-letter c">C</div>
+      <div class="pico-label-text">
+        <h3>Comparison</h3>
+        <p>What is the control or alternative intervention?</p>
+      </div>
+    </div>
+    <input type="text" class="pico-input" id="pComparison" placeholder="e.g.: placebo or standard care" oninput="buildQuery()">
+    <div class="tag-suggestions">
+      <span class="tag-btn" onclick="addTag('pComparison','placebo')">Placebo</span>
+      <span class="tag-btn" onclick="addTag('pComparison','standard of care')">Standard of Care</span>
+      <span class="tag-btn" onclick="addTag('pComparison','no treatment')">No Treatment</span>
+      <span class="tag-btn" onclick="addTag('pComparison','active comparator')">Active Comparator</span>
+    </div>
+  </div>
+
+  <!-- O - Outcome -->
+  <div class="pico-card">
+    <div class="pico-label">
+      <div class="pico-letter o">O</div>
+      <div class="pico-label-text">
+        <h3>Outcome</h3>
+        <p>What are the measured endpoints?</p>
+      </div>
+    </div>
+    <input type="text" class="pico-input" id="pOutcome" placeholder="e.g.: mortality, hospitalization rate, HbA1c" oninput="buildQuery()">
+    <div class="tag-suggestions">
+      <span class="tag-btn" onclick="addTag('pOutcome','all-cause mortality')">All-cause Mortality</span>
+      <span class="tag-btn" onclick="addTag('pOutcome','cardiovascular events')">CV Events</span>
+      <span class="tag-btn" onclick="addTag('pOutcome','hospitalization rate')">Hospitalization</span>
+      <span class="tag-btn" onclick="addTag('pOutcome','quality of life')">Quality of Life</span>
+      <span class="tag-btn" onclick="addTag('pOutcome','adverse events')">Adverse Events</span>
+      <span class="tag-btn" onclick="addTag('pOutcome','disease progression')">Disease Progression</span>
+    </div>
+  </div>
+
+  <!-- S - Study Design -->
+  <div class="pico-card">
+    <div class="pico-label">
+      <div class="pico-letter s">S</div>
+      <div class="pico-label-text">
+        <h3>Study Design</h3>
+        <p>What type of evidence are you looking for?</p>
+      </div>
+    </div>
+    <input type="text" class="pico-input" id="pStudy" placeholder="e.g.: randomized controlled trial" oninput="buildQuery()">
+    <div class="tag-suggestions">
+      <span class="tag-btn" onclick="addTag('pStudy','randomized controlled trial')">RCT</span>
+      <span class="tag-btn" onclick="addTag('pStudy','systematic review')">Systematic Review</span>
+      <span class="tag-btn" onclick="addTag('pStudy','meta-analysis')">Meta-Analysis</span>
+      <span class="tag-btn" onclick="addTag('pStudy','cohort study')">Cohort Study</span>
+      <span class="tag-btn" onclick="addTag('pStudy','case-control study')">Case-Control</span>
+    </div>
+  </div>
+
+  <!-- Generated Query Output -->
+  <div class="output-section">
+    <div class="output-header">
+      <h2>Generated Search Strategy</h2>
+      <div class="output-actions">
+        <button class="action-btn" onclick="resetAll()">Reset</button>
+        <button class="action-btn primary" onclick="copyQuery()">Copy Query</button>
+      </div>
+    </div>
+    <div class="query-box" id="queryOutput">
+      <span class="paren">(</span><span class="field">[Population terms]</span><span class="paren">)</span>
+      <span class="op"> AND </span>
+      <span class="paren">(</span><span class="field">[Intervention terms]</span><span class="paren">)</span>
+      <span class="op"> AND </span>
+      <span class="paren">(</span><span class="field">[Comparison terms]</span><span class="paren">)</span>
+      <span class="op"> AND </span>
+      <span class="paren">(</span><span class="field">[Outcome terms]</span><span class="paren">)</span>
+      <br><br><span style="color:var(--text3);font-size:12px">Fill in the PICO fields above to generate your search query.</span>
+    </div>
+
+    <div class="db-selector">
+      <div class="db-chip active" onclick="toggleDb(this)"><div class="db-check">&#10003;</div>PubMed</div>
+      <div class="db-chip active" onclick="toggleDb(this)"><div class="db-check">&#10003;</div>Cochrane Library</div>
+      <div class="db-chip" onclick="toggleDb(this)"><div class="db-check">&#10003;</div>Embase</div>
+      <div class="db-chip" onclick="toggleDb(this)"><div class="db-check">&#10003;</div>CNKI</div>
+      <div class="db-chip" onclick="toggleDb(this)"><div class="db-check">&#10003;</div>WanFang</div>
+    </div>
+  </div>
+
+  <!-- Templates -->
+  <div class="templates">
+    <h3>Quick Templates</h3>
+    <div class="template-grid">
+      <div class="template-card" onclick="loadTemplate('t2dm')">
+        <h4>SGLT2i in Type 2 Diabetes</h4>
+        <p>SGLT2 inhibitors vs placebo on cardiovascular outcomes in adults with T2DM.</p>
+        <span class="tag">Cardiovascular</span>
+      </div>
+      <div class="template-card" onclick="loadTemplate('hf')">
+        <h4>Heart Failure Therapy</h4>
+        <p>Novel therapies for heart failure with reduced ejection fraction.</p>
+        <span class="tag">Cardiology</span>
+      </div>
+      <div class="template-card" onclick="loadTemplate('lung')">
+        <h4>Immunotherapy in NSCLC</h4>
+        <p>PD-1/PD-L1 inhibitors vs chemotherapy in advanced non-small cell lung cancer.</p>
+        <span class="tag">Oncology</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+<div class="footer-grid">
+  <div class="footer-brand">
+    <h3>Ming<span style="color:var(--accent2)">Evidence</span></h3>
+    <p>AI-powered clinical evidence mining platform.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Product</h4>
+    <a href="index.html">Home</a>
+    <a href="index.html#features">Features</a>
+    <a href="pico.html">PICO Builder</a>
+    <a href="grade.html">GRADE</a>
+  </div>
+  <div class="footer-col">
+    <h4>Resources</h4>
+    <a href="https://github.com/MoKangMedical/mingevidence" target="_blank">GitHub</a>
+    <a href="#">API Docs</a>
+  </div>
+  <div class="footer-col">
+    <h4>Ecosystem</h4>
+    <a href="https://mokangmedical.github.io/opc-homepage/">MoKangMedical</a>
+    <a href="https://mokangmedical.github.io/Biostats/">Biostats</a>
+    <a href="https://mokangmedical.github.io/metaforge/">MetaForge</a>
+  </div>
+</div>
+<div class="footer-bottom">
+  <span>&copy; 2024-2026 MoKangMedical. MIT License.</span>
+  <span>Built for Evidence-Based Medicine</span>
+</div>
+</footer>
+
+<script>
+// Synonym expansion map
+const synonyms={
+  'heart failure':['heart failure','cardiac failure','congestive heart failure','CHF','HF','HFrEF','HFpEF'],
+  'type 2 diabetes':['type 2 diabetes','T2DM','type 2 diabetes mellitus','NIDDM','non-insulin dependent diabetes'],
+  'SGLT2 inhibitors':['SGLT2 inhibitors','sodium-glucose cotransporter 2 inhibitors','gliflozins','dapagliflozin','empagliflozin','canagliflozin','ertugliflozin'],
+  'GLP-1 receptor agonists':['GLP-1 receptor agonists','GLP-1 RAs','glucagon-like peptide-1','semaglutide','liraglutide','dulaglutide'],
+  'immune checkpoint inhibitors':['immune checkpoint inhibitors','PD-1 inhibitors','PD-L1 inhibitors','pembrolizumab','nivolumab','atezolizumab'],
+  'placebo':['placebo','sham','sugar pill','dummy treatment'],
+  'mortality':['mortality','death','survival','fatality','all-cause death'],
+  'hospitalization':['hospitalization','hospital admission','hospital readmission','inpatient stay'],
+  'randomized controlled trial':['randomized controlled trial','RCT','randomised controlled trial','clinical trial','random allocation'],
+  'statin therapy':['statin therapy','HMG-CoA reductase inhibitors','statins','atorvastatin','rosuvastatin','simvastatin'],
+  'metformin':['metformin','biguanide','glucophage'],
+  'cognitive behavioral therapy':['cognitive behavioral therapy','CBT','cognitive behaviour therapy']
+};
+
+function expandTerms(text){
+  if(!text.trim())return'';
+  const lower=text.toLowerCase();
+  for(const[key,terms]of Object.entries(synonyms)){
+    if(lower.includes(key.toLowerCase())){
+      return terms.map(t=>'"'+t+'"').join(' OR ');
+    }
+  }
+  return '"'+text.trim()+'"';
+}
+
+function buildQuery(){
+  const p=document.getElementById('pPopulation').value;
+  const i=document.getElementById('pIntervention').value;
+  const c=document.getElementById('pComparison').value;
+  const o=document.getElementById('pOutcome').value;
+  const s=document.getElementById('pStudy').value;
+
+  const out=document.getElementById('queryOutput');
+  let html='';
+  let parts=[];
+
+  if(p.trim())parts.push('<span class="paren">(</span><span class="kw">'+expandTerms(p)+'</span><span class="paren">)</span>');
+  if(i.trim())parts.push('<span class="paren">(</span><span class="kw">'+expandTerms(i)+'</span><span class="paren">)</span>');
+  if(c.trim())parts.push('<span class="paren">(</span><span class="kw">'+expandTerms(c)+'</span><span class="paren">)</span>');
+  if(o.trim())parts.push('<span class="paren">(</span><span class="kw">'+expandTerms(o)+'</span><span class="paren">)</span>');
+  if(s.trim())parts.push('<span class="paren">(</span><span class="kw">'+expandTerms(s)+'</span><span class="paren">)</span>');
+
+  if(parts.length===0){
+    out.innerHTML='<span class="paren">(</span><span class="field">[Population terms]</span><span class="paren">)</span> <span class="op">AND</span> <span class="paren">(</span><span class="field">[Intervention terms]</span><span class="paren">)</span> <span class="op">AND</span> <span class="paren">(</span><span class="field">[Comparison terms]</span><span class="paren">)</span> <span class="op">AND</span> <span class="paren">(</span><span class="field">[Outcome terms]</span><span class="paren">)</span><br><br><span style="color:var(--text3);font-size:12px">Fill in the PICO fields above to generate your search query.</span>';
+    return;
+  }
+
+  html=parts.join('\n <span class="op">AND</span>\n ');
+  html+='<br><br><span style="color:var(--text3);font-size:12px">Expanded with MeSH terms and synonyms. '+parts.length+' concept group(s) active.</span>';
+  out.innerHTML=html;
+}
+
+function addTag(fieldId, value){
+  const field=document.getElementById(fieldId);
+  const current=field.value.trim();
+  if(current.toLowerCase().includes(value.toLowerCase()))return;
+  field.value=current?current+' '+value:value;
+  buildQuery();
+  // Highlight the tag
+  event.target.classList.toggle('selected');
+}
+
+function toggleDb(el){
+  el.classList.toggle('active');
+}
+
+function copyQuery(){
+  const out=document.getElementById('queryOutput');
+  const text=out.textContent.replace(/Fill in.*|Expanded.*/,'').trim();
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=document.querySelector('.action-btn.primary');
+    const orig=btn.textContent;
+    btn.textContent='Copied!';
+    setTimeout(()=>btn.textContent=orig,1500);
+  });
+}
+
+function resetAll(){
+  document.getElementById('pPopulation').value='';
+  document.getElementById('pIntervention').value='';
+  document.getElementById('pComparison').value='';
+  document.getElementById('pOutcome').value='';
+  document.getElementById('pStudy').value='';
+  document.querySelectorAll('.tag-btn.selected').forEach(t=>t.classList.remove('selected'));
+  buildQuery();
+}
+
+const templates={
+  t2dm:{p:'adults with type 2 diabetes mellitus',i:'SGLT2 inhibitors',c:'placebo',o:'cardiovascular events, all-cause mortality',s:'randomized controlled trial'},
+  hf:{p:'heart failure patients with reduced ejection fraction',i:'SGLT2 inhibitors',c:'standard of care',o:'hospitalization rate, all-cause mortality',s:'randomized controlled trial'},
+  lung:{p:'patients with advanced non-small cell lung cancer',i:'immune checkpoint inhibitors',c:'platinum-based chemotherapy',o:'overall survival, progression-free survival',s:'randomized controlled trial'}
+};
+
+function loadTemplate(key){
+  const t=templates[key];
+  document.getElementById('pPopulation').value=t.p;
+  document.getElementById('pIntervention').value=t.i;
+  document.getElementById('pComparison').value=t.c;
+  document.getElementById('pOutcome').value=t.o;
+  document.getElementById('pStudy').value=t.s;
+  buildQuery();
+  window.scrollTo({top:document.querySelector('.builder').offsetTop-80,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
