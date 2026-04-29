@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于 — MingEvidence 循证医学分析平台</title>
+<meta name="description" content="了解 MingEvidence：项目背景、技术架构、团队介绍与 OPC 生态系统。面向临床研究者的 AI 循证医学分析平台。">
+<meta property="og:title" content="关于 MingEvidence — AI循证医学分析平台">
+<meta property="og:description" content="面向临床研究者的智能循证医学分析平台">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mokangmedical.github.io/mingevidence/about.html">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1f3e5;</text></svg>\">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --p:#0ea5e9;--p-dim:#0284c7;--bg:#0a0a0f;--s:#111118;--s2:#16161f;
+  --t:#e2e8f0;--m:#94a3b8;--b:rgba(255,255,255,.06);--r:12px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--t);line-height:1.7;font-size:16px;overflow-x:hidden}
+a{color:var(--p);text-decoration:none;transition:color .2s}
+a:hover{color:#38bdf8}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(10,10,15,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);z-index:1000;padding:.75rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-size:1.15rem;font-weight:700;color:var(--p);letter-spacing:-.02em}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{color:var(--m);font-size:.85rem;font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--t)}
+.nav-toggle{display:none;background:none;border:none;color:var(--t);font-size:1.4rem;cursor:pointer;padding:.25rem}
+
+/* HERO */
+.hero{text-align:center;padding:7rem 2rem 3rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 20%,rgba(14,165,233,.1),transparent 65%)}
+.hero h1{font-size:clamp(2.2rem,5vw,3.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:.5rem}
+.hero h1 span{background:linear-gradient(135deg,#fff 30%,var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.2rem;color:var(--m);margin-bottom:.5rem;font-weight:500}
+.hero-desc{font-size:1rem;color:var(--m);max-width:640px;margin:0 auto;opacity:.85}
+
+/* SECTIONS */
+.section{padding:5rem 2rem;max-width:1140px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-header h2{font-size:2rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.5rem}
+.section-header p{color:var(--m);font-size:1rem;max-width:520px;margin:0 auto}
+
+/* SPLIT LAYOUT */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.split-content h2{font-size:1.8rem;font-weight:700;margin-bottom:1rem}
+.split-content p{color:var(--m);margin-bottom:1rem;font-size:.95rem}
+.split-visual{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:2.5rem;text-align:center}
+.split-visual .icon-large{font-size:3.5rem;margin-bottom:1rem;display:block}
+.split-visual p{color:var(--m);font-size:.9rem}
+
+/* INFO BLOCKS */
+.info-block{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:2rem}
+.info-block h3{font-size:1.15rem;font-weight:700;margin-bottom:1rem}
+.info-block ul{list-style:none;padding:0}
+.info-block ul li{padding:.5rem 0;color:var(--m);font-size:.9rem;border-bottom:1px solid var(--b)}
+.info-block ul li:last-child{border-bottom:none}
+.info-block ul li strong{color:var(--t)}
+
+/* TWO-COLUMN */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+
+/* CARDS GRID */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:2rem;transition:all .3s;position:relative;overflow:hidden}
+.card:hover{border-color:rgba(14,165,233,.35);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--p),transparent);opacity:0;transition:opacity .3s}
+.card:hover::before{opacity:1}
+.card-icon{width:44px;height:44px;background:rgba(14,165,233,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.2rem}
+.card h3{font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+.card p{color:var(--m);font-size:.88rem;line-height:1.6}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:1.5rem;margin:1.5rem 0}
+.step{display:flex;gap:1.2rem;align-items:flex-start}
+.step-num{flex-shrink:0;width:40px;height:40px;border-radius:12px;background:rgba(14,165,233,.15);border:1.5px solid rgba(14,165,233,.3);color:var(--p);font-weight:700;font-size:1rem;display:flex;align-items:center;justify-content:center}
+.step-content h4{font-size:1rem;font-weight:700;color:var(--t);margin-bottom:.2rem}
+.step-content p{font-size:.88rem;color:var(--m)}
+
+/* TECH GRID */
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.tech-item{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:1.4rem 1.6rem;transition:all .3s}
+.tech-item:hover{border-color:rgba(14,165,233,.3)}
+.tech-item .tech-cat{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--p);margin-bottom:.3rem;font-weight:600}
+.tech-item .tech-name{font-size:1rem;font-weight:700;color:var(--t);margin-bottom:.3rem}
+.tech-item .tech-desc{font-size:.85rem;color:var(--m)}
+
+/* TEAM GRID */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.team-card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:2rem;text-align:center;transition:all .3s}
+.team-card:hover{transform:translateY(-4px);border-color:rgba(14,165,233,.3)}
+.team-avatar{width:72px;height:72px;border-radius:50%;background:rgba(14,165,233,.15);border:1.5px solid rgba(14,165,233,.3);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1rem}
+.team-card h4{font-size:1rem;font-weight:700;color:var(--t);margin-bottom:.2rem}
+.team-card .role{font-size:.82rem;color:var(--p);margin-bottom:.5rem;font-weight:600}
+.team-card p{font-size:.82rem;color:var(--m)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.contact-card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:2rem;text-align:center;transition:all .3s}
+.contact-card:hover{border-color:rgba(14,165,233,.3);transform:translateY(-2px)}
+.contact-card .ci{font-size:2rem;margin-bottom:1rem;display:block}
+.contact-card h4{font-size:1rem;font-weight:700;color:var(--t);margin-bottom:.3rem}
+.contact-card p{font-size:.88rem;color:var(--m);margin-bottom:1rem}
+.btn-sm{display:inline-block;padding:.6rem 1.5rem;border-radius:8px;font-weight:600;font-size:.88rem;transition:all .25s}
+.btn-primary{background:var(--p);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(14,165,233,.35);color:#fff}
+.btn-outline{border:1.5px solid rgba(14,165,233,.45);color:var(--p);background:transparent}
+.btn-outline:hover{background:rgba(14,165,233,.1);color:#fff;border-color:var(--p)}
+
+/* OPC ECOSYSTEM */
+.eco-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.eco-card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:2rem;text-align:center;transition:all .3s}
+.eco-card:hover{transform:translateY(-4px);border-color:rgba(14,165,233,.3)}
+.eco-card .eco-icon{font-size:2rem;margin-bottom:.8rem;display:block}
+.eco-card h3{font-size:1rem;font-weight:700;margin-bottom:.3rem}
+.eco-card p{color:var(--m);font-size:.85rem;margin-bottom:.8rem}
+.eco-card a{font-size:.82rem;color:var(--p)}
+
+/* BENCHMARK TABLE */
+.bench-table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:var(--s);border-radius:var(--r);overflow:hidden;border:1px solid var(--b)}
+.bench-table th{background:rgba(14,165,233,.08);color:var(--p);text-align:left;padding:.8rem 1.2rem;font-size:.8rem;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.bench-table td{padding:.7rem 1.2rem;border-bottom:1px solid var(--b);font-size:.9rem;color:var(--m)}
+.bench-table tr:last-child td{border-bottom:none}
+.bench-table tr:hover td{background:rgba(14,165,233,.03)}
+
+/* CTA */
+.cta-section{text-align:center;padding:5rem 2rem;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,165,233,.06),transparent 60%)}
+.cta-content{position:relative;max-width:600px;margin:0 auto}
+.cta-content h2{font-size:2rem;font-weight:700;margin-bottom:.5rem}
+.cta-content p{color:var(--m);margin-bottom:2rem;font-size:1rem}
+
+/* OPC NAV WIDGET */
+.opc-nav{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999}
+.opc-nav-btn{width:48px;height:48px;border-radius:50%;background:var(--s);border:1.5px solid var(--b);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.opc-nav-btn:hover{border-color:var(--p);box-shadow:0 4px 24px rgba(14,165,233,.2)}
+.opc-nav-btn svg{width:20px;height:20px;stroke:var(--m);fill:none;stroke-width:2}
+.opc-panel{display:none;position:absolute;bottom:56px;right:0;background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:1rem;min-width:200px;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.opc-panel.open{display:block}
+.opc-panel a{display:block;padding:.5rem .75rem;color:var(--m);font-size:.82rem;border-radius:6px;transition:all .15s}
+.opc-panel a:hover{background:rgba(14,165,233,.1);color:var(--t)}
+.opc-panel-title{font-size:.72rem;color:var(--m);opacity:.5;text-transform:uppercase;letter-spacing:.08em;padding:.25rem .75rem .5rem;border-bottom:1px solid var(--b);margin-bottom:.5rem}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--b);padding:2.5rem 2rem;text-align:center}
+.footer-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1rem}
+.footer-links a{color:var(--m);font-size:.82rem}
+.footer-links a:hover{color:var(--p)}
+.footer-copy{color:var(--m);font-size:.78rem;opacity:.7}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr}
+  .split-visual{order:-1}
+  .two-col{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav{padding:.6rem 1rem}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,15,.98);border-bottom:1px solid var(--b);padding:1rem 1.5rem;gap:.75rem}
+  .nav-toggle{display:block}
+  .hero{padding:6rem 1.25rem 2rem}
+  .hero h1{font-size:1.9rem}
+  .hero-sub{font-size:1.05rem}
+  .section{padding:3.5rem 1.25rem}
+  .section-header h2{font-size:1.5rem}
+  .card-grid,.tech-grid,.team-grid,.contact-grid,.eco-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand">MingEvidence</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+  <div class="nav-links">
+    <a href="index.html">首页</a>
+    <a href="index.html#features">功能特性</a>
+    <a href="pricing.html">定价方案</a>
+    <a href="about.html" class="active">关于我们</a>
+    <a href="https://github.com/MingEvidence — AI循证医学分析平台/mingevidence">GitHub</a>
+    <a href="https://mokangmedical.github.io/opc-homepage/">OPC 生态</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>关于 <span>MingEvidence</span></h1>
+  <p class="hero-sub">智能循证医学分析与系统评价辅助平台</p>
+  <p class="hero-desc">面向临床研究者和循证医学团队，致力于用 AI 技术革新循证医学研究方法学，让高质量的系统评价与 Meta 分析更加高效、可靠。</p>
+</section>
+
+<!-- MISSION & VISION -->
+<section class="section">
+  <div class="split">
+    <div class="split-content">
+      <h2>使命与愿景</h2>
+      <p>MingEvidence 旨在通过人工智能技术，降低循证医学研究的门槛和成本。我们相信，每一位临床研究者都应拥有高效的循证分析工具，而不受统计方法学的限制。</p>
+      <p>我们的目标是覆盖从文献筛选到报告生成的全流程，提供标准化、可复现的循证分析辅助，帮助研究者产出高质量的系统评价和 Meta 分析。</p>
+      <p style="color:var(--p);font-weight:600;font-style:italic;margin-top:1rem">"让循证医学研究更高效、更可靠、更智能。"</p>
+    </div>
+    <div class="split-visual">
+      <span class="icon-large">🔬</span>
+      <p style="font-weight:600;color:var(--t);margin-bottom:.5rem">愿景</p>
+      <p>一个所有临床决策都基于高质量循证证据的未来 — AI 让系统评价不再耗时数月，而是数天完成。</p>
+    </div>
+  </div>
+</section>
+
+<!-- CORE CAPABILITIES -->
+<section class="section">
+  <div class="section-header">
+    <h2>核心能力</h2>
+    <p>覆盖循证医学研究全流程的专业工具链</p>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+      </div>
+      <h3>文献质量评估</h3>
+      <p>基于 AMSTAR-2、ROBIS 等国际标准工具，AI 辅助完成文献质量的快速评估与分级，减少人工评分的主观偏差。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h3>GRADE 评价</h3>
+      <p>内置完整的 GRADE 证据质量评价流程，涵盖偏倚风险、不一致性、间接性、不精确性和发表偏倚五个维度。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+      </div>
+      <h3>偏倚风险评估</h3>
+      <p>支持 RoB 2.0、ROBINS-I 等主流偏倚风险评估工具，自动生成偏倚风险总结图和流量图。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+      </div>
+      <h3>森林图生成</h3>
+      <p>一键生成符合出版标准的森林图，支持固定效应和随机效应模型、亚组分析、敏感性分析等。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      </div>
+      <h3>证据等级分类</h3>
+      <p>遵循牛津循证医学中心证据等级体系，自动对纳入研究进行 1-5 级证据分类。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
+      </div>
+      <h3>报告自动化</h3>
+      <p>基于 PRISMA 2020 规范自动生成系统评价报告框架，支持 Word、LaTeX 多种导出格式。</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="section">
+  <div class="section-header">
+    <h2>工作流程</h2>
+    <p>从文献导入到报告输出，四步完成循证分析</p>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>文献导入</h4>
+            <p>支持 PubMed、CNKI、万方、Embase 等多数据库批量导入，兼容 RIS、BibTeX、EndNote 等主流格式</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>智能筛选</h4>
+            <p>AI 辅助标题/摘要筛选与全文评估，支持 PRISMA 流程图自动生成，大幅提高筛选效率</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>质量评价</h4>
+            <p>自动完成偏倚风险评估与 GRADE 评级，生成偏倚风险总结图和证据概要表</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>报告输出</h4>
+            <p>生成符合出版标准的森林图、漏斗图与完整系统评价报告，适配 50+ 主流期刊模板</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:var(--t)">支持的评估工具</h3>
+      <table class="bench-table">
+        <thead>
+          <tr>
+            <th>工具</th>
+            <th>用途</th>
+            <th>适用研究类型</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>AMSTAR-2</strong></td>
+            <td>系统评价方法学质量</td>
+            <td>系统评价/Meta 分析</td>
+          </tr>
+          <tr>
+            <td><strong>ROBIS</strong></td>
+            <td>系统评价偏倚风险</td>
+            <td>系统评价</td>
+          </tr>
+          <tr>
+            <td><strong>RoB 2.0</strong></td>
+            <td>随机对照试验偏倚</td>
+            <td>RCT</td>
+          </tr>
+          <tr>
+            <td><strong>ROBINS-I</strong></td>
+            <td>非随机研究偏倚</td>
+            <td>队列/病例对照</td>
+          </tr>
+          <tr>
+            <td><strong>GRADE</strong></td>
+            <td>证据质量评级</td>
+            <td>所有干预性研究</td>
+          </tr>
+          <tr>
+            <td><strong>Newcastle-Ottawa</strong></td>
+            <td>观察性研究质量</td>
+            <td>观察性研究</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="section">
+  <div class="section-header">
+    <h2>技术架构</h2>
+    <p>支撑 MingEvidence 的核心技术栈</p>
+  </div>
+  <div class="tech-grid">
+    <div class="tech-item">
+      <div class="tech-cat">AI / NLP</div>
+      <div class="tech-name">大语言模型</div>
+      <div class="tech-desc">基于 LLM 的文献理解、摘要提取与报告生成引擎</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-cat">统计引擎</div>
+      <div class="tech-name">R / Python 混合计算</div>
+      <div class="tech-desc">Meta 分析核心计算，支持固定/随机效应模型</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-cat">可视化</div>
+      <div class="tech-name">D3.js + SVG</div>
+      <div class="tech-desc">出版级森林图、漏斗图、偏倚风险图自动生成</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-cat">文献解析</div>
+      <div class="tech-name">多格式解析器</div>
+      <div class="tech-desc">支持 PubMed XML、RIS、BibTeX、EndNote 等格式</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-cat">后端服务</div>
+      <div class="tech-name">FastAPI + Celery</div>
+      <div class="tech-desc">异步任务队列处理大规模文献分析</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-cat">报告导出</div>
+      <div class="tech-name">多格式输出</div>
+      <div class="tech-desc">Word (.docx)、LaTeX、HTML 多格式导出，适配期刊模板</div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section">
+  <div class="section-header">
+    <h2>团队介绍</h2>
+    <p>跨学科团队，融合临床医学、流行病学与 AI 技术</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">👨‍⚕️</div>
+      <h4>MingEvidence — AI循证医学分析平台 核心团队</h4>
+      <div class="role">平台架构 & AI 研发</div>
+      <p>负责 MingEvidence 整体架构设计、AI 引擎开发与循证医学方法学整合</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">📊</div>
+      <h4>循证医学专家组</h4>
+      <div class="role">方法学顾问</div>
+      <p>临床流行病学与循证医学方法学专家，确保工具符合国际规范</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">🧮</div>
+      <h4>统计分析组</h4>
+      <div class="role">生物统计 & Meta 分析</div>
+      <p>负责 Meta 分析计算引擎、统计图表生成与质量评估算法</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">🌐</div>
+      <h4>开源社区</h4>
+      <div class="role">社区贡献者</div>
+      <p>来自全球的临床研究者和开发者，共同推动循证医学分析工具的进步</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:2rem">
+    <p style="color:var(--m);font-size:.9rem">MingEvidence 是 <a href="https://mokangmedical.github.io/opc-homepage/">MingEvidence — AI循证医学分析平台 OPC 生态系统</a> 的核心项目之一</p>
+  </div>
+</section>
+
+<!-- OPC ECOSYSTEM -->
+<section class="section">
+  <div class="section-header">
+    <h2>OPC 生态系统</h2>
+    <p>MingEvidence 所属的 MingEvidence — AI循证医学分析平台 开放项目联盟</p>
+  </div>
+  <div class="eco-grid">
+    <div class="eco-card">
+      <span class="eco-icon">🏠</span>
+      <h3>OPC Homepage</h3>
+      <p>生态首页与项目导航</p>
+      <a href="https://mokangmedical.github.io/opc-homepage/">访问 →</a>
+    </div>
+    <div class="eco-card">
+      <span class="eco-icon">🧫</span>
+      <h3>Virtual Cell</h3>
+      <p>AI 单细胞仿真平台</p>
+      <a href="https://mokangmedical.github.io/virtual-cell/">访问 →</a>
+    </div>
+    <div class="eco-card">
+      <span class="eco-icon">🕊️</span>
+      <h3>Cloud Memorial</h3>
+      <p>AI 数字纪念平台</p>
+      <a href="https://mokangmedical.github.io/cloud-memorial/">访问 →</a>
+    </div>
+    <div class="eco-card">
+      <span class="eco-icon">💬</span>
+      <h3>MediChat-RD</h3>
+      <p>医学研究对话助手</p>
+      <a href="https://mokangmedical.github.io/medichat-rd/">访问 →</a>
+    </div>
+    <div class="eco-card">
+      <span class="eco-icon">🔭</span>
+      <h3>天眼 Tianyan</h3>
+      <p>医学影像AI诊断平台</p>
+      <a href="https://mokangmedical.github.io/tianyan/">访问 →</a>
+    </div>
+    <div class="eco-card">
+      <span class="eco-icon">🏛️</span>
+      <h3>OPC Alliance</h3>
+      <p>开放项目联盟中心</p>
+      <a href="https://mokangmedical.github.io/opc-alliance/">访问 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section">
+  <div class="section-header">
+    <h2>联系我们</h2>
+    <p>期待与您的合作与交流</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <span class="ci">🐙</span>
+      <h4>GitHub</h4>
+      <p>查看源代码、提交 Issue 或参与贡献</p>
+      <a href="https://github.com/MingEvidence — AI循证医学分析平台/mingevidence" class="btn-sm btn-primary" target="_blank">访问仓库</a>
+    </div>
+    <div class="contact-card">
+      <span class="ci">📧</span>
+      <h4>邮件联系</h4>
+      <p>商务合作、技术支持与学术交流</p>
+      <a href="mailto:contact@mingevidence.com" class="btn-sm btn-outline">发送邮件</a>
+    </div>
+    <div class="contact-card">
+      <span class="ci">💬</span>
+      <h4>社区讨论</h4>
+      <p>加入 GitHub Discussions 交流使用心得</p>
+      <a href="https://github.com/MingEvidence — AI循证医学分析平台/mingevidence/discussions" class="btn-sm btn-outline">加入讨论</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-content">
+    <h2>开始您的循证研究之旅</h2>
+    <p>加入使用 MingEvidence 的临床研究团队，让 AI 为您的系统评价提供有力支撑。</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://github.com/MingEvidence — AI循证医学分析平台/mingevidence" class="btn-sm btn-primary">免费开始使用</a>
+      <a href="pricing.html" class="btn-sm btn-outline">查看定价方案</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://mokangmedical.github.io/opc-homepage/">OPC 生态</a>
+    <a href="https://github.com/MingEvidence — AI循证医学分析平台/mingevidence">GitHub 仓库</a>
+    <a href="https://github.com/MingEvidence — AI循证医学分析平台/mingevidence/issues">问题反馈</a>
+    <a href="https://github.com/MingEvidence — AI循证医学分析平台/mingevidence/blob/main/LICENSE">开源协议</a>
+    <a href="https://mokangmedical.github.io/opc-homepage/">MingEvidence — AI循证医学分析平台</a>
+  </div>
+  <p class="footer-copy">&copy; 2025 MingEvidence — AI循证医学分析平台 / OPC Ecosystem. All rights reserved.</p>
+</footer>
+
+<!-- OPC NAV WIDGET -->
+<div class="opc-nav">
+  <div class="opc-panel" id="opcPanel">
+    <div class="opc-panel-title">OPC 生态</div>
+    <a href="https://mokangmedical.github.io/opc-homepage/">OPC 首页</a>
+    <a href="https://github.com/MingEvidence — AI循证医学分析平台">GitHub 组织</a>
+    <a href="https://github.com/MingEvidence — AI循证医学分析平台/mingevidence">MingEvidence</a>
+    <a href="https://mokangmedical.github.io/opc-homepage/">更多项目</a>
+  </div>
+  <div class="opc-nav-btn" id="opcBtn" title="OPC 导航">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+  </div>
+</div>
+
+<script>
+// Mobile nav toggle
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+// OPC nav widget toggle
+document.getElementById('opcBtn').addEventListener('click',function(){
+  document.getElementById('opcPanel').classList.toggle('open');
+});
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.opc-nav')){
+    document.getElementById('opcPanel').classList.remove('open');
+  }
+});
+
+// Scroll reveal
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.style.opacity='1';
+      entry.target.style.transform='translateY(0)';
+      obs.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.card,.step,.tech-item,.team-card,.contact-card,.eco-card').forEach(function(el){
+  el.style.opacity='0';
+  el.style.transform='translateY(24px)';
+  el.style.transition='opacity 0.6s ease, transform 0.6s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
